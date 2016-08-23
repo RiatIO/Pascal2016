@@ -73,19 +73,15 @@ public class Scanner {
     private int getFileLineNum() {
         return (sourceFile!=null ? sourceFile.getLineNumber() : 0);
     }
-
-
     // Character test utilities:
 
     private boolean isLetterAZ(char c) {
         return 'A'<=c && c<='Z' || 'a'<=c && c<='z';
     }
 
-
     private boolean isDigit(char c) {
         return '0'<=c && c<='9';
     }
-
 
     // Parser tests:
 

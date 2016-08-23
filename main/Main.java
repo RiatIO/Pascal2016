@@ -30,7 +30,7 @@ public class Main {
 
             Scanner s = new Scanner(sourceFileName);
             if (testScanner)
-            doTestScanner(s);
+                doTestScanner(s);
             // Del 2:
             // else if (testParser)
             //     doTestParser(s);
@@ -95,7 +95,7 @@ public class Main {
 
     private static void doTestScanner(Scanner s) {
         while (s.nextToken.kind != eofToken)
-        s.readNextToken();
+            s.readNextToken();
     }
 
 

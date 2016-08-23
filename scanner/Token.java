@@ -14,45 +14,45 @@ public class Token {
 
     Token(String s, int lNum) {
         if (s.equals("and"))
-        kind = andToken;
+            kind = andToken;
         else if (s.equals("array"))
-        kind = arrayToken;
+            kind = arrayToken;
         else if (s.equals("begin"))
-        kind = beginToken;
+            kind = beginToken;
         else if (s.equals("const"))
-        kind = constToken;
+            kind = constToken;
         else if (s.equals("div"))
-        kind = divToken;
+            kind = divToken;
         else if (s.equals("do"))
-        kind = doToken;
+            kind = doToken;
         else if (s.equals("else"))
-        kind = elseToken;
+            kind = elseToken;
         else if (s.equals("end"))
-        kind = endToken;
+            kind = endToken;
         else if (s.equals("function"))
-        kind = functionToken;
+            kind = functionToken;
         else if (s.equals("if"))
-        kind = ifToken;
+            kind = ifToken;
         else if (s.equals("mod"))
-        kind = modToken;
+            kind = modToken;
         else if (s.equals("not"))
-        kind = notToken;
+            kind = notToken;
         else if (s.equals("of"))
-        kind = ofToken;
+            kind = ofToken;
         else if (s.equals("or"))
-        kind = orToken;
+            kind = orToken;
         else if (s.equals("procedure"))
-        kind = procedureToken;
+            kind = procedureToken;
         else if (s.equals("program"))
-        kind = programToken;
+            kind = programToken;
         else if (s.equals("then"))
-        kind = thenToken;
+            kind = thenToken;
         else if (s.equals("var"))
-        kind = varToken;
+            kind = varToken;
         else if (s.equals("while"))
-        kind = whileToken;
+            kind = whileToken;
         else
-        kind = nameToken;
+            kind = nameToken;
 
         id = s;  lineNum = lNum;
     }

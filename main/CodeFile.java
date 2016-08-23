@@ -37,7 +37,6 @@ public class CodeFile {
         return String.format(".L%04d", ++numLabels);
     }
 
-
     public void genInstr(String lab, String instr, String arg, String comment) {
         if (lab.length() > 0)
         code.println(lab + ":");
