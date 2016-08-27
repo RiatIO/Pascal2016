@@ -20,19 +20,17 @@ public class Scanner {
             Main.error("Cannot read " + fileName + "!");
         }
 
-        readNextToken();  readNextToken();
+        readNextToken();
+        readNextToken();
     }
-
 
     public String identify() {
         return "Scanner reading " + sourceFileName;
     }
 
-
     public int curLineNum() {
         return curToken.lineNum;
     }
-
 
     private void error(String message) {
         Main.error("Scanner error on " +
@@ -40,13 +38,30 @@ public class Scanner {
         ": " + message);
     }
 
-
     public void readNextToken() {
-        curToken = nextToken;  nextToken = null;
+        curToken = nextToken;
+        nextToken = null;
 
         // Del 1 her:
+        if (sourceLine.startsWith("/*")) {
+            boolean endOfComment = false;
 
-        Main.log.noteToken(nextToken);
+            while (endOfComment != true) {
+                String[] findEOC = sourceLine.split("\\s+");
+
+                if (findEOC[findEOC.length - 1].equals("*/")) {
+                    System.out.println("DEBUG: End of comment tag found!");
+                    endOfComment = true;
+                } /* when found; change boolean value */
+
+                // Iterate the scanner header (we do not which to tockenize comments)
+                readNextLine();
+            } /* loop untill end of comment symbol is found */
+        } /* statement checks if line of code starts with comment symbol */
+
+        
+
+        //Main.log.noteToken(nextToken);
     }
 
 
@@ -55,7 +70,8 @@ public class Scanner {
             try {
                 sourceLine = sourceFile.readLine();
                 if (sourceLine == null) {
-                    sourceFile.close();  sourceFile = null;
+                    sourceFile.close();
+                    sourceFile = null;
                     sourceLine = "";
                 } else {
                     sourceLine += " ";
@@ -66,15 +82,14 @@ public class Scanner {
             }
         }
         if (sourceFile != null)
-        Main.log.noteSourceLine(getFileLineNum(), sourceLine);
+            Main.log.noteSourceLine(getFileLineNum(), sourceLine);
     }
-
 
     private int getFileLineNum() {
         return (sourceFile!=null ? sourceFile.getLineNumber() : 0);
     }
-    // Character test utilities:
 
+    // Character test utilities:
     private boolean isLetterAZ(char c) {
         return 'A'<=c && c<='Z' || 'a'<=c && c<='z';
     }
@@ -84,10 +99,9 @@ public class Scanner {
     }
 
     // Parser tests:
-
     public void test(TokenKind t) {
         if (curToken.kind != t)
-        testError(t.toString());
+            testError(t.toString());
     }
 
     public void testError(String message) {
