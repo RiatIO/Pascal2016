@@ -12,6 +12,9 @@ public class Scanner {
     private String sourceFileName, sourceLine = "";
     private int sourcePos = 0;
 
+    // Create a token builder.
+    private StringBuilder buffer = new StringBuilder();
+
     public Scanner(String fileName) {
         sourceFileName = fileName;
         try {
@@ -41,29 +44,77 @@ public class Scanner {
     public void readNextToken() {
         curToken = nextToken;
         nextToken = null;
-
         // Del 1 her:
-        if (sourceLine.startsWith("/*")) {
-            boolean endOfComment = false;
 
-            while (endOfComment != true) {
-                String[] findEOC = sourceLine.split("\\s+");
+        boolean isTokenFound = false;
+        //while (!isTokenFound) {
+            if (sourceLine.isEmpty()) {
+                nextToken = new Token(eofToken, getFileLineNum());
+            }
 
-                if (findEOC[findEOC.length - 1].equals("*/")) {
-                    System.out.println("DEBUG: End of comment tag found!");
-                    endOfComment = true;
-                } /* when found; change boolean value */
-
-                // Iterate the scanner header (we do not which to tockenize comments)
+            if (sourcePos + 1 > sourceLine.length() || sourceLine.length() <= 1) {
+                System.out.println("    DEBUG: Empty line found");
                 readNextLine();
-            } /* loop untill end of comment symbol is found */
-        } /* statement checks if line of code starts with comment symbol */
+            }
 
-        
+            System.out.println(String.format("  %d(%d): %s(%d)", getFileLineNum(), sourcePos, sourceLine, sourceLine.length()));
 
-        //Main.log.noteToken(nextToken);
+            // Check current sourceLine for comments and remove if so
+            checkAndRemoveComments();
+
+            for (int i = sourcePos; i < sourceLine.length(); i++) {
+                //System.out.println("Current line: " + sourceLine + " LINE " +sourceLine.length());
+                char curr = sourceLine.charAt(i);
+                sourcePos++;
+                System.out.format("curr: %c - pos: %d\n", curr, sourcePos);
+
+                if (isLetterAZ(curr) || isDigit(curr)) {
+                    buffer.append(curr);
+                }
+                else if (curr == ' ' && buffer.length() == 0) {
+                    System.out.println("Length: " + sourcePos);
+                    continue;
+                }
+                else if (curr == ' ') {
+
+                    String token = buffer.toString().toLowerCase();
+                    nextToken = new Token(token, getFileLineNum());
+
+                    System.out.println("Scanner: " + nextToken.identify());
+
+                    buffer.setLength(0);
+                    isTokenFound = true;
+                    break;
+                }
+                else {
+                    if (!buffer.toString().isEmpty()) {
+                        String token = buffer.toString().toLowerCase();
+                        nextToken    = new Token(token, getFileLineNum());
+
+                        buffer.setLength(0);
+                        sourcePos--;
+                    } else {
+                        nextToken = new Token(curr, getFileLineNum());
+                    }
+
+                    System.out.println("Scanner: " + nextToken.identify());
+                    isTokenFound = true;
+                    break;
+                }
+            }
+        //}
+        //System.out.println("Line: " + sourceLine + " - length: " + sourceLine.length());
+
+        /*
+        if (curToken != null && curToken.kind == endToken) {
+            System.out.println("IM DOOOONE DONE");
+            nextToken = new Token(eofToken, getFileLineNum());
+        }*/
+
+        //System.out.println("SOURCEPOS: " + sourcePos + " stringlength: " + sourceLine.length());
+
+        Main.log.noteToken(nextToken);
     }
-
 
     private void readNextLine() {
         if (sourceFile != null) {
@@ -96,6 +147,24 @@ public class Scanner {
 
     private boolean isDigit(char c) {
         return '0'<=c && c<='9';
+    }
+
+    private void checkAndRemoveComments() {
+        if (sourceLine.startsWith("/*")) {
+            boolean endOfComment = false;
+
+            while (endOfComment != true) {
+                String[] findEOC = sourceLine.split("\\s+");
+
+                if (findEOC[findEOC.length - 1].equals("*/")) {
+                    endOfComment = true;
+                } /* when found; change boolean value */
+
+                // Iterate the scanner header (we do not which to tockenize comments)
+                readNextLine();
+            } /* loop untill end of comment symbol is found */
+            System.out.println("    DEBUG: End of comment tag found!");
+        } /* statement checks if line of code starts with comment symbol */
     }
 
     // Parser tests:
