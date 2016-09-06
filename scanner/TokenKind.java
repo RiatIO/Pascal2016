@@ -1,8 +1,5 @@
 package scanner;
 
-enum Type {
-    SPECIAL
-}
 
 // Note that tokens found in standard Pascal but not in Pascal2016
 // have been commented out.
@@ -12,26 +9,26 @@ public enum TokenKind {
     intValToken("number"),
     charValToken("char"),
 
-    addToken("+", Type.SPECIAL),
-    assignToken(":=", Type.SPECIAL),
-    colonToken(":", Type.SPECIAL),
-    commaToken(",", Type.SPECIAL),
+    addToken("+"),
+    assignToken(":="),
+    colonToken(":"),
+    commaToken(","),
     /* divideToken("/"), */
-    dotToken(".", Type.SPECIAL),
-    equalToken("=", Type.SPECIAL),
-    greaterToken(">", Type.SPECIAL),
-    greaterEqualToken(">=", Type.SPECIAL),
-    leftBracketToken("[", Type.SPECIAL),
-    leftParToken("(", Type.SPECIAL),
-    lessToken("<", Type.SPECIAL),
-    lessEqualToken("<=", Type.SPECIAL),
-    multiplyToken("*", Type.SPECIAL),
-    notEqualToken("<>", Type.SPECIAL),
-    rangeToken("..", Type.SPECIAL),
-    rightBracketToken("]", Type.SPECIAL),
-    rightParToken(")", Type.SPECIAL),
-    semicolonToken(";", Type.SPECIAL),
-    subtractToken("-", Type.SPECIAL),
+    dotToken("."),
+    equalToken("="),
+    greaterToken(">"),
+    greaterEqualToken(">="),
+    leftBracketToken("["),
+    leftParToken("("),
+    lessToken("<"),
+    lessEqualToken("<="),
+    multiplyToken("*"),
+    notEqualToken("<>"),
+    rangeToken(".."),
+    rightBracketToken("]"),
+    rightParToken(")"),
+    semicolonToken(";"),
+    subtractToken("-"),
     /* upArrowToken("^"), */
 
     andToken("and"),
@@ -73,23 +70,13 @@ public enum TokenKind {
     eofToken("e-o-f");
 
     private String image;
-    private Type type;
 
     TokenKind(String im) {
         image = im;
     }
 
-    TokenKind(String im, Type k) {
-        image = im;
-        type  = k;
-    }
-
     public String identify() {
         return image + " token";
-    }
-
-    public Type getType() {
-        return type;
     }
 
     @Override public String toString() {

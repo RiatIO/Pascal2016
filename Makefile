@@ -1,7 +1,7 @@
 cc 	 = ant
 flag = -logS -testscanner
 jar  = pascal2016.jar
-file = tests/mini.pas
+file = tests/gcd.pas
 
 all: clean compile run
 

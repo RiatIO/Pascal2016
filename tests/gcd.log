@@ -36,6 +36,7 @@ Scanner: name token on line 10: n
 Scanner: : token on line 10
 Scanner: name token on line 10: integer
 Scanner: ) token on line 10
+Scanner: : token on line 10
 Scanner: name token on line 10: integer
 Scanner: ; token on line 10
   11: begin 
@@ -78,6 +79,7 @@ Scanner: name token on line 19: v1
 Scanner: , token on line 19
 Scanner: name token on line 19: v2
 Scanner: ) token on line 19
+Scanner: ; token on line 19
   20:    write('G', 'C', 'D', '(', v1, ',', v2, ')', '=', res, eol); 
 Scanner: name token on line 20: write
 Scanner: ( token on line 20
@@ -103,6 +105,7 @@ Scanner: name token on line 20: res
 Scanner: , token on line 20
 Scanner: name token on line 20: eol
 Scanner: ) token on line 20
+Scanner: ; token on line 20
   21: end. 
 Scanner: end token on line 21
 Scanner: . token on line 21

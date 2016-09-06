@@ -19,7 +19,7 @@ public class Scanner {
         sourceFileName = fileName;
         try {
             sourceFile = new LineNumberReader(new FileReader(fileName));
-            readNextLine(); // Set the reading pointer to point to first line
+            //readNextLine(); // Set the reading pointer to point to first line
         } catch (FileNotFoundException e) {
             Main.error("Cannot read " + fileName + "!");
         }
@@ -44,8 +44,9 @@ public class Scanner {
     public void readNextToken() {
         curToken = nextToken;
         nextToken = null;
-        // Del 1 her:
 
+        
+        // Del 1 her:
         if (sourcePos >= sourceLine.length() - 1) {
             System.out.println(String.format("INFO: %d(%d) ", sourcePos, sourceLine.length()-1));
             System.out.println("    DEBUG: reading new line ");
@@ -61,54 +62,34 @@ public class Scanner {
         checkAndRemoveComments();
 
         for (int i = sourcePos; i < sourceLine.length(); i++) {
-            //System.out.println("Current line: " + sourceLine + " LINE " +sourceLine.length());
             char curr = sourceLine.charAt(i);
             sourcePos++;
 
-            System.out.format("curr: %c - pos: %d - len: %d\n", curr, sourcePos, sourceLine.length());
+            System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
 
             if (isLetterAZ(curr) || isDigit(curr)) {
                 buffer.append(curr);
             }
-            else if (curr == ' ' && buffer.length() == 0) {
+            else if ((curr == ' ' || curr == '\t') && buffer.length() == 0) {
                 continue;
             }
             else if (curr == ' ') {
                 String token = buffer.toString().toLowerCase();
+                nextToken    = insert(token, getFileLineNum());
 
-                nextToken = new Token(token, getFileLineNum());
-
-                if (token.length() > 1 && isDigit(token.charAt(0)) && isLetterAZ(token.charAt(1))) {
-                    Main.error("FAIL");
-                }else if (isDigit(token.charAt(0))) {
-                    nextToken = new Token(Integer.parseInt(token), getFileLineNum());
-                }
-
-                System.out.format("STRING Scanner: '%s'\n", token);
-                //System.out.println("Scanner: " + nextToken.identify());
                 buffer.setLength(0);
                 break;
             }
             else if (curr == '\'') {
-                nextToken = new Token(sourceLine.charAt(i + 1), getFileLineNum());
+                nextToken = insert(sourceLine.charAt(i + 1), getFileLineNum());
 
-                i+=2;
-                sourcePos+=2;
+                i+=2; sourcePos+=2;
                 break;
             }
             else {
                 if (!buffer.toString().isEmpty()) {
                     String token = buffer.toString().toLowerCase();
-                    nextToken    = new Token(token, getFileLineNum());
-
-                    if (token.length() > 1 && isDigit(token.charAt(0)) && isLetterAZ(token.charAt(1))) {
-                        Main.error("FAIL");
-                    }
-                    else if (isDigit(token.charAt(0))) {
-                        nextToken = new Token(Integer.parseInt(token), getFileLineNum());
-                    }
-
-                    System.out.format("CHAR Scanner: '%s'\n", token);
+                    nextToken    = insert(token, getFileLineNum());
 
                     buffer.setLength(0);
                     sourcePos--;
@@ -116,26 +97,25 @@ public class Scanner {
                 else {
                     String temp = String.valueOf(curr);
                     char next   = sourceLine.charAt(i + 1);
-
-                    nextToken = new Token(temp, getFileLineNum());
-                    System.out.format("IM HERE Scanner: '%c'\n", curr);
+                    //nextToken   = insert(temp, getFileLineNum());
 
                     boolean isTokenFound = false;
-                    if (!isDigit(next) && !isLetterAZ(next) && next != ' ' && next != '\'') {
+
+                    if (!isDigit(next) && !isLetterAZ(next) && next != ' ' && next != '\'' && next != '\t') {
                         temp += String.valueOf(next);
                         sourcePos++;
                     }
 
-                    System.out.println(temp);
                     while (!isTokenFound) {
                         for (TokenKind k : TokenKind.values()) {
                             if (k.toString().equals(temp)) {
-                                nextToken = new Token(k, getFileLineNum());
+                                nextToken    = insert(k, getFileLineNum());
                                 isTokenFound = true;
                             }
                         }
                         if (!isTokenFound) {
                             temp = String.valueOf(temp.charAt(0));
+                            sourcePos--;
                         }
                     }
                 }
@@ -145,7 +125,7 @@ public class Scanner {
 
         if (sourceLine.isEmpty()) {
             System.out.println("    DEBUG: End of File");
-            nextToken = new Token(eofToken, getFileLineNum());
+            nextToken = insert(eofToken, getFileLineNum());
         } /* Check for end-of-file */
 
         if (nextToken != null) {
@@ -153,6 +133,35 @@ public class Scanner {
         }
 
         Main.log.noteToken(nextToken);
+    }
+
+    public Token insert(Object d, int len) {
+        if (d instanceof TokenKind) {
+            return new Token((TokenKind)d, len);
+        }
+
+        if (d instanceof Integer) {
+            return new Token((int)d, len);
+        }
+
+        if (d instanceof Character) {
+            return new Token((char)d, len);
+        }
+
+        if (d instanceof String) {
+            String token = (String)d;
+
+            if (token.length() > 1 && isDigit(token.charAt(0)) && isLetterAZ(token.charAt(1))) {
+                Main.error("    FAIL: ");
+            }
+            else if (isDigit(token.charAt(0))) {
+                return new Token(Integer.parseInt((String)token), getFileLineNum());
+            }
+
+            return new Token(token, len);
+        }
+
+        return null;
     }
 
     private void readNextLine() {

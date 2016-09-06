@@ -11,6 +11,7 @@ Scanner: name token on line 5: write
 Scanner: ( token on line 5
 Scanner: char token on line 5: 'x'
 Scanner: ) token on line 5
+Scanner: ; token on line 5
    6: end. 
 Scanner: end token on line 6
 Scanner: . token on line 6
