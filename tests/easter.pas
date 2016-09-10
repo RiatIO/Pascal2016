@@ -1,19 +1,19 @@
 /* Test program 'easter'
                 ========
-   Computes Easter Sunday for the years 2010-2020. 
+   Computes Easter Sunday for the years 2010-2020.
 */
 
 program Easter;
 
 var y: integer;
-   
+
 procedure easter (y: integer);
 var
    a: integer;  b: integer;  c: integer;  d: integer;  e: integer;
    f: integer;  g: integer;  h: integer;  i: integer;  k: integer;
    l: integer;  m: integer;
 
-   month: integer;  /* The date of Easter Sunday */
+   month: integer;
    day: integer;
 
    ix: integer;
@@ -38,7 +38,7 @@ begin
       write(day, ' ', 'M', 'a', 'r', 'c', 'h', ' ', y, eol)
    else
       write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
-end; {easter}
+end;
 
 begin
    y := 2010;

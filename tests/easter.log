@@ -1,0 +1,358 @@
+   1: /* Test program 'easter' 
+   2:                 ======== 
+   3:    Computes Easter Sunday for the years 2010-2020. 
+   4: */ 
+   5:  
+   6: program Easter; 
+Scanner: program token on line 6
+Scanner: name token on line 6: easter
+Scanner: ; token on line 6
+   7:  
+   8: var y: integer; 
+Scanner: var token on line 8
+Scanner: name token on line 8: y
+Scanner: : token on line 8
+Scanner: name token on line 8: integer
+Scanner: ; token on line 8
+   9:  
+  10: procedure easter (y: integer); 
+Scanner: procedure token on line 10
+Scanner: name token on line 10: easter
+Scanner: ( token on line 10
+Scanner: name token on line 10: y
+Scanner: : token on line 10
+Scanner: name token on line 10: integer
+Scanner: ) token on line 10
+Scanner: ; token on line 10
+  11: var 
+Scanner: var token on line 11
+  12:    a: integer;  b: integer;  c: integer;  d: integer;  e: integer; 
+Scanner: name token on line 12: a
+Scanner: : token on line 12
+Scanner: name token on line 12: integer
+Scanner: ; token on line 12
+Scanner: name token on line 12: b
+Scanner: : token on line 12
+Scanner: name token on line 12: integer
+Scanner: ; token on line 12
+Scanner: name token on line 12: c
+Scanner: : token on line 12
+Scanner: name token on line 12: integer
+Scanner: ; token on line 12
+Scanner: name token on line 12: d
+Scanner: : token on line 12
+Scanner: name token on line 12: integer
+Scanner: ; token on line 12
+Scanner: name token on line 12: e
+Scanner: : token on line 12
+Scanner: name token on line 12: integer
+Scanner: ; token on line 12
+  13:    f: integer;  g: integer;  h: integer;  i: integer;  k: integer; 
+Scanner: name token on line 13: f
+Scanner: : token on line 13
+Scanner: name token on line 13: integer
+Scanner: ; token on line 13
+Scanner: name token on line 13: g
+Scanner: : token on line 13
+Scanner: name token on line 13: integer
+Scanner: ; token on line 13
+Scanner: name token on line 13: h
+Scanner: : token on line 13
+Scanner: name token on line 13: integer
+Scanner: ; token on line 13
+Scanner: name token on line 13: i
+Scanner: : token on line 13
+Scanner: name token on line 13: integer
+Scanner: ; token on line 13
+Scanner: name token on line 13: k
+Scanner: : token on line 13
+Scanner: name token on line 13: integer
+Scanner: ; token on line 13
+  14:    l: integer;  m: integer; 
+Scanner: name token on line 14: l
+Scanner: : token on line 14
+Scanner: name token on line 14: integer
+Scanner: ; token on line 14
+Scanner: name token on line 14: m
+Scanner: : token on line 14
+Scanner: name token on line 14: integer
+Scanner: ; token on line 14
+  15:  
+  16:    month: integer; 
+Scanner: name token on line 16: month
+Scanner: : token on line 16
+Scanner: name token on line 16: integer
+Scanner: ; token on line 16
+  17:    day: integer; 
+Scanner: name token on line 17: day
+Scanner: : token on line 17
+Scanner: name token on line 17: integer
+Scanner: ; token on line 17
+  18:  
+  19:    ix: integer; 
+Scanner: name token on line 19: ix
+Scanner: : token on line 19
+Scanner: name token on line 19: integer
+Scanner: ; token on line 19
+  20: begin 
+Scanner: begin token on line 20
+  21:    a := y mod 19; 
+Scanner: name token on line 21: a
+Scanner: := token on line 21
+Scanner: name token on line 21: y
+Scanner: mod token on line 21
+Scanner: number token on line 21: 19
+Scanner: ; token on line 21
+  22:    b := y div 100; 
+Scanner: name token on line 22: b
+Scanner: := token on line 22
+Scanner: name token on line 22: y
+Scanner: div token on line 22
+Scanner: number token on line 22: 100
+Scanner: ; token on line 22
+  23:    c := y mod 100; 
+Scanner: name token on line 23: c
+Scanner: := token on line 23
+Scanner: name token on line 23: y
+Scanner: mod token on line 23
+Scanner: number token on line 23: 100
+Scanner: ; token on line 23
+  24:    d := b div 4; 
+Scanner: name token on line 24: d
+Scanner: := token on line 24
+Scanner: name token on line 24: b
+Scanner: div token on line 24
+Scanner: number token on line 24: 4
+Scanner: ; token on line 24
+  25:    e := b mod 4; 
+Scanner: name token on line 25: e
+Scanner: := token on line 25
+Scanner: name token on line 25: b
+Scanner: mod token on line 25
+Scanner: number token on line 25: 4
+Scanner: ; token on line 25
+  26:    f := (b+8) div 25; 
+Scanner: name token on line 26: f
+Scanner: := token on line 26
+Scanner: ( token on line 26
+Scanner: name token on line 26: b
+Scanner: + token on line 26
+Scanner: number token on line 26: 8
+Scanner: ) token on line 26
+Scanner: div token on line 26
+Scanner: number token on line 26: 25
+Scanner: ; token on line 26
+  27:    g := (b-f+1) div 3; 
+Scanner: name token on line 27: g
+Scanner: := token on line 27
+Scanner: ( token on line 27
+Scanner: name token on line 27: b
+Scanner: - token on line 27
+Scanner: name token on line 27: f
+Scanner: + token on line 27
+Scanner: number token on line 27: 1
+Scanner: ) token on line 27
+Scanner: div token on line 27
+Scanner: number token on line 27: 3
+Scanner: ; token on line 27
+  28:    h := (19*a+b-d-g+15) mod 30; 
+Scanner: name token on line 28: h
+Scanner: := token on line 28
+Scanner: ( token on line 28
+Scanner: number token on line 28: 19
+Scanner: * token on line 28
+Scanner: name token on line 28: a
+Scanner: + token on line 28
+Scanner: name token on line 28: b
+Scanner: - token on line 28
+Scanner: name token on line 28: d
+Scanner: - token on line 28
+Scanner: name token on line 28: g
+Scanner: + token on line 28
+Scanner: number token on line 28: 15
+Scanner: ) token on line 28
+Scanner: mod token on line 28
+Scanner: number token on line 28: 30
+Scanner: ; token on line 28
+  29:    i := c div 4; 
+Scanner: name token on line 29: i
+Scanner: := token on line 29
+Scanner: name token on line 29: c
+Scanner: div token on line 29
+Scanner: number token on line 29: 4
+Scanner: ; token on line 29
+  30:    k := c mod 4; 
+Scanner: name token on line 30: k
+Scanner: := token on line 30
+Scanner: name token on line 30: c
+Scanner: mod token on line 30
+Scanner: number token on line 30: 4
+Scanner: ; token on line 30
+  31:    l := (32+2*e+2*i-h-k) mod 7; 
+Scanner: name token on line 31: l
+Scanner: := token on line 31
+Scanner: ( token on line 31
+Scanner: number token on line 31: 32
+Scanner: + token on line 31
+Scanner: number token on line 31: 2
+Scanner: * token on line 31
+Scanner: name token on line 31: e
+Scanner: + token on line 31
+Scanner: number token on line 31: 2
+Scanner: * token on line 31
+Scanner: name token on line 31: i
+Scanner: - token on line 31
+Scanner: name token on line 31: h
+Scanner: - token on line 31
+Scanner: name token on line 31: k
+Scanner: ) token on line 31
+Scanner: mod token on line 31
+Scanner: number token on line 31: 7
+Scanner: ; token on line 31
+  32:    m := (a+11*h+22*l) div 451; 
+Scanner: name token on line 32: m
+Scanner: := token on line 32
+Scanner: ( token on line 32
+Scanner: name token on line 32: a
+Scanner: + token on line 32
+Scanner: number token on line 32: 11
+Scanner: * token on line 32
+Scanner: name token on line 32: h
+Scanner: + token on line 32
+Scanner: number token on line 32: 22
+Scanner: * token on line 32
+Scanner: name token on line 32: l
+Scanner: ) token on line 32
+Scanner: div token on line 32
+Scanner: number token on line 32: 451
+Scanner: ; token on line 32
+  33:  
+  34:    month := (h+l-7*m+114) div 31; 
+Scanner: name token on line 34: month
+Scanner: := token on line 34
+Scanner: ( token on line 34
+Scanner: name token on line 34: h
+Scanner: + token on line 34
+Scanner: name token on line 34: l
+Scanner: - token on line 34
+Scanner: number token on line 34: 7
+Scanner: * token on line 34
+Scanner: name token on line 34: m
+Scanner: + token on line 34
+Scanner: number token on line 34: 114
+Scanner: ) token on line 34
+Scanner: div token on line 34
+Scanner: number token on line 34: 31
+Scanner: ; token on line 34
+  35:    day := (h+l-7*m+114) mod 31 + 1; 
+Scanner: name token on line 35: day
+Scanner: := token on line 35
+Scanner: ( token on line 35
+Scanner: name token on line 35: h
+Scanner: + token on line 35
+Scanner: name token on line 35: l
+Scanner: - token on line 35
+Scanner: number token on line 35: 7
+Scanner: * token on line 35
+Scanner: name token on line 35: m
+Scanner: + token on line 35
+Scanner: number token on line 35: 114
+Scanner: ) token on line 35
+Scanner: mod token on line 35
+Scanner: number token on line 35: 31
+Scanner: + token on line 35
+Scanner: number token on line 35: 1
+Scanner: ; token on line 35
+  36:  
+  37:    if month = 3 then 
+Scanner: if token on line 37
+Scanner: name token on line 37: month
+Scanner: = token on line 37
+Scanner: number token on line 37: 3
+Scanner: then token on line 37
+  38:       write(day, ' ', 'M', 'a', 'r', 'c', 'h', ' ', y, eol) 
+Scanner: name token on line 38: write
+Scanner: ( token on line 38
+Scanner: name token on line 38: day
+Scanner: , token on line 38
+Scanner: char token on line 38: ' '
+Scanner: , token on line 38
+Scanner: char token on line 38: 'M'
+Scanner: , token on line 38
+Scanner: char token on line 38: 'a'
+Scanner: , token on line 38
+Scanner: char token on line 38: 'r'
+Scanner: , token on line 38
+Scanner: char token on line 38: 'c'
+Scanner: , token on line 38
+Scanner: char token on line 38: 'h'
+Scanner: , token on line 38
+Scanner: char token on line 38: ' '
+Scanner: , token on line 38
+Scanner: name token on line 38: y
+Scanner: , token on line 38
+Scanner: name token on line 38: eol
+Scanner: ) token on line 38
+  39:    else 
+Scanner: else token on line 39
+  40:       write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol); 
+Scanner: name token on line 40: write
+Scanner: ( token on line 40
+Scanner: name token on line 40: day
+Scanner: , token on line 40
+Scanner: char token on line 40: ' '
+Scanner: , token on line 40
+Scanner: char token on line 40: 'A'
+Scanner: , token on line 40
+Scanner: char token on line 40: 'p'
+Scanner: , token on line 40
+Scanner: char token on line 40: 'r'
+Scanner: , token on line 40
+Scanner: char token on line 40: 'i'
+Scanner: , token on line 40
+Scanner: char token on line 40: 'l'
+Scanner: , token on line 40
+Scanner: char token on line 40: ' '
+Scanner: , token on line 40
+Scanner: name token on line 40: y
+Scanner: , token on line 40
+Scanner: name token on line 40: eol
+Scanner: ) token on line 40
+Scanner: ; token on line 40
+  41: end; 
+Scanner: end token on line 41
+Scanner: ; token on line 41
+  42:  
+  43: begin 
+Scanner: begin token on line 43
+  44:    y := 2010; 
+Scanner: name token on line 44: y
+Scanner: := token on line 44
+Scanner: number token on line 44: 2010
+Scanner: ; token on line 44
+  45:    while y <= 2020 do 
+Scanner: while token on line 45
+Scanner: name token on line 45: y
+Scanner: <= token on line 45
+Scanner: number token on line 45: 2020
+Scanner: do token on line 45
+  46:    begin 
+Scanner: begin token on line 46
+  47:       easter(y);  y := y + 1; 
+Scanner: name token on line 47: easter
+Scanner: ( token on line 47
+Scanner: name token on line 47: y
+Scanner: ) token on line 47
+Scanner: ; token on line 47
+Scanner: name token on line 47: y
+Scanner: := token on line 47
+Scanner: name token on line 47: y
+Scanner: + token on line 47
+Scanner: number token on line 47: 1
+Scanner: ; token on line 47
+  48:    end 
+Scanner: end token on line 48
+  49: end. 
+Scanner: end token on line 49
+Scanner: . token on line 49
+Scanner: e-o-f token

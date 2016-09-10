@@ -1,7 +1,7 @@
 cc 	 = ant
 flag = -logS -testscanner
 jar  = pascal2016.jar
-file = tests/gcd.pas
+file = fails/ulovlig_tegn.pas
 
 all: clean compile run
 

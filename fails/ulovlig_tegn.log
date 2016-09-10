@@ -1,0 +1,43 @@
+   1: /* Det er lov aa ha alle mulige rare ASCII-tegn i kommentarer: 
+   2:    !"#%&/?'". */ 
+   3:  
+   4: program UlovligTegn; 
+Scanner: program token on line 4
+Scanner: name token on line 4: ulovligtegn
+Scanner: ; token on line 4
+   5: var x: integer; 
+Scanner: var token on line 5
+Scanner: name token on line 5: x
+Scanner: : token on line 5
+Scanner: name token on line 5: integer
+Scanner: ; token on line 5
+   6: begin 
+Scanner: begin token on line 6
+   7:    write('!', '#', '%', '&', '/', '?', '"', '''', eol); 
+Scanner: name token on line 7: write
+Scanner: ( token on line 7
+Scanner: char token on line 7: '!'
+Scanner: , token on line 7
+Scanner: char token on line 7: '#'
+Scanner: , token on line 7
+Scanner: char token on line 7: '%'
+Scanner: , token on line 7
+Scanner: char token on line 7: '&'
+Scanner: , token on line 7
+Scanner: char token on line 7: '/'
+Scanner: , token on line 7
+Scanner: char token on line 7: '?'
+Scanner: , token on line 7
+Scanner: char token on line 7: '"'
+Scanner: , token on line 7
+Scanner: char token on line 7: '''
+Scanner: , token on line 7
+Scanner: name token on line 7: eol
+Scanner: ) token on line 7
+Scanner: ; token on line 7
+   8:  
+   9:    x := 127 % 4; 
+Scanner: name token on line 9: x
+Scanner: := token on line 9
+Scanner: number token on line 9: 127
+Scanner error on line 9: % was not found!

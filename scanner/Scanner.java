@@ -45,12 +45,11 @@ public class Scanner {
         curToken = nextToken;
         nextToken = null;
 
-        
         // Del 1 her:
         if (sourcePos >= sourceLine.length() - 1) {
+            readNextLine();
             System.out.println(String.format("INFO: %d(%d) ", sourcePos, sourceLine.length()-1));
             System.out.println("    DEBUG: reading new line ");
-            readNextLine();
         } /* End of line reached */
 
         while (sourceLine.length() == 1) {
@@ -65,7 +64,7 @@ public class Scanner {
             char curr = sourceLine.charAt(i);
             sourcePos++;
 
-            System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
+            // System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
 
             if (isLetterAZ(curr) || isDigit(curr)) {
                 buffer.append(curr);
@@ -81,9 +80,17 @@ public class Scanner {
                 break;
             }
             else if (curr == '\'') {
+                if (sourceLine.charAt(i + 2) != '\'') {
+                    error("No end tag for char litteral found");
+                }
                 nextToken = insert(sourceLine.charAt(i + 1), getFileLineNum());
 
-                i+=2; sourcePos+=2;
+                sourcePos+=2;
+
+                if (sourceLine.charAt(i + 3) == '\'') {
+                    sourcePos++;
+                } /* Ugly case: escape char for ' (i.e write('''') <-- valid) */
+
                 break;
             }
             else {
@@ -97,16 +104,16 @@ public class Scanner {
                 else {
                     String temp = String.valueOf(curr);
                     char next   = sourceLine.charAt(i + 1);
-                    //nextToken   = insert(temp, getFileLineNum());
-
-                    boolean isTokenFound = false;
 
                     if (!isDigit(next) && !isLetterAZ(next) && next != ' ' && next != '\'' && next != '\t') {
                         temp += String.valueOf(next);
                         sourcePos++;
                     }
 
-                    while (!isTokenFound) {
+                    boolean isTokenFound = false;
+                    int iterate = temp.length();
+
+                    for (int x = 0; x < iterate; x++) {
                         for (TokenKind k : TokenKind.values()) {
                             if (k.toString().equals(temp)) {
                                 nextToken    = insert(k, getFileLineNum());
@@ -117,7 +124,11 @@ public class Scanner {
                             temp = String.valueOf(temp.charAt(0));
                             sourcePos--;
                         }
-                    }
+                    } /* Only loop twice, as thats max. seq. of chars to check for*/
+
+                    if (nextToken == null) {
+                        error(String.format("%s was not found!", temp));
+                    } /* If nexttoken is null the inputed sign is illegal*/
                 }
                 break;
             }
@@ -202,7 +213,6 @@ public class Scanner {
             boolean endOfComment = false;
 
             while (endOfComment != true) {
-
                 String[] findEOC = sourceLine.split("\\s+");
 
                 if (findEOC[findEOC.length - 1].equals("*/")) {
