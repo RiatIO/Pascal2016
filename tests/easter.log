@@ -5,8 +5,7 @@
    5:  
    6: program Easter; 
 Scanner: program token on line 6
-Scanner: name token on line 6: easter
-Scanner: ; token on line 6
+Scanner: name token on line 6: rogram
    7:  
    8: var y: integer; 
 Scanner: var token on line 8
@@ -78,12 +77,13 @@ Scanner: : token on line 14
 Scanner: name token on line 14: integer
 Scanner: ; token on line 14
   15:  
-  16:    month: integer; 
+  16:    month: integer;  /* The date of Easter Sunday */ 
 Scanner: name token on line 16: month
 Scanner: : token on line 16
 Scanner: name token on line 16: integer
 Scanner: ; token on line 16
   17:    day: integer; 
+Scanner: name token on line 17: day
 Scanner: name token on line 17: day
 Scanner: : token on line 17
 Scanner: name token on line 17: integer
@@ -319,11 +319,12 @@ Scanner: , token on line 40
 Scanner: name token on line 40: eol
 Scanner: ) token on line 40
 Scanner: ; token on line 40
-  41: end; 
+  41: end; {easter} 
 Scanner: end token on line 41
 Scanner: ; token on line 41
   42:  
   43: begin 
+Scanner: begin token on line 43
 Scanner: begin token on line 43
   44:    y := 2010; 
 Scanner: name token on line 44: y

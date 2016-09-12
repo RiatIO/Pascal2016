@@ -42,14 +42,16 @@ public class Scanner {
     }
 
     public void readNextToken() {
+        System.out.println("START");
         curToken = nextToken;
         nextToken = null;
 
         // Del 1 her:
+        System.out.println(String.format("INFO: %d(%d) ", sourcePos, sourceLine.length()-1));
+
         if (sourcePos >= sourceLine.length() - 1) {
             readNextLine();
-            System.out.println(String.format("INFO: %d(%d) ", sourcePos, sourceLine.length()-1));
-            System.out.println("    DEBUG: reading new line ");
+            System.out.println("    DEBUG: reading new line\n " + sourceLine);
         } /* End of line reached */
 
         while (sourceLine.length() == 1) {
@@ -58,23 +60,36 @@ public class Scanner {
         } /* If soureline is empty, continue the till */
 
         // Check current sourceLine for comments and remove if so
-        checkAndRemoveComments();
+        // checkAndRemoveComments();
+        // System.out.println(sourceLine);
 
         for (int i = sourcePos; i < sourceLine.length(); i++) {
             char curr = sourceLine.charAt(i);
+
             sourcePos++;
 
-            // System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
+            System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
 
             if (isLetterAZ(curr) || isDigit(curr)) {
                 buffer.append(curr);
+            }
+            else if (sourceLine.length() == 1) {
+                while (sourceLine.length() == 1) {
+                    readNextLine();
+                }
+                i = -1;
+            }
+            else if (curr == '{' || (curr == '/' && sourceLine.charAt(i+1) == '*')) {
+                i = checkAndRemoveComments(curr == '{' ? "}" : "*/");
+                System.out.println(i);
             }
             else if ((curr == ' ' || curr == '\t') && buffer.length() == 0) {
                 continue;
             }
             else if (curr == ' ') {
+                System.out.println("HAHAHHAHAHA");
                 String token = buffer.toString().toLowerCase();
-                nextToken    = insert(token, getFileLineNum());
+                nextToken    = new Token(token, getFileLineNum());
 
                 buffer.setLength(0);
                 break;
@@ -97,6 +112,8 @@ public class Scanner {
                 if (!buffer.toString().isEmpty()) {
                     String token = buffer.toString().toLowerCase();
                     nextToken    = insert(token, getFileLineNum());
+
+                    System.out.println("HAHAHAHAHAHAH");
 
                     buffer.setLength(0);
                     sourcePos--;
@@ -195,6 +212,62 @@ public class Scanner {
             Main.log.noteSourceLine(getFileLineNum(), sourceLine);
     }
 
+    private int checkAndRemoveComments(String endToken) {
+        boolean endTokenFound = false;
+        int i = 0;
+
+        while (!endTokenFound) {
+            char temp = sourceLine.charAt(sourcePos);
+            // System.out.println(temp);
+            sourcePos++;
+
+            System.out.println(sourceLine.indexOf("*/"));
+
+            if (sourceLine.charAt(sourcePos - 1) == '*' && sourceLine.charAt(sourcePos) == '/') {
+                if (endToken == "*/") {
+                    sourcePos++;
+                    endTokenFound = true;
+                }
+            }
+
+            if (sourceLine.charAt(sourcePos - 1) == '}') {
+                if (endToken == "}")
+                    endTokenFound = true;
+            }
+
+            // System.out.printf("%d - %d\n", sourcePos, sourceLine.length()-1);
+            if (sourcePos >= sourceLine.length() - 1) {
+                readNextLine();
+                i = -1;
+                System.out.println("READ NEW LINE");
+            }
+        }
+
+        if (i == 0) {
+            return sourcePos-1;
+        }
+
+        return i;
+
+        // if (sourceLine.startsWith("/*")) {
+        //     boolean endOfComment = false;
+        //
+        //     while (endOfComment != true) {
+        //         String[] findEOC = sourceLine.split("\\s+");
+        //
+        //         if (findEOC[findEOC.length - 1].equals("*/")) {
+        //             endOfComment = true;
+        //         } /* when found; change boolean value */
+        //
+        //         // Iterate the scanner header (we do not which to tockenize comments)
+        //         readNextLine();
+        //     } /* loop untill end of comment symbol is found */
+        //     System.out.println("    DEBUG: End of comment tag found!");
+        //     readNextToken();
+        // } /* statement checks if line of code starts with comment symbol */
+    }
+
+
     private int getFileLineNum() {
         return (sourceFile!=null ? sourceFile.getLineNumber() : 0);
     }
@@ -206,25 +279,6 @@ public class Scanner {
 
     private boolean isDigit(char c) {
         return '0'<=c && c<='9';
-    }
-
-    private void checkAndRemoveComments() {
-        if (sourceLine.startsWith("/*")) {
-            boolean endOfComment = false;
-
-            while (endOfComment != true) {
-                String[] findEOC = sourceLine.split("\\s+");
-
-                if (findEOC[findEOC.length - 1].equals("*/")) {
-                    endOfComment = true;
-                } /* when found; change boolean value */
-
-                // Iterate the scanner header (we do not which to tockenize comments)
-                readNextLine();
-            } /* loop untill end of comment symbol is found */
-            System.out.println("    DEBUG: End of comment tag found!");
-            readNextToken();
-        } /* statement checks if line of code starts with comment symbol */
     }
 
     // Parser tests:

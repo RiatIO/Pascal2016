@@ -13,31 +13,33 @@ Scanner: name token on line 5: integer
 Scanner: ; token on line 5
    6: begin 
 Scanner: begin token on line 6
-   7:    write('!', '#', '%', '&', '/', '?', '"', '''', eol); 
-Scanner: name token on line 7: write
-Scanner: ( token on line 7
-Scanner: char token on line 7: '!'
-Scanner: , token on line 7
-Scanner: char token on line 7: '#'
-Scanner: , token on line 7
-Scanner: char token on line 7: '%'
-Scanner: , token on line 7
-Scanner: char token on line 7: '&'
-Scanner: , token on line 7
-Scanner: char token on line 7: '/'
-Scanner: , token on line 7
-Scanner: char token on line 7: '?'
-Scanner: , token on line 7
-Scanner: char token on line 7: '"'
-Scanner: , token on line 7
-Scanner: char token on line 7: '''
-Scanner: , token on line 7
-Scanner: name token on line 7: eol
-Scanner: ) token on line 7
-Scanner: ; token on line 7
-   8:  
-   9:    x := 127 % 4; 
-Scanner: name token on line 9: x
-Scanner: := token on line 9
-Scanner: number token on line 9: 127
-Scanner error on line 9: % was not found!
+   7:    { Det er ogsaa lov i char-literaler: } 
+   8:    write('!', '#', '%', '&', '/', '?', '"', '''', eol); 
+Scanner: name token on line 8: write
+Scanner: ( token on line 8
+Scanner: char token on line 8: '!'
+Scanner: , token on line 8
+Scanner: char token on line 8: '#'
+Scanner: , token on line 8
+Scanner: char token on line 8: '%'
+Scanner: , token on line 8
+Scanner: char token on line 8: '&'
+Scanner: , token on line 8
+Scanner: char token on line 8: '/'
+Scanner: , token on line 8
+Scanner: char token on line 8: '?'
+Scanner: , token on line 8
+Scanner: char token on line 8: '"'
+Scanner: , token on line 8
+Scanner: char token on line 8: '''
+Scanner: , token on line 8
+Scanner: name token on line 8: eol
+Scanner: ) token on line 8
+Scanner: ; token on line 8
+   9:  
+  10:    { Men ikke ellers: } 
+  11:    x := 127 % 4; 
+Scanner: name token on line 11: x
+Scanner: := token on line 11
+Scanner: number token on line 11: 127
+Scanner error on line 11: % was not found!

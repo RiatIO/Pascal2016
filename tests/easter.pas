@@ -13,7 +13,7 @@ var
    f: integer;  g: integer;  h: integer;  i: integer;  k: integer;
    l: integer;  m: integer;
 
-   month: integer;
+   month: integer;  /* The date of Easter Sunday */
    day: integer;
 
    ix: integer;
@@ -38,7 +38,7 @@ begin
       write(day, ' ', 'M', 'a', 'r', 'c', 'h', ' ', y, eol)
    else
       write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
-end;
+end; {easter}
 
 begin
    y := 2010;

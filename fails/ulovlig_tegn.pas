@@ -4,8 +4,10 @@
 program UlovligTegn;
 var x: integer;
 begin
+   { Det er ogsaa lov i char-literaler: }
    write('!', '#', '%', '&', '/', '?', '"', '''', eol);
 
+   { Men ikke ellers: }
    x := 127 % 4;
    write(x, eol);
 end.

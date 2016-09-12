@@ -1,7 +1,8 @@
 cc 	 = ant
 flag = -logS -testscanner
 jar  = pascal2016.jar
-file = fails/ulovlig_tegn.pas
+file = fails/kommentar-test.pas
+# tests/mini.pas
 
 all: clean compile run
 

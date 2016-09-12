@@ -1,0 +1,18 @@
+   1: /* 
+   2: Dette programmet inneholder en char-literal uten avslutning. 
+   3: */ 
+   4:  
+   5: program UendeligCharLiteral; 
+Scanner: program token on line 5
+Scanner: name token on line 5: uendeligcharliteral
+Scanner: ; token on line 5
+   6: begin 
+Scanner: begin token on line 6
+   7:    write('P', 'i', '=, 3, eol); 
+Scanner: name token on line 7: write
+Scanner: ( token on line 7
+Scanner: char token on line 7: 'P'
+Scanner: , token on line 7
+Scanner: char token on line 7: 'i'
+Scanner: , token on line 7
+Scanner error on line 7: No end tag for char litteral found
