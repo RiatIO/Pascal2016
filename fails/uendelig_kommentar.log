@@ -1,0 +1,9 @@
+   1: /* Dette programmet inneholder en kommentar vi har glemt aa avslutte. */ 
+   2:  
+   3: program UendeligKommentar; 
+Scanner: program token on line 3
+Scanner: name token on line 3: uendeligkommentar
+Scanner: ; token on line 3
+   4: begin /* Hovedprogrammet: 
+   5:    write('H', 'e', 'i', '!', eol); 
+   6: end. 

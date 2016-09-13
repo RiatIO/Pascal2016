@@ -1,0 +1,9 @@
+   1: /* Det er lov Ã¥ ha kommentarer utenpÃ¥ hverandre, 
+   2:    om de er av ulik type, 
+   3:    for eksempel slik: {indre kommentar}. 
+   4:  
+   5:    Men det er ikke lov nÃ¥r de er av samme type, 
+   6:    for eksempel slik: /*indre kommentar*/ 
+   7:       som _ikke_ er lov. Da betraktes denne linjen som vanlig program og skal gi en feilmelding siden '_' er ulovlig i annet enn char-literaler. 
+Scanner: name token on line 7: som
+Scanner error on line 7: _ was not found!

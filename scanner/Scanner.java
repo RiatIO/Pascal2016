@@ -43,48 +43,29 @@ public class Scanner {
 
     public void removeComment() {
 
-        if (sourceLine.indexOf("/*") > -1) {
-            boolean isMultiline = false;
-            while (sourceLine.indexOf("*/") == -1) {
-                isMultiline = true;
-                readNextLine();
-            }
-            StringBuilder temp = new StringBuilder(sourceLine);
-            int end = sourceLine.indexOf("*/");
+        String s = sourceLine.indexOf("/*") > -1 ? "*/" : "}";
 
-            if (isMultiline) {
-                temp.delete(0, end + 2);
-            } else {
-                int start = sourceLine.indexOf("/*");
-                temp.delete(start, end + 2);
-            }
-            sourceLine = temp.toString();
+        if (sourceLine.indexOf("/*") > -1 || sourceLine.indexOf("{") > -1) {
 
-            System.out.println("HAHAHAHHAH" + sourceLine + sourceLine.length());
-        }
-
-
-        if (sourceLine.indexOf("{") > -1) {
-            System.out.printf("MADARJARJFE " + sourceLine);
+            System.out.println("HAHHAHAHAH" + s);
 
             boolean isMultiline = false;
-            while (sourceLine.indexOf("}") == -1) {
+            while (sourceLine.indexOf(s) == -1) {
                 isMultiline = true;
                 readNextLine();
             }
 
             StringBuilder temp = new StringBuilder(sourceLine);
-            int end = sourceLine.indexOf("}");
+
+            int end = sourceLine.indexOf(s);
 
             if (isMultiline) {
-                temp.delete(0, end + 1);
+                temp.delete(0, end + s.length());
             } else {
-                int start = sourceLine.indexOf("{");
-                temp.delete(start, end + 1);
+                int start = (s.equals("*/") ? sourceLine.indexOf("/*") : sourceLine.indexOf("{"));
+                temp.delete(start, end + s.length());
             }
             sourceLine = temp.toString();
-
-            System.out.println("HAHAHAHHAH" + sourceLine + sourceLine.length());
         }
     }
 
@@ -108,7 +89,7 @@ public class Scanner {
             for (int i = sourcePos; i < sourceLine.length(); i++) {
                 char curr = sourceLine.charAt(i);
                 sourcePos++;
-                System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
+                // System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
 
                 if (isLetterAZ(curr) || isDigit(curr)) {
                     buffer.append(curr);
@@ -124,9 +105,9 @@ public class Scanner {
                     break;
                 }
                 else if (curr == '\'') {
-                    // if (sourceLine.charAt(i + 2) != '\'') {
-                    //     error("No end tag for char litteral found");
-                    // }
+                    if (sourceLine.charAt(i + 2) != '\'') {
+                        error("No end tag for char litteral found");
+                    }
                     nextToken = insert(sourceLine.charAt(i + 1), getFileLineNum());
                     sourcePos+=2;
 
