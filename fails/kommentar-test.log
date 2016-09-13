@@ -31,14 +31,13 @@ Scanner: char token on line 11: '='
 Scanner: , token on line 11
 Scanner: name token on line 11: type
 Scanner: , token on line 11
-  12: 	 {og saa linjeskift til slutt:} EoL) 
+  12: 	 {og saa linjeskift til slutt:} EoL 
 Scanner: name token on line 12: eol
-Scanner: ) token on line 12
   13: end {Hovedprogrammet}. 
 Scanner: end token on line 13
 Scanner: . token on line 13
   14:  
-  15: { Det er lov aa ha kommentarer _etter_ programmet ogsaa, 
-  16:   baade /*...*/-kommentarer og de med kroellparenteser. 
-  17: } 
+  15: { fwefwefwe fwe fwe fwef we fwef 
+  16: wefwefwefwefwefw 
+  17: wefw } 
 Scanner: e-o-f token

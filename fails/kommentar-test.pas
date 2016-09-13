@@ -9,9 +9,9 @@ var type: integer;
 begin
    type := -{NB! negativt}1;
    write('t', /* som er kortform av "type" */ '=', type,
-	 {og saa linjeskift til slutt:} EoL)
+	 {og saa linjeskift til slutt:} EoL
 end {Hovedprogrammet}.
 
-{ Det er lov aa ha kommentarer _etter_ programmet ogsaa,
-  baade /*...*/-kommentarer og de med kroellparenteser.
-}
+{ fwefwefwe fwe fwe fwef we fwef
+wefwefwefwefwefw
+wefw }
