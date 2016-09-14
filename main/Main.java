@@ -20,8 +20,8 @@ public class Main {
 
     public static void main(String arg[]) {
         OS = System.getProperty("os.name");
-        System.out.println("This is the Ifi Pascal2016 compiler (" +
-        version + ") running on " + OS);
+        System.out.println("\nThis is the Ifi Pascal2016 compiler (" +
+        version + ") running on" + OS);
 
         int exitStatus = 0;
         try {

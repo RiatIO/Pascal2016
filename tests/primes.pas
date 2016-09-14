@@ -2,7 +2,7 @@
 /* This program prints all primes less than 1000
    using a technique called "The sieve of Eratosthenes". */
 
-program Primes; /* Hahhahahahahaha */
+program Primes;
 
 const Limit = 1000;
 
