@@ -1,0 +1,11 @@
+   1:  
+   2: /* This program prints all primes less than 1000 
+   3:    using a technique called "The sieve of Eratosthenes". */ 
+Scanner: name token on line 3: using
+   4:  
+   5: program Primes; /* Hahhahahahahaha */ 
+Scanner: program token on line 5
+Scanner: name token on line 5: primes
+Scanner: ; token on line 5
+Scanner: * token on line 5
+Scanner error on line 5: Illegal character: '/'!

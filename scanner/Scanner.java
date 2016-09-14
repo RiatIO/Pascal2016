@@ -19,7 +19,6 @@ public class Scanner {
         sourceFileName = fileName;
         try {
             sourceFile = new LineNumberReader(new FileReader(fileName));
-            readNextLine(); // Set the reading pointer to point to first line
         } catch (FileNotFoundException e) {
             Main.error("Cannot read " + fileName + "!");
         }
@@ -40,35 +39,6 @@ public class Scanner {
         (curLineNum()<0 ? "last line" : "line "+curLineNum()) +
         ": " + message);
     }
-
-    public void removeComment() {
-
-        String s = sourceLine.indexOf("/*") > -1 ? "*/" : "}";
-
-        if (sourceLine.indexOf("/*") > -1 || sourceLine.indexOf("{") > -1) {
-
-            System.out.println("HAHHAHAHAH" + s);
-
-            boolean isMultiline = false;
-            while (sourceLine.indexOf(s) == -1) {
-                isMultiline = true;
-                readNextLine();
-            }
-
-            StringBuilder temp = new StringBuilder(sourceLine);
-
-            int end = sourceLine.indexOf(s);
-
-            if (isMultiline) {
-                temp.delete(0, end + s.length());
-            } else {
-                int start = (s.equals("*/") ? sourceLine.indexOf("/*") : sourceLine.indexOf("{"));
-                temp.delete(start, end + s.length());
-            }
-            sourceLine = temp.toString();
-        }
-    }
-
     public void readNextToken() {
         curToken = nextToken;
         nextToken = null;
@@ -78,36 +48,37 @@ public class Scanner {
             if (sourceLine.length() == 1) {
                 System.out.println("    DEBUG: Empty line found");
                 readNextLine();
-            }
+            } /* if sourceLine's length is 1, read next line */
 
             if (sourcePos >= sourceLine.length() - 1) {
                 readNextLine();
             } /* End of line reached */
 
-            removeComment();
+            // checkAndRemoveComment();
 
             for (int i = sourcePos; i < sourceLine.length(); i++) {
                 char curr = sourceLine.charAt(i);
                 sourcePos++;
-                // System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
+                System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
 
                 if (isLetterAZ(curr) || isDigit(curr)) {
                     buffer.append(curr);
-                }
+                } /* is current char a letter or digit, append to buffer */
                 else if ((curr == ' ' || curr == '\t') && buffer.length() == 0) {
                     continue;
-                }
+                } /* if current char is empty or is a tab, and buffer is empty, continue */
                 else if (curr == ' ') {
                     String token = buffer.toString().toLowerCase();
                     nextToken    = insert(token, getFileLineNum());
 
                     buffer.setLength(0);
                     break;
-                }
+                } /* current char is empty and buffer isnt. Make a token. */
                 else if (curr == '\'') {
                     if (sourceLine.charAt(i + 2) != '\'') {
-                        error("No end tag for char litteral found");
+                        error("Illegal char literal!");
                     }
+
                     nextToken = insert(sourceLine.charAt(i + 1), getFileLineNum());
                     sourcePos+=2;
 
@@ -117,48 +88,51 @@ public class Scanner {
 
                     break;
                 }
+                else if (!buffer.toString().isEmpty()) {
+                    String token = buffer.toString().toLowerCase();
+                    nextToken    = insert(token, getFileLineNum());
+
+                    sourcePos--;
+                    buffer.setLength(0);
+                    break;
+                }
+                else if (curr == '{' || (sourceLine.charAt(i) == '/' && sourceLine.charAt(i+1) == '*')) {
+                    removeComments(curr == '{' ? "}" : "*/");
+                    break;
+                }
                 else {
-                    if (!buffer.toString().isEmpty()) {
-                        String token = buffer.toString().toLowerCase();
-                        nextToken    = insert(token, getFileLineNum());
+                    String temp = String.valueOf(curr);
+                    char next   = sourceLine.charAt(i + 1);
 
-                        sourcePos--;
-                        buffer.setLength(0);
-                        break;
+                    if (!isDigit(next) && !isLetterAZ(next) && next != ' ' && next != '\'' && next != '\t') {
+                        temp += String.valueOf(next);
+                        sourcePos++;
                     }
-                    else {
-                        String temp = String.valueOf(curr);
-                        char next   = sourceLine.charAt(i + 1);
 
-                        if (!isDigit(next) && !isLetterAZ(next) && next != ' ' && next != '\'' && next != '\t') {
-                            temp += String.valueOf(next);
-                            sourcePos++;
+                    boolean isTokenFound = false;
+                    int iterate = temp.length();
+
+                    for (int x = 0; x < iterate; x++) {
+                        for (TokenKind k : TokenKind.values()) {
+                            if (k.toString().equals(temp)) {
+                                nextToken    = insert(k, getFileLineNum());
+                                isTokenFound = true;
+                                break;
+                            }
                         }
+                        if (!isTokenFound) {
+                            temp = String.valueOf(temp.charAt(0));
+                            sourcePos--;
+                        }
+                    } /* Only loop twice, as thats max. seq. of chars to check for*/
 
-                        boolean isTokenFound = false;
-                        int iterate = temp.length();
-
-                        for (int x = 0; x < iterate; x++) {
-                            for (TokenKind k : TokenKind.values()) {
-                                if (k.toString().equals(temp)) {
-                                    nextToken    = insert(k, getFileLineNum());
-                                    isTokenFound = true;
-                                    break;
-                                }
-                            }
-                            if (!isTokenFound) {
-                                temp = String.valueOf(temp.charAt(0));
-                                sourcePos--;
-                            }
-                        } /* Only loop twice, as thats max. seq. of chars to check for*/
-
-                        if (nextToken == null) {
-                            error(String.format("%s was not found!", temp));
-                        } /* If nexttoken is null the inputed sign is illegal*/
-                    }
+                    if (nextToken == null) {
+                        error(String.format("Illegal character: '%s'!", temp));
+                    } /* If nexttoken is null the inputed sign is illegal*/
                     break;
                 }
             }
+
             if (sourceLine.isEmpty()) {
                 System.out.println("    DEBUG: End of File");
                 nextToken = insert(eofToken, getFileLineNum());
@@ -221,55 +195,58 @@ public class Scanner {
             Main.log.noteSourceLine(getFileLineNum(), sourceLine);
     }
 
-    private void checkAndRemoveComments(String endToken) {
+    private void removeComments(String endToken){
+        boolean isEndTokenFound = false;
 
-        if (sourceLine.indexOf(endToken) > -1)
-            sourcePos += sourceLine.indexOf(endToken);
-
-        while (sourceLine.indexOf(endToken) == -1) {
-            readNextLine();
+        for(; sourceFile != null; sourcePos++){
+            if (endToken == "}" && sourceLine.charAt(sourcePos) == '}') {
+                isEndTokenFound = true;
+                sourcePos++;
+                break;
+            }
+            else if (sourceLine.charAt(sourcePos) == '*' && sourceLine.charAt(sourcePos+1) == '/') {
+                isEndTokenFound = true;
+                sourcePos += 2;
+                break;
+            }
+            else if(sourcePos == sourceLine.length()-1){
+                readNextLine();
+                sourcePos--;
+            }
         }
 
-        if (endToken == "*/") {
-            sourcePos++;
-        }
-
-
-
-        // if (sourceLine.indexOf(endToken) > -1) {
-        //     value = sourceLine.indexOf(endToken);
-        //     if (endToken == "*/") {
-        //         value++;
-        //     }
-        // }
-
-        // System.out.printf("LEN: %d - %d\n", sourcePos, sourceLine.length() - 1);
-
-        /*if (sourcePos >= sourceLine.length() - 1) {
-            readNextLine();
-        } */
-
-        readNextToken();
-
-
-        // if (sourceLine.startsWith("/*")) {
-        //     boolean endOfComment = false;
-        //
-        //     while (endOfComment != true) {
-        //         String[] findEOC = sourceLine.split("\\s+");
-        //
-        //         if (findEOC[findEOC.length - 1].equals("*/")) {
-        //             endOfComment = true;
-        //         } /* when found; change boolean value */
-        //
-        //         // Iterate the scanner header (we do not which to tockenize comments)
-        //         readNextLine();
-        //     } /* loop untill end of comment symbol is found */
-        //     System.out.println("    DEBUG: End of comment tag found!");
-        //     readNextToken();
-        // } /* statement checks if line of code starts with comment symbol */
+        if (!isEndTokenFound)
+            error("No end for comment");
     }
 
+    public void checkAndRemoveComment() {
+        String s = sourceLine.indexOf("/*") > -1 ? "*/" : "}";
+
+        if (sourceLine.indexOf("/*") > -1 || sourceLine.indexOf("{") > -1) {
+
+            boolean isMultiline = false;
+            while (sourceLine.indexOf(s) == -1) {
+                isMultiline = true;
+                readNextLine();
+
+                if (sourceLine.isEmpty()) {
+                    error("No end for comment");
+                }
+            }
+
+            StringBuilder temp = new StringBuilder(sourceLine);
+
+            int end = sourceLine.indexOf(s);
+
+            if (isMultiline) {
+                temp.delete(0, end + s.length());
+            } else {
+                int start = (s.equals("*/") ? sourceLine.indexOf("/*") : sourceLine.indexOf("{"));
+                temp.delete(start, end + s.length());
+            }
+            sourceLine = temp.toString();
+        }
+    }
 
     private int getFileLineNum() {
         return (sourceFile!=null ? sourceFile.getLineNumber() : 0);
