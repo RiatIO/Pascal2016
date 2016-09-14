@@ -12,9 +12,11 @@ public class Scanner {
     private String sourceFileName, sourceLine = "";
     private int sourcePos = 0;
 
+    // Statistics
     private int tokensCreated = 0;
     private int charsIterated = 0;
     private int linesRead     = 0;
+    private int commentsIgn   = 0;
 
     // Create a token builder.
     private StringBuilder buffer = new StringBuilder();
@@ -195,6 +197,8 @@ public class Scanner {
      * Loop until end-of-comment is found and ignore everything in it
      */
     private void removeComments(String endToken){
+        commentsIgn++;  // Increment for statistics
+
         boolean isEndTokenFound = false;
 
         for (; sourceFile != null; sourcePos++) {
@@ -272,8 +276,8 @@ public class Scanner {
 
     public void printStatus() {
         System.out.printf("-------------%s-------------\n", sourceFileName);
-        System.out.printf("Status: read and tokenized\n\nTokens: %d found\nChars:  %d iterated\nLines:  %d read\n",
-                        tokensCreated, charsIterated, linesRead);
+        System.out.printf("Status: read and tokenized\n\nTokens:   %d found\nChars:    %d iterated\nLines:    %d read\nComments: %d ignored\n",
+                        tokensCreated, charsIterated, linesRead, commentsIgn);
         System.out.println("----------------------------------------");
     }
 }
