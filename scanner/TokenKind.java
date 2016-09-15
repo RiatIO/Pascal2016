@@ -1,6 +1,5 @@
 package scanner;
 
-
 // Note that tokens found in standard Pascal but not in Pascal2016
 // have been commented out.
 
