@@ -13,10 +13,7 @@ public class Scanner {
     private int sourcePos = 0;
 
     // Statistics
-    private int tokensCreated = 0;
-    private int charsIterated = 0;
-    private int linesRead     = 0;
-    private int commentsIgn   = 0;
+    private int tokensCreated = 0, charsIterated = 0, linesRead = 0, commentsIgn = 0;
 
     // Create a token builder.
     private StringBuilder buffer = new StringBuilder();
@@ -51,19 +48,13 @@ public class Scanner {
         nextToken = null;
 
         while (nextToken == null) {
-            if (sourceLine.length() == 1) {
-                // System.out.println("    DEBUG: Empty line found");
+            if (sourceLine.length() == 1 || sourcePos >= sourceLine.length() - 1) {
                 readNextLine();
-            } /* if sourceLine's length is 1, read next line */
-
-            if (sourcePos >= sourceLine.length() - 1) {
-                readNextLine();
-            } /* End of line reached */
+            } /* if sourceLine's length is 1 or end of line reached */
 
             for (int i = sourcePos; i < sourceLine.length(); i++) {
                 char curr = sourceLine.charAt(i);
                 sourcePos++; charsIterated++; // Increment for statistics
-                // System.out.format("CURR: %c - len: %d - pos: %d\n", curr, sourceLine.length(), sourcePos);
 
                 if (isLetterAZ(curr) || isDigit(curr)) {
                     buffer.append(curr);
@@ -71,7 +62,7 @@ public class Scanner {
                 else if ((curr == ' ' || curr == '\t') && buffer.length() == 0) {
                     continue;
                 } /* if current char is empty or is a tab, and buffer is empty, continue */
-                else if (curr == ' ') {
+                else if (curr == ' ' || curr == '\t') {
                     String token = buffer.toString().toLowerCase();
                     nextToken    = insert(token, getFileLineNum());
                     break;
@@ -79,7 +70,7 @@ public class Scanner {
                 else if (curr == '\'') {
                     if (sourceLine.charAt(i + 2) != '\'') {
                         error("Illegal char literal!");
-                    } /* Check if literal has a ending */
+                    } /* Check if literal has an ending */
 
                     nextToken  = insert(sourceLine.charAt(i + 1), getFileLineNum());
                     sourcePos += 2;
@@ -94,7 +85,7 @@ public class Scanner {
                     nextToken    = insert(token, getFileLineNum());
                     sourcePos--;
                     break;
-                } /* If buffer is not empty, proceed to make a token */
+                } /* If buffer is not empty, and curr char is a special char */
                 else if (curr == '{' || (sourceLine.charAt(i) == '/' && sourceLine.charAt(i+1) == '*')) {
                     removeComments(curr == '{' ? "}" : "*/");
                     break;
@@ -118,10 +109,7 @@ public class Scanner {
             } /* Check for end-of-file */
         }
 
-        // if (nextToken != null) {
-        //     System.out.println(nextToken.identify());
-        // }
-
+        tokensCreated++;    // Increment for statistics
         Main.log.noteToken(nextToken);
     }
 
@@ -148,24 +136,23 @@ public class Scanner {
                     nextToken    = insert(k, getFileLineNum());
                     isTokenFound = true;
                     break;
-                }
-            } /* Look the enums */
+                } /* If tokendkind found, insert */
+            } /* Loop the enums */
             if (!isTokenFound) {
                 temp = String.valueOf(temp.charAt(0));
                 sourcePos--;
-            }
-        } /* Only loop twice, as thats max. seq. of chars to check for*/
+            } /* Tokenkind of two special chars not found, try with one instead */
+        } /* Only loop twice, as thats max. seq. of chars to check for */
     }
 
     /**
      * Might be a redundent method at the moment, but might come in handy
-     * in later iterations.
+     * in the future.
      *
      * @param d an arbitrary Object
      * @param len line of found token.
      */
     private Token insert(Object d, int len) {
-        tokensCreated++;    // Increment for statistics
 
         if (d instanceof TokenKind) {
             return new Token((TokenKind)d, len);
@@ -181,7 +168,7 @@ public class Scanner {
 
         if (d instanceof String) {
             String token = (String)d;
-            buffer.setLength(0);
+            buffer.setLength(0);    // Reset the global buffer.
 
             if (token.matches("[0-9]+")) {
                 return new Token(Integer.parseInt((String)token), getFileLineNum());
@@ -195,14 +182,16 @@ public class Scanner {
 
     /**
      * Loop until end-of-comment is found and ignore everything in it
+     *
+     * @param endOfCommentToken what end-of-comment char to check for
      */
-    private void removeComments(String endToken){
+    private void removeComments(String endOfCommentToken){
         commentsIgn++;  // Increment for statistics
 
         boolean isEndTokenFound = false;
 
         for (; sourceFile != null; sourcePos++) {
-            if (endToken == "}" && sourceLine.charAt(sourcePos) == '}') {
+            if (endOfCommentToken == "}" && sourceLine.charAt(sourcePos) == '}') {
                 isEndTokenFound = true;
                 sourcePos++;
                 break;

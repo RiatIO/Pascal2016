@@ -13,7 +13,7 @@ begin
       GCD := m
    else
       GCD := GCD(n, m mod n)
-end;
+end; { GCD }
 
 begin
    res := GCD(v1,v2);

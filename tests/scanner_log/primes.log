@@ -1,0 +1,300 @@
+   1:  
+   2: /* This program prints all primes less than 1000 
+   3:    using a technique called "The sieve of Eratosthenes". */ 
+   4:  
+   5: program Primes; 
+Scanner: program token on line 5
+Scanner: name token on line 5: primes
+Scanner: ; token on line 5
+   6:  
+   7: const Limit = 1000; 
+Scanner: const token on line 7
+Scanner: name token on line 7: limit
+Scanner: = token on line 7
+Scanner: number token on line 7: 1000
+Scanner: ; token on line 7
+   8:  
+   9: var prime : array [2..Limit] of Boolean; 
+Scanner: var token on line 9
+Scanner: name token on line 9: prime
+Scanner: : token on line 9
+Scanner: array token on line 9
+Scanner: [ token on line 9
+Scanner: number token on line 9: 2
+Scanner: .. token on line 9
+Scanner: name token on line 9: limit
+Scanner: ] token on line 9
+Scanner: of token on line 9
+Scanner: name token on line 9: boolean
+Scanner: ; token on line 9
+  10:     i	  : integer; 
+Scanner: name token on line 10: i
+Scanner: : token on line 10
+Scanner: name token on line 10: integer
+Scanner: ; token on line 10
+  11:  
+  12: procedure FindPrimes; 
+Scanner: procedure token on line 12
+Scanner: name token on line 12: findprimes
+Scanner: ; token on line 12
+  13: var i1 : integer; 
+Scanner: var token on line 13
+Scanner: name token on line 13: i1
+Scanner: : token on line 13
+Scanner: name token on line 13: integer
+Scanner: ; token on line 13
+  14:     I2 : Integer; 
+Scanner: name token on line 14: i2
+Scanner: : token on line 14
+Scanner: name token on line 14: integer
+Scanner: ; token on line 14
+  15: begin 
+Scanner: begin token on line 15
+  16:    i1 := 2; 
+Scanner: name token on line 16: i1
+Scanner: := token on line 16
+Scanner: number token on line 16: 2
+Scanner: ; token on line 16
+  17:    while i1 <= Limit do 
+Scanner: while token on line 17
+Scanner: name token on line 17: i1
+Scanner: <= token on line 17
+Scanner: name token on line 17: limit
+Scanner: do token on line 17
+  18:    begin 
+Scanner: begin token on line 18
+  19:       i2 := 2*i1; 
+Scanner: name token on line 19: i2
+Scanner: := token on line 19
+Scanner: number token on line 19: 2
+Scanner: * token on line 19
+Scanner: name token on line 19: i1
+Scanner: ; token on line 19
+  20:       while i2 <= Limit do 
+Scanner: while token on line 20
+Scanner: name token on line 20: i2
+Scanner: <= token on line 20
+Scanner: name token on line 20: limit
+Scanner: do token on line 20
+  21:       begin 
+Scanner: begin token on line 21
+  22: 	 prime[i2] := false; 
+Scanner: name token on line 22: prime
+Scanner: [ token on line 22
+Scanner: name token on line 22: i2
+Scanner: ] token on line 22
+Scanner: := token on line 22
+Scanner: name token on line 22: false
+Scanner: ; token on line 22
+  23: 	 i2 := i2+i1 
+Scanner: name token on line 23: i2
+Scanner: := token on line 23
+Scanner: name token on line 23: i2
+Scanner: + token on line 23
+Scanner: name token on line 23: i1
+  24:       end; 
+Scanner: end token on line 24
+Scanner: ; token on line 24
+  25:       i1 := i1 + 1 
+Scanner: name token on line 25: i1
+Scanner: := token on line 25
+Scanner: name token on line 25: i1
+Scanner: + token on line 25
+Scanner: number token on line 25: 1
+  26:    end 
+Scanner: end token on line 26
+  27: end; {FindPrimes} 
+Scanner: end token on line 27
+Scanner: ; token on line 27
+  28:  
+  29: procedure P4 (x	: integer); 
+Scanner: procedure token on line 29
+Scanner: name token on line 29: p4
+Scanner: ( token on line 29
+Scanner: name token on line 29: x
+Scanner: : token on line 29
+Scanner: name token on line 29: integer
+Scanner: ) token on line 29
+Scanner: ; token on line 29
+  30: begin 
+Scanner: begin token on line 30
+  31:    if x < 1000 then write(' '); 
+Scanner: if token on line 31
+Scanner: name token on line 31: x
+Scanner: < token on line 31
+Scanner: number token on line 31: 1000
+Scanner: then token on line 31
+Scanner: name token on line 31: write
+Scanner: ( token on line 31
+Scanner: char token on line 31: ' '
+Scanner: ) token on line 31
+Scanner: ; token on line 31
+  32:    if x <  100 then write(' '); 
+Scanner: if token on line 32
+Scanner: name token on line 32: x
+Scanner: < token on line 32
+Scanner: number token on line 32: 100
+Scanner: then token on line 32
+Scanner: name token on line 32: write
+Scanner: ( token on line 32
+Scanner: char token on line 32: ' '
+Scanner: ) token on line 32
+Scanner: ; token on line 32
+  33:    if x <   10 then write(' '); 
+Scanner: if token on line 33
+Scanner: name token on line 33: x
+Scanner: < token on line 33
+Scanner: number token on line 33: 10
+Scanner: then token on line 33
+Scanner: name token on line 33: write
+Scanner: ( token on line 33
+Scanner: char token on line 33: ' '
+Scanner: ) token on line 33
+Scanner: ; token on line 33
+  34:    write(x); 
+Scanner: name token on line 34: write
+Scanner: ( token on line 34
+Scanner: name token on line 34: x
+Scanner: ) token on line 34
+Scanner: ; token on line 34
+  35: end; {P4} 
+Scanner: end token on line 35
+Scanner: ; token on line 35
+  36:  
+  37: procedure PrintPrimes; 
+Scanner: procedure token on line 37
+Scanner: name token on line 37: printprimes
+Scanner: ; token on line 37
+  38: var i	     : integer; 
+Scanner: var token on line 38
+Scanner: name token on line 38: i
+Scanner: : token on line 38
+Scanner: name token on line 38: integer
+Scanner: ; token on line 38
+  39:     NPrinted : integer; 
+Scanner: name token on line 39: nprinted
+Scanner: : token on line 39
+Scanner: name token on line 39: integer
+Scanner: ; token on line 39
+  40: begin 
+Scanner: begin token on line 40
+  41:    i := 2;  NPrinted := 0; 
+Scanner: name token on line 41: i
+Scanner: := token on line 41
+Scanner: number token on line 41: 2
+Scanner: ; token on line 41
+Scanner: name token on line 41: nprinted
+Scanner: := token on line 41
+Scanner: number token on line 41: 0
+Scanner: ; token on line 41
+  42:    while i <= Limit do 
+Scanner: while token on line 42
+Scanner: name token on line 42: i
+Scanner: <= token on line 42
+Scanner: name token on line 42: limit
+Scanner: do token on line 42
+  43:    begin 
+Scanner: begin token on line 43
+  44:       if prime[i] then 
+Scanner: if token on line 44
+Scanner: name token on line 44: prime
+Scanner: [ token on line 44
+Scanner: name token on line 44: i
+Scanner: ] token on line 44
+Scanner: then token on line 44
+  45:       begin 
+Scanner: begin token on line 45
+  46: 	 if (NPrinted > 0) and (NPrinted mod 10 = 0) then write(eol); 
+Scanner: if token on line 46
+Scanner: ( token on line 46
+Scanner: name token on line 46: nprinted
+Scanner: > token on line 46
+Scanner: number token on line 46: 0
+Scanner: ) token on line 46
+Scanner: and token on line 46
+Scanner: ( token on line 46
+Scanner: name token on line 46: nprinted
+Scanner: mod token on line 46
+Scanner: number token on line 46: 10
+Scanner: = token on line 46
+Scanner: number token on line 46: 0
+Scanner: ) token on line 46
+Scanner: then token on line 46
+Scanner: name token on line 46: write
+Scanner: ( token on line 46
+Scanner: name token on line 46: eol
+Scanner: ) token on line 46
+Scanner: ; token on line 46
+  47: 	 P4(i);  NPrinted := NPrinted + 1; 
+Scanner: name token on line 47: p4
+Scanner: ( token on line 47
+Scanner: name token on line 47: i
+Scanner: ) token on line 47
+Scanner: ; token on line 47
+Scanner: name token on line 47: nprinted
+Scanner: := token on line 47
+Scanner: name token on line 47: nprinted
+Scanner: + token on line 47
+Scanner: number token on line 47: 1
+Scanner: ; token on line 47
+  48:       end; 
+Scanner: end token on line 48
+Scanner: ; token on line 48
+  49:       i := i + 1; 
+Scanner: name token on line 49: i
+Scanner: := token on line 49
+Scanner: name token on line 49: i
+Scanner: + token on line 49
+Scanner: number token on line 49: 1
+Scanner: ; token on line 49
+  50:    end; 
+Scanner: end token on line 50
+Scanner: ; token on line 50
+  51:    write(eol) 
+Scanner: name token on line 51: write
+Scanner: ( token on line 51
+Scanner: name token on line 51: eol
+Scanner: ) token on line 51
+  52: end; {PrintPrimes} 
+Scanner: end token on line 52
+Scanner: ; token on line 52
+  53:  
+  54: begin {main program} 
+Scanner: begin token on line 54
+  55:    i := 2; 
+Scanner: name token on line 55: i
+Scanner: := token on line 55
+Scanner: number token on line 55: 2
+Scanner: ; token on line 55
+  56:    while i <= Limit do begin prime[i] := true;  i := i+1 end; 
+Scanner: while token on line 56
+Scanner: name token on line 56: i
+Scanner: <= token on line 56
+Scanner: name token on line 56: limit
+Scanner: do token on line 56
+Scanner: begin token on line 56
+Scanner: name token on line 56: prime
+Scanner: [ token on line 56
+Scanner: name token on line 56: i
+Scanner: ] token on line 56
+Scanner: := token on line 56
+Scanner: name token on line 56: true
+Scanner: ; token on line 56
+Scanner: name token on line 56: i
+Scanner: := token on line 56
+Scanner: name token on line 56: i
+Scanner: + token on line 56
+Scanner: number token on line 56: 1
+Scanner: end token on line 56
+Scanner: ; token on line 56
+  57:  
+  58:    /* Find and print the primes: */ 
+  59:    FindPrimes;  PrintPrimes; 
+Scanner: name token on line 59: findprimes
+Scanner: ; token on line 59
+Scanner: name token on line 59: printprimes
+Scanner: ; token on line 59
+  60: end. {main program} 
+Scanner: end token on line 60
+Scanner: . token on line 60
+Scanner: e-o-f token

@@ -1,8 +1,7 @@
+# Script made to move log files into respestive folder
 i=$1
 
-if [[ $i == "testscanner" ]]; then
-    echo "Moving log files to tests/scanner_log"
-    mkdir tests/scanner_log
-    cp -f tests/*.log tests/scanner_log
-    rm -f tests/*.log
-fi
+printf "\nMoving log files to tests/${i}_log\n"
+
+mkdir tests/${i}_log
+mv tests/*.log tests/${i}_log
