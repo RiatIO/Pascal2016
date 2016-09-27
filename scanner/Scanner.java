@@ -229,8 +229,9 @@ public class Scanner {
                 Main.error("Scanner error: unspecified I/O error!");
             }
         }
-        if (sourceFile != null)
+        if (sourceFile != null) {
             Main.log.noteSourceLine(getFileLineNum(), sourceLine);
+        }
     }
 
     private int getFileLineNum() {

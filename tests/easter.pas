@@ -6,7 +6,7 @@
 program Easter;
 
 var y: integer;
-
+    
 procedure easter (y: integer);
 var
    a: integer;  b: integer;  c: integer;  d: integer;  e: integer;

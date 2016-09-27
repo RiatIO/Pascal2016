@@ -1,7 +1,10 @@
 jar  = pascal2016.jar
 
-flag = -logS -testscanner
-part = scanner
+#flag = -logS -testscanner
+flag = -logV -testparser
+
+#part = scanner
+part = parser
 
 # Note: you can change the file path by doing: make file=tests/{file}.pas in terminal
 file  = tests/mini.pas
