@@ -15,13 +15,14 @@ class Block extends PascalSyntax {
     }
 
     static Block parse(Scanner s) {
-        enterParser("block")
+        enterParser("block");
 
-        
+
 
 
         leaveParser("block");
-        return b;
+        //return b;
+        return null;
     }
 
 }

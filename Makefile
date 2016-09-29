@@ -1,7 +1,7 @@
 jar  = pascal2016.jar
 
 #flag = -logS -testscanner
-flag = -logV -testparser
+flag = -testparser
 
 #part = scanner
 part = parser

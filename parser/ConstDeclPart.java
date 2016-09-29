@@ -17,7 +17,7 @@ class ConstDeclPart extends PascalSyntax {
     }
 
     static ConstDeclPart parse(Scanner s) {
-        enterParser("const-decl-part")
+        enterParser("const-decl-part");
 
         s.skip(constToken);
 
