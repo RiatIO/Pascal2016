@@ -6,7 +6,7 @@ import static scanner.TokenKind.*;
 
 class ConstDeclPart extends PascalSyntax {
 
-    ConstDecl cd;
+    ArrayList<ConstDecl> cd;
 
     ConstDeclPart(int lNum) {
         super(lNum);
@@ -16,6 +16,9 @@ class ConstDeclPart extends PascalSyntax {
         return "<const-decl-part> on line " + lineNum;
     }
 
+    // Pretty print here
+
+
     static ConstDeclPart parse(Scanner s) {
         enterParser("const-decl-part");
 
@@ -23,16 +26,21 @@ class ConstDeclPart extends PascalSyntax {
 
         ConstDeclPart cdp = new ConstDeclPart(s.curLineNum());
 
+        boolean isThereMore = false;
 
-        try {
-            cdp.cd = ConstDecl.parse(s);
-        } catch(PascalError e) {
-            System.out.println("something");
+        while (!isThereMore) {
+            cdp.cd.insert(ConstDecl.parse(s));
+
+            try {
+                s.test(nameToken);
+                s.readNextToken();
+                s.test(equalToken);
+            } catch (PascalError e) {
+                error(e);
+            }
         }
-
 
         leaveParser("const-decl-part");
         return b;
     }
-
 }

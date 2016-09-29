@@ -44,7 +44,7 @@ public class Scanner {
     }
 
     public void readNextToken() {
-        curToken = nextToken;
+        curToken  = nextToken;
         nextToken = null;
 
         while (nextToken == null) {
