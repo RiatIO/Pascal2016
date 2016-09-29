@@ -196,7 +196,7 @@ public class Scanner {
                 sourcePos++;
                 break;
             }
-            else if (sourceLine.charAt(sourcePos) == '*' && sourceLine.charAt(sourcePos+1) == '/') {
+            else if (endOfCommentToken == "*/" && (sourceLine.charAt(sourcePos) == '*' && sourceLine.charAt(sourcePos+1) == '/')) {
                 isEndTokenFound = true;
                 sourcePos += 2;
                 break;
