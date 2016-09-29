@@ -5,6 +5,7 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 class Block extends PascalSyntax {
+    Program context;
 
     Block(int lNum) {
         super(lNum);
@@ -16,9 +17,6 @@ class Block extends PascalSyntax {
 
     static Block parse(Scanner s) {
         enterParser("block");
-
-
-
 
         leaveParser("block");
         //return b;
