@@ -22,16 +22,16 @@ class ConstDecl extends PascalDecl {
         s.test(nameToken);
 
         ConstDecl cd = new ConstDecl(s.curToken.id, s.curLineNum());
-
         s.readNextToken();
         s.skip(equalToken);
-
+        //checkWhetherAssignable??
         cd.const = Constant.parse(s); //cd.const.context = p;
-
         // s.readNextToken();
         s.skip(semicolonToken);
 
         leaveParser("const-decl");
         return p;
     }
+
+    //checkWhetherAssignable??
 }
