@@ -19,7 +19,7 @@ class ConstDecl extends PascalDecl {
 
     static ConstDecl parse(Scanner s) {
         enterParser("const-decl");
-        s.test(nameToken)
+        s.test(nameToken);
 
         ConstDecl cd = new ConstDecl(s.curToken.id, s.curLineNum());
 

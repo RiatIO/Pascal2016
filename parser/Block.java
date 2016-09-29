@@ -7,6 +7,12 @@ import static scanner.TokenKind.*;
 class Block extends PascalSyntax {
     Program context;
 
+    ConstDeclPart cdp;
+    VarDeclPart vdp;
+    FuncDecl fd;
+    ProcDecl pd;
+    StatmList sm;
+
     Block(int lNum) {
         super(lNum);
     }
@@ -18,9 +24,10 @@ class Block extends PascalSyntax {
     static Block parse(Scanner s) {
         enterParser("block");
 
+
+
         leaveParser("block");
         //return b;
         return null;
     }
-
 }
