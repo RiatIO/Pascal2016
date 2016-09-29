@@ -1,3 +1,9 @@
+package parser;
+
+import main.*;
+import java.util.Scanner;
+import static scanner.tokenkind
+
 abstract class Statement extends PascalSyntax {
     Statement(int lNum) {
         super(lNum);
