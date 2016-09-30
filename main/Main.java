@@ -186,7 +186,6 @@ assembleCode();
         }
     }
 
-
     // Error message utilities:
 
     public static void error(String message) {

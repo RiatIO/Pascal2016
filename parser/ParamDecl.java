@@ -6,12 +6,13 @@ import static scanner.TokenKind.*;
 
 
 class ParamDecl extends ConstDecl {
-    PascalDecl(String id, int lNum) {
+
+    ParamDecl(String id, int lNum) {
         super(id, lNum);
     }
 
     @Override public String identify() {
-        return "<Param-decl> " + name + "on line " + lineNum
+        return "<Param-decl> " + name + "on line " + lineNum;
     }
 
     static ParamDecl parse(Scanner s) {
@@ -20,8 +21,8 @@ class ParamDecl extends ConstDecl {
 
         ParamDecl pd = new ParamDecl(s.curToken.id, s.curLineNum());
         s.skip(colonToken);
-        leaveParser(("Param-decl");)
-        return pd;
 
+        leaveParser("Param-decl");
+        return pd;
     }
 }
