@@ -37,6 +37,6 @@ class ConstDeclPart extends PascalSyntax {
         // TODO: Check if arraylis is empty or not.
 
         leaveParser("const-decl-part");
-        return b;
+        return cdp;
     }
 }

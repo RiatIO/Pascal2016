@@ -27,10 +27,10 @@ class Expression extends PascalSyntax {
             ex.ro = RelOperator.parse(s);
             ex.se.add(SimpleExpr.parse(s));
         } catch (PascalError e) {
-            
+
         }
 
         leaveParser("expression");
-        return b;
+        return ex;
     }
 }

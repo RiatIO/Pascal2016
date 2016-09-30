@@ -10,11 +10,9 @@ public abstract class Operator extends PascalSyntax {
         Operator op = null;
 
         switch (s.curToken.kind) {
-            case beginToken:
-                st = CompoundStatm.parse(s);  break;
-            case ifToken:
-                st = IfStatm.parse(s);  break;
-            case nameToken:
+            case equalToken:
+                op =
+
 
             switch (s.nextToken.kind) {
                 case assignToken:
