@@ -2,6 +2,7 @@ package parser;
 
 import main.*;
 import scanner.*;
+import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
 class ConstDeclPart extends PascalSyntax {
@@ -18,7 +19,6 @@ class ConstDeclPart extends PascalSyntax {
 
     // Pretty print here
 
-
     static ConstDeclPart parse(Scanner s) {
         enterParser("const-decl-part");
 
@@ -26,19 +26,16 @@ class ConstDeclPart extends PascalSyntax {
 
         ConstDeclPart cdp = new ConstDeclPart(s.curLineNum());
 
-        boolean isThereMore = false;
-
-        while (!isThereMore) {
-            cdp.cd.insert(ConstDecl.parse(s));
-
+        while (true) {
             try {
-                s.test(nameToken);
-                s.readNextToken();
-                s.test(equalToken);
+                ConstDecl temp = ConstDecl.parse(s);
+                cdp.cd.insert(temp);
             } catch (PascalError e) {
-                error(e);
+                break;
             }
         }
+
+        // TODO: Check if arraylis is empty or not.
 
         leaveParser("const-decl-part");
         return b;

@@ -1,0 +1,42 @@
+package parser;
+
+import main.*;
+import scanner.*;
+import java.util.ArrayList;
+import static scanner.TokenKind.*;
+
+class ParamDeclList extends PascalSyntax {
+    
+    ArrayList<ParamDecl> pd;
+
+    ParamDeclList(int lNum) {
+        super(lNum);
+    }
+
+    @Override public String identify() {
+        return "<param-decl-list> on line " + lineNum;
+    }
+
+    // Pretty print here
+    static ParamDeclList parse(Scanner s) {
+        enterParser("param-decl-list");
+
+        s.skip(leftParToken);
+
+        ParamDeclList pdl = new ParamDeclList(s.curLineNum());
+
+        while (true) {
+            try {
+                pdl.pd.add(ParamDecl.parse(s));
+                s.test(semicolonToken);
+            } catch {
+                break;
+            }
+        }
+
+        s.skip(rightParToken);
+
+        leaveParser("param-decl-list");
+        return pdl;
+    }
+}
