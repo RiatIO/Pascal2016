@@ -10,6 +10,6 @@ class FuncDecl extends ProcDecl {
     Block b;
 
     FuncDecl(String id) {
-        
+
     }
 }
