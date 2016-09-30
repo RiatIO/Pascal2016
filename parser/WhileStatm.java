@@ -9,7 +9,7 @@ import static scanner.TokenKind.*;
 class WhileStatm extends Statement {
     Expression expr;
     Statement body;
-
+    
     WhileStatm(int lNum) {
         super(lNum);
     }

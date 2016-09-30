@@ -24,8 +24,6 @@ class Block extends PascalSyntax {
     static Block parse(Scanner s) {
         enterParser("block");
 
-        
-
         leaveParser("block");
         //return b;
         return null;

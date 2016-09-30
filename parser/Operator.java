@@ -5,6 +5,7 @@ public abstract class Operator extends PascalSyntax {
     Operator(int lNum) {
         super(lNum);
     }
+    
     static Operator parse(Scanner s) {
         enterParser("operator");
         Operator op = null;
