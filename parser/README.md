@@ -1,6 +1,6 @@
 # TODO LIST  
 
-# Deep  
+## Deep  
 
 [] [PascalSyntax]  
 [] - Block  
@@ -24,7 +24,7 @@
 [] - - TermOperator  
 [] - ParamDeclList
 
-# Salman  
+## Salman  
 
 [] - [PascalDecl]  
 [] - - ConstDecl  
