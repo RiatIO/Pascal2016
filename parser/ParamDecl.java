@@ -30,4 +30,17 @@ class ParamDecl extends PascalDecl {
         leaveParser("Param-decl");
         return pd;
     }
+
+    void checkWhetherAssignable(PascalSyntax where){
+
+    }
+    void checkWhetherFunction(PascalSyntax where){
+
+    }
+    void checkWhetherProcedure(PascalSyntax where){
+
+    }
+    void checkWhetherValue(PascalSyntax where){
+
+    }
 }

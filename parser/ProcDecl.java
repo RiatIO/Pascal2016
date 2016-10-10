@@ -24,7 +24,7 @@ class ProcDecl extends PascalDecl {
 
         ProcDecl pd = new ProcDecl(s.curToken.id, s.curLineNum());
 
-        // TODO: is this even rigt?
+        // TODO: is this even right?
         if (s.curToken.kind != leftParToken) {
             pd.pdl = ParamDeclList.parse(s);
         }
@@ -35,6 +35,19 @@ class ProcDecl extends PascalDecl {
 
         leaveParser("Param-decl");
         return pd;
+    }
+
+    void checkWhetherAssignable(PascalSyntax where){
+
+    }
+    void checkWhetherFunction(PascalSyntax where){
+
+    }
+    void checkWhetherProcedure(PascalSyntax where){
+
+    }
+    void checkWhetherValue(PascalSyntax where){
+
     }
 
 }

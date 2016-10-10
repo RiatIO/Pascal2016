@@ -26,14 +26,14 @@
 
 ## Salman  
 
-[] - [PascalDecl]  
-[] - - ConstDecl  
-[] - - ParamDecl  
-[] - - ProcDecl  
-[] - - - FuncDecl  
-[] - - Program  
-[] - - TypeDecl  
-[] - - VarDecl  
+[x] - [PascalDecl]  
+[x] - - ConstDecl  
+[x] - - ParamDecl  
+[-] - - ProcDecl  
+[x] - - - FuncDecl  
+[x] - - Program  
+[Not finished] - - TypeDecl  
+[x] - - VarDecl  
 [] - SimpleExpr  
 [] - [Statement]  
 [] - - AssignStatm  

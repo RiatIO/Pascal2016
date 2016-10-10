@@ -32,4 +32,17 @@ class Program extends PascalDecl {
         leaveParser("program");
         return p;
     }
+
+    void checkWhetherAssignable(PascalSyntax where){
+
+    }
+    void checkWhetherFunction(PascalSyntax where){
+
+    }
+    void checkWhetherProcedure(PascalSyntax where){
+
+    }
+    void checkWhetherValue(PascalSyntax where){
+
+    }
 }
