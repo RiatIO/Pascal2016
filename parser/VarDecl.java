@@ -20,10 +20,10 @@ class VarDecl extends PascalDecl{
         enterParser("Var-decl");
         s.test(nameToken);
 
-        VarDecl vd = new Vardecl(s.curToken.id, s.curLineNum());
+        VarDecl vd = new VarDecl(s.curToken.id, s.curLineNum());
 
         s.skip(colonToken);
-        vd.type = Type.parse();
+        vd.type = Type.parse(s);
         s.skip(semicolonToken);
         return vd;
     }

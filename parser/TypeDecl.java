@@ -8,14 +8,19 @@ import static scanner.TokenKind.*;
 class TypeDecl extends PascalDecl{
 
     TypeDecl(String id, int lNum){
-        super(id,lNum); 
+        super(id,lNum);
     }
+
     @Override public String identify() {
         return "<Param-decl> " + name + "on line " + lineNum;
     }
 
-    static TypeDecl(Scanner s){
+    static TypeDecl parse(Scanner s){
+        enterParser("TypeDecl");
 
+
+        leaveParser("TypeDecl");
+        return null;
     }
 
     void checkWhetherAssignable(PascalSyntax where){
@@ -30,5 +35,4 @@ class TypeDecl extends PascalDecl{
     void checkWhetherValue(PascalSyntax where){
 
     }
-
 }
