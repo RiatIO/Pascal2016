@@ -11,7 +11,7 @@ public abstract class PascalDecl extends PascalSyntax {
     }
 
     @Override public String identify() {
-        return "<pascaldecl> on line " + lineNum;
+        return "<Pascal-decl> on line " + lineNum;
     }
 
     @Override public void prettyPrint() {

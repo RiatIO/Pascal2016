@@ -21,7 +21,6 @@ class ParamDeclList extends PascalSyntax {
 
     }
 
-    // Pretty print here
     static ParamDeclList parse(Scanner s) {
         enterParser("param-decl-list");
 
