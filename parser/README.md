@@ -2,27 +2,27 @@
 
 ## Deep  
 
-[] [PascalSyntax]  
+[x] [PascalSyntax]  
 [] - Block  
 [] - - Library  
-[] - ConstDeclPart  
+[x] - ConstDeclPart  
 [] - Constant  
-[] - Expression  
-[] - [Factor]  
-[] - - FuncCall  
-[] - - InnerExpr  
-[] - - Negation  
-[] - - [UnsignedConstant]  
+[x] - Expression  
+[-] - [Factor]  
+[x] - - FuncCall  
+[x] - - InnerExpr  
+[x] - - Negation  
+[-] - - [UnsignedConstant]  
 [] - - - CharLiteral  
 [] - - - NamedConst  
 [] - - - NumberLiteral  
-[] - - Variable  
-[] - [Operator]  
-[] - - FactorOperator  
+[x] - - Variable  
+[-] - [Operator]  
+[x] - - FactorOperator
 [] - - PrefixOperator  
 [] - - RelOperator  
 [] - - TermOperator  
-[] - ParamDeclList
+[x] - ParamDeclList
 
 ## Salman  
 
@@ -45,7 +45,7 @@
 [] - StatmList  
 [] - Term  
 
-## Extra 
+## Extra
 [] - [Type]  
 [] - - ArrayType  
 [] - - BoolType  

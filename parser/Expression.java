@@ -23,11 +23,10 @@ class Expression extends PascalSyntax {
         ex.se.add(SimpleExpr.parse(s));
 
         try {
-            // TODO: fix this
             ex.ro = RelOperator.parse(s);
             ex.se.add(SimpleExpr.parse(s));
         } catch (PascalError e) {
-
+            System.out.println("Error occured in <Expression>: " + e.getMessage());
         }
 
         leaveParser("expression");

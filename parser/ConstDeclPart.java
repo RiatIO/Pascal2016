@@ -22,9 +22,8 @@ class ConstDeclPart extends PascalSyntax {
     static ConstDeclPart parse(Scanner s) {
         enterParser("const-decl-part");
 
-        s.skip(constToken);
-
         ConstDeclPart cdp = new ConstDeclPart(s.curLineNum());
+        s.skip(constToken);
 
         while (true) {
             try {
@@ -35,7 +34,9 @@ class ConstDeclPart extends PascalSyntax {
             }
         }
 
-        // TODO: Check if arraylis is empty or not.
+        if (cdp.cd.isEmpty()) {
+            throw new PascalError("No ConstDecl found!");
+        }
 
         leaveParser("const-decl-part");
         return cdp;

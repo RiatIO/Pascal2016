@@ -25,7 +25,6 @@ class Block extends PascalSyntax {
         enterParser("block");
 
         leaveParser("block");
-        //return b;
         return null;
     }
 }
