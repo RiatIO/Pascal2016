@@ -26,15 +26,15 @@ class IfStatm extends Statement{
         IfStatm ifs = new IfStatm(s.curLineNum());
         s.skip(ifToken);
 
-        s.expr = Expression.parse(s);
+        ifs.expr = Expression.parse(s);
         s.skip(thenToken);
 
-        s.body = Statement.parse(s);
+        ifs.body = Statement.parse(s);
         s.skip(elseToken);
-        
-        s.body = Statement.parse(s);
+
+        ifs.body = Statement.parse(s);
 
         leaveParser("If-Statm");
-        return null;
+        return ifs;
     }
 }

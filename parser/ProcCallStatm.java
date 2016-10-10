@@ -23,7 +23,7 @@ class ProcCallStatm extends Statement{
     static ProcCallStatm parse(Scanner s){
         enterParser("ProcCall-Statm");
 
-        ProcCallStatm pc = new ProcCallStatm(s,curLineNum());
+        ProcCallStatm pc = new ProcCallStatm(s.curLineNum());
         s.test(nameToken);
         pc.name = s.curToken.id;
         s.skip(nameToken);
@@ -42,6 +42,6 @@ class ProcCallStatm extends Statement{
         }
 
         leaveParser("ProcCall-Statm");
-        return pc; 
+        return pc;
     }
 }
