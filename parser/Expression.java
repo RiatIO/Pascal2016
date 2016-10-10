@@ -4,9 +4,11 @@ import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
+import java.util.ArrayList;
+
 class Expression extends PascalSyntax {
     ArrayList<SimpleExpr> se;
-    RelOperator ro;
+    //RelOperator ro;
 
     Expression(int lNum) {
         super(lNum);
@@ -16,6 +18,10 @@ class Expression extends PascalSyntax {
         return "<expression> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+
+    }
+
     static Expression parse(Scanner s) {
         enterParser("expression");
 
@@ -23,7 +29,7 @@ class Expression extends PascalSyntax {
         ex.se.add(SimpleExpr.parse(s));
 
         try {
-            ex.ro = RelOperator.parse(s);
+            //ex.ro = RelOperator.parse(s);
             ex.se.add(SimpleExpr.parse(s));
         } catch (PascalError e) {
             System.out.println("Error occured in <Expression>: " + e.getMessage());

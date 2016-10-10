@@ -15,7 +15,7 @@ class FuncDecl extends ProcDecl {
     }
 
     @Override public String identify() {
-        retunr "<Func-decl> "+ name + "on line " + lineNum
+        return "<Func-decl> "+ name + "on line " + lineNum;
     }
 
     static FuncDecl parse(Scanner s) {

@@ -9,8 +9,14 @@ class ParamDecl extends PascalDecl {
 
     PascalDecl(String id, int lNum) {
 
+    }
+
     @Override public String identify() {
         return "<Param-decl> " + name + "on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+
     }
 
     static ParamDecl parse(Scanner s) {

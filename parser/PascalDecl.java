@@ -10,6 +10,14 @@ public abstract class PascalDecl extends PascalSyntax {
         name = id;
     }
 
+    @Override public String identify() {
+        return "<pascaldecl> on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+
+    }
+
     /**
     * checkWhetherAssignable: Utility method to check whether this PascalDecl is
     * assignable, i.e., may be used to the left of a :=.
@@ -32,8 +40,8 @@ public abstract class PascalDecl extends PascalSyntax {
     *  <dd>will give an error message.</dd>
     * </dl>
     */
-    abstract void checkWhetherAssignable(PascalSyntax where);
-    abstract void checkWhetherFunction(PascalSyntax where);
-    abstract void checkWhetherProcedure(PascalSyntax where);
-    abstract void checkWhetherValue(PascalSyntax where);
+    //abstract void checkWhetherAssignable(PascalSyntax where);
+    //abstract void checkWhetherFunction(PascalSyntax where);
+    //abstract void checkWhetherProcedure(PascalSyntax where);
+    //abstract void checkWhetherValue(PascalSyntax where);
 }

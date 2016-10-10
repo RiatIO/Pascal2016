@@ -14,7 +14,7 @@ class ProcDecl extends PascalDecl {
     }
 
     @Override public String identify() {
-        return "<Param-decl> " + name + "on line " + lineNum
+        return "<Param-decl> " + name + "on line " + lineNum;
     }
 
     static ProcDecl parse(Scanner s) {

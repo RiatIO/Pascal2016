@@ -6,5 +6,5 @@ import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
 class SimpleExpr extends PascalSyntax{
-    
+
 }

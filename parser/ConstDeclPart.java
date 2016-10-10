@@ -17,6 +17,10 @@ class ConstDeclPart extends PascalSyntax {
         return "<const-decl-part> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+
+    }
+
     // Pretty print here
 
     static ConstDeclPart parse(Scanner s) {

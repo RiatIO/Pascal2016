@@ -1,5 +1,9 @@
 package parser;
 
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public abstract class UnsignedConstant extends Factor {
 
     UnsignedConstant(int lNum) {

@@ -7,7 +7,7 @@ import static scanner.TokenKind.*;
 /* <program> ::= ’program’ <name> ’:’ <block> '.' */
 
 class ConstDecl extends PascalDecl {
-    Constant const;
+    Constant cst;
 
     ConstDecl(String id, int lNum) {
         super(id, lNum);
@@ -17,6 +17,8 @@ class ConstDecl extends PascalDecl {
         return "<const-decl> " + name + " on line " + lineNum;
     }
 
+    
+
     static ConstDecl parse(Scanner s) {
         enterParser("const-decl");
         s.test(nameToken);
@@ -25,7 +27,7 @@ class ConstDecl extends PascalDecl {
         s.readNextToken();
         s.skip(equalToken);
         //checkWhetherAssignable??
-        cd.const = Constant.parse(s); //cd.const.context = p;
+        cd.cst = Constant.parse(s); //cd.const.context = p;
         // s.readNextToken();
         s.skip(semicolonToken);
 

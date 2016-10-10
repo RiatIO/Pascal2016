@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
 class ParamDeclList extends PascalSyntax {
-    
+
     ArrayList<ParamDecl> pd;
 
     ParamDeclList(int lNum) {
@@ -15,6 +15,10 @@ class ParamDeclList extends PascalSyntax {
 
     @Override public String identify() {
         return "<param-decl-list> on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+
     }
 
     // Pretty print here
@@ -29,7 +33,7 @@ class ParamDeclList extends PascalSyntax {
             try {
                 pdl.pd.add(ParamDecl.parse(s));
                 s.test(semicolonToken);
-            } catch {
+            } catch(PascalError e) {
                 break;
             }
         }

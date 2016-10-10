@@ -1,9 +1,22 @@
 package parser;
 
+
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public abstract class Factor extends PascalSyntax {
 
     Factor(int lNum) {
         super(lNum);
+    }
+
+    @Override public String identify() {
+        return "<factor> on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+
     }
 
     static Factor parse(Scanner s) {

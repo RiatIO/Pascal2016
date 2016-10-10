@@ -8,7 +8,7 @@ class CharLiteral extends UnsignedConstant {
 
     char c;
 
-    InnerExpr(int lNum) {
+    CharLiteral(int lNum) {
         super(lNum);
     }
 
@@ -22,8 +22,8 @@ class CharLiteral extends UnsignedConstant {
         s.skip(commaToken);
 
         NamedConst nc = new NamedConst(s.curLineNum());
-        
-        s.test(s.curToken.charVal)
+
+        s.test(s.curToken.charVal);
 
         leaveParser("charliteral");
         return cl;
