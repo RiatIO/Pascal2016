@@ -1,0 +1,7 @@
+   1: Program test; 
+Parser:   <program>
+   2:  
+   3: begin 
+   4:    y := 2010; 
+Parser:     <block>
+Parser:     </block>

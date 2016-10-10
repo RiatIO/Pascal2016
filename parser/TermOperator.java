@@ -6,20 +6,20 @@ import static scanner.TokenKind.*;
 
 /* <program> ::= ’program’ <name> ’:’ <block> '.' */
 
-class RelOperator extends Operator {
+class TermOperator extends Operator {
 
-    RelOperator(int lNum) {
+    TermOperator(int lNum) {
         super(lNum);
     }
 
     @Override public String identify() {
-        return "<RelOperator> on line " + lineNum;
+        return "<TermOperator> on line " + lineNum;
     }
 
-    static RelOperator parse(Scanner s) {
-        enterParser("RelOperator");
+    static TermOperator parse(Scanner s) {
+        enterParser("TermOperator");
 
-        leaveParser("RelOperator");
+        leaveParser("TermOperator");
         return null;
     }
 }
