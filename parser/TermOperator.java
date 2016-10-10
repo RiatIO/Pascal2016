@@ -8,6 +8,8 @@ import static scanner.TokenKind.*;
 
 class TermOperator extends Operator {
 
+    TokenKind tk;
+
     TermOperator(int lNum) {
         super(lNum);
     }
@@ -19,7 +21,19 @@ class TermOperator extends Operator {
     static TermOperator parse(Scanner s) {
         enterParser("TermOperator");
 
+        TermOperator to = new TermOperator(s.curLineNum());
+
+        if (s.curToken.kind == addToken) {
+            to.tk = addToken;
+        } else if (s.curToken.kind == subtractToken) {
+            to.tk = subtractToken;
+        } else {
+            to.tk = orToken;
+        }
+
+        s.readNextToken();
+
         leaveParser("TermOperator");
-        return null;
+        return to;
     }
 }

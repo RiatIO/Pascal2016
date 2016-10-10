@@ -24,14 +24,16 @@ class FactorOperator extends Operator {
 
         switch (s.curToken.kind) {
             case multiplyToken:
-                fo.k = multiplyToken;
+                fo.k = multiplyToken; break;
             case divToken:
-                fo.k = divToken;
+                fo.k = divToken; break;
             case modToken:
-                fo.k = modToken;
+                fo.k = modToken; break;
             case andToken:
-                fo.k = andToken;
+                fo.k = andToken; break;
         }
+
+        s.readNextToken();
 
         leaveParser("factor-operator");
         return fo;

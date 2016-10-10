@@ -21,7 +21,7 @@
 [x] - - FactorOperator
 [x] - - PrefixOperator  
 [-] - - RelOperator  
-[-] - - TermOperator  
+[x] - - TermOperator  
 [x] - ParamDeclList
 
 ## Salman  

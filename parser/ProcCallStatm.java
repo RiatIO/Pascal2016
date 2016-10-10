@@ -3,9 +3,10 @@ package parser;
 import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
+import java.util.ArrayList;
 
 class ProcCallStatm extends Statement{
-    Expression expr;
+    ArrayList<Expression> expr;
     String name;
 
     ProcCallStatm(int lNum){
@@ -21,27 +22,29 @@ class ProcCallStatm extends Statement{
     }
 
     static ProcCallStatm parse(Scanner s){
-        enterParser("ProcCall-Statm");
+        enterParser("proc call");
 
         ProcCallStatm pc = new ProcCallStatm(s.curLineNum());
         s.test(nameToken);
         pc.name = s.curToken.id;
         s.skip(nameToken);
 
-        if(s.curToken.kind == leftParToken){
+        if (s.curToken.kind == leftParToken) {
             s.skip(leftParToken);
 
-            while(true){
-                pc.expr = Expression.parse(s);
+            while (true){
+                pc.expr.add(Expression.parse(s));
 
-                if(s.curToken.kind != commaToken){
+                if (s.curToken.kind != commaToken) {
                     break;
                 }
+
+                s.skip(commaToken);
             }
             s.skip(rightParToken);
         }
 
-        leaveParser("ProcCall-Statm");
+        leaveParser("proc call");
         return pc;
     }
 }

@@ -3,14 +3,17 @@ package parser;
 import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
+import java.util.ArrayList;
 
-abstract class StatmList extends PascalSyntax {
+class StatmList extends PascalSyntax {
+    ArrayList<Statement> s;
+
     StatmList(int lNum) {
         super(lNum);
     }
 
     @Override public String identify() {
-        return "<StatmList> on line " + lineNum;
+        return "<statmlist> on line " + lineNum;
     }
 
     @Override public void prettyPrint() {
@@ -18,9 +21,21 @@ abstract class StatmList extends PascalSyntax {
     }
 
     static StatmList parse(Scanner s) {
-        leaveParser("StatmList");
+        enterParser("statm list");
 
-        leaveParser("StatmList");
+        StatmList sl = new StatmList(s.curLineNum());
+
+        while (true) {
+            sl.s.add(Statement.parse(s));
+
+            try {
+                s.skip(semicolonToken);
+            } catch (PascalError e) {
+                break;
+            }
+        }
+
+        leaveParser("statm list");
         return null;
     }
 }

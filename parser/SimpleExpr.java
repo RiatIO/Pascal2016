@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
 class SimpleExpr extends PascalSyntax {
+    PrefixOperator po;
+
+    // FIIIIIX THIS TOMORROWOOWOWW
+
     SimpleExpr(int lNum) {
         super(lNum);
     }
@@ -19,10 +23,19 @@ class SimpleExpr extends PascalSyntax {
     }
 
     static SimpleExpr parse(Scanner s) {
-        enterParser("SimpleExpr");
+        enterParser("simple expr");
 
+        SimpleExpr se = new SimpleExpr(s.curLineNum());
 
-        leaveParser("SimpleExpr");
+        if (s.curToken.kind.isPrefixOpr) {
+            se.po = PrefixOperator.parse(s);
+        }
+
+        while (true) {
+
+        }
+
+        leaveParser("simple expr");
         return null;
     }
 }
