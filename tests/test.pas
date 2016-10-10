@@ -1,9 +1,6 @@
-Program test;
 
+/* Et minimalt Pascal-program */
+program Mini;
 begin
-   y := 2010;
-   while y <= 2020 do
-   begin
-      easter(y);  y := y + 1;
-   end
+   write('x');
 end.

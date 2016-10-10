@@ -3,25 +3,25 @@
 ## Deep  
 
 [x] [PascalSyntax]  
-[] - Block  
+[x] - Block  
 [] - - Library  
-[x] - ConstDeclPart  
-[] - Constant  
+[] - ConstDeclPart  
+[x] - Constant  
 [x] - Expression  
 [-] - [Factor]  
 [x] - - FuncCall  
 [x] - - InnerExpr  
 [x] - - Negation  
 [-] - - [UnsignedConstant]  
-[] - - - CharLiteral  
-[] - - - NamedConst  
-[] - - - NumberLiteral  
+[x] - - - CharLiteral  
+[x] - - - NamedConst  
+[x] - - - NumberLiteral  
 [x] - - Variable  
 [-] - [Operator]  
 [x] - - FactorOperator
-[-] - - PrefixOperator  
+[x] - - PrefixOperator  
 [-] - - RelOperator  
-[] - - TermOperator  
+[-] - - TermOperator  
 [x] - ParamDeclList
 
 ## Salman  

@@ -6,7 +6,7 @@ import static scanner.TokenKind.*;
 
 class NamedConst extends UnsignedConstant {
 
-    char c;
+    String name;
 
     NamedConst(int lNum) {
         super(lNum);
@@ -19,9 +19,11 @@ class NamedConst extends UnsignedConstant {
     static NamedConst parse(Scanner s) {
         enterParser("namedconst");
 
-        s.skip(commaToken);
-
         NamedConst nc = new NamedConst(s.curLineNum());
+
+        s.test(nameToken);
+        nc.name = s.curToken.id;
+        s.readNextToken();
 
         leaveParser("namedconst");
         return nc;

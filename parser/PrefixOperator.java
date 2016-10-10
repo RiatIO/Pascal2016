@@ -8,6 +8,8 @@ import static scanner.TokenKind.*;
 
 class PrefixOperator extends Operator {
 
+    TokenKind tk;
+
     PrefixOperator(int lNum) {
         super(lNum);
     }
@@ -19,7 +21,17 @@ class PrefixOperator extends Operator {
     static PrefixOperator parse(Scanner s) {
         enterParser("prefixoperator");
 
+        PrefixOperator po = new PrefixOperator(s.curLineNum());
+
+        if (s.curToken.kind == addToken) {
+            po.tk = addToken;
+        } else {
+            po.tk = subtractToken;
+        }
+
+        s.readNextToken();
+
         leaveParser("prefixoperator");
-        return null;
+        return po;
     }
 }

@@ -7,6 +7,9 @@ import static scanner.TokenKind.*;
 
 class Constant extends PascalSyntax {
 
+    PrefixOperator po;
+    UnsignedConstant uc;
+
     Constant(int lNum) {
         super(lNum);
     }
@@ -19,12 +22,18 @@ class Constant extends PascalSyntax {
 
     }
 
-    // Pretty print here
-
     static Constant parse(Scanner s) {
         enterParser("Constant");
 
+        Constant c = new Constant(s.curLineNum());
+
+        if (s.curToken.kind.isPrefixOpr()) {
+            c.po = PrefixOperator.parse(s);
+        }
+
+        c.uc = UnsignedConstant.parse(s);
+
         leaveParser("Constant");
-        return null;
+        return c;
     }
 }

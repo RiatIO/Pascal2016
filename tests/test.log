@@ -1,7 +1,10 @@
-   1: Program test; 
+   1:  
+   2: /* Et minimalt Pascal-program */ 
+   3: program Mini; 
 Parser:   <program>
-   2:  
-   3: begin 
-   4:    y := 2010; 
+   4: begin 
+   5:    write('x'); 
 Parser:     <block>
-Parser:     </block>
+Parser:     </StatmList>
+Parser:   </StatmList>
+Error in line 5: Expected a end but found a name!
