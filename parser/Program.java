@@ -6,7 +6,7 @@ import static scanner.TokenKind.*;
 
 /* <program> ::= ’program’ <name> ’:’ <block> '.' */
 
-class Program extends PascalDecl {
+public class Program extends PascalDecl {
     Block progBlock;
 
     Program(String id, int lNum) {
@@ -17,7 +17,7 @@ class Program extends PascalDecl {
         return "<program> " + name + " on line " + lineNum;
     }
 
-    static Program parse(Scanner s) {
+    public static Program parse(Scanner s) {
         enterParser("program");
         s.skip(programToken);
         s.test(nameToken);

@@ -32,14 +32,14 @@ class ConstDeclPart extends PascalSyntax {
         while (true) {
             try {
                 ConstDecl temp = ConstDecl.parse(s);
-                cdp.cd.insert(temp);
+                cdp.cd.add(temp);
             } catch (PascalError e) {
                 break;
             }
         }
 
         if (cdp.cd.isEmpty()) {
-            throw new PascalError("No ConstDecl found!");
+            //throw new PascalError("No ConstDecl found!");
         }
 
         leaveParser("const-decl-part");
