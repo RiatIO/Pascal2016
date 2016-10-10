@@ -23,6 +23,7 @@ class Variable extends Factor {
         Variable v = new Variable(s.curLineNum());
 
         s.test(nameToken);
+
         v.name = s.curToken.id;
         s.skip(nameToken);
 

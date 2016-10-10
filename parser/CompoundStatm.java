@@ -5,6 +5,8 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 class CompoundStatm extends Statement{
+    StatmList sl;
+
     CompoundStatm(int lNum){
         super(lNum);
     }
@@ -19,7 +21,9 @@ class CompoundStatm extends Statement{
 
     static CompoundStatm parse(Scanner s){
         enterParser("CompoundStatm");
-
+        s.skip(beginToken);
+        s.sl = StatmList.parse(s);
+        s.skip(endToken);
 
         leaveParser("CompoundStatm");
         return null;

@@ -41,8 +41,8 @@
 [x] - - EmptyStatm  
 [x] - - IfStatm  
 [x] - - ProcCallStatm  
-[] - - WhileStatm  
-[] - StatmList  
+[-] - - WhileStatm  
+[-] - StatmList  
 [] - Term  
 
 ## Extra
