@@ -35,12 +35,12 @@
 [Not finished] - - TypeDecl  
 [x] - - VarDecl  
 [] - SimpleExpr  
-[] - [Statement]  
-[] - - AssignStatm  
-[] - - CompoundStatm  
-[] - - EmptyStatm  
-[] - - IfStatm  
-[] - - ProcCallStatm  
+[x] - [Statement]  
+[x] - - AssignStatm  
+[x] - - CompoundStatm  
+[x] - - EmptyStatm  
+[x] - - IfStatm  
+[x] - - ProcCallStatm  
 [] - - WhileStatm  
 [] - StatmList  
 [] - Term  
