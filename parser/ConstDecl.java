@@ -17,8 +17,6 @@ class ConstDecl extends PascalDecl {
         return "<const-decl> " + name + " on line " + lineNum;
     }
 
-
-
     static ConstDecl parse(Scanner s) {
         enterParser("const-decl");
         s.test(nameToken);

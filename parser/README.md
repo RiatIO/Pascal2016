@@ -19,8 +19,8 @@
 [x] - - Variable  
 [-] - [Operator]  
 [x] - - FactorOperator
-[] - - PrefixOperator  
-[] - - RelOperator  
+[-] - - PrefixOperator  
+[-] - - RelOperator  
 [] - - TermOperator  
 [x] - ParamDeclList
 

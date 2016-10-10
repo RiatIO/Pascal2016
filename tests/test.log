@@ -1,9 +1,7 @@
-   1: program GCD; 
+   1: Program test; 
 Parser:   <program>
-   2: /* A program to compute the {greatest common} of two numbers, 
-   3:    i.e., the biggest number by which the two original 
-   4:    numbers can be divided without a remainder. */ 
-   5:  
-   6: const v1 = 1071; v2 = 462; 
+   2:  
+   3: begin 
+   4:    y := 2010; 
 Parser:     <block>
 Parser:     </block>
