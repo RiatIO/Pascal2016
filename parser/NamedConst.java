@@ -8,7 +8,7 @@ class NamedConst extends UnsignedConstant {
 
     char c;
 
-    InnerExpr(int lNum) {
+    NamedConst(int lNum) {
         super(lNum);
     }
 
@@ -24,6 +24,6 @@ class NamedConst extends UnsignedConstant {
         NamedConst nc = new NamedConst(s.curLineNum());
 
         leaveParser("namedconst");
-        return cl;
+        return nc;
     }
 }

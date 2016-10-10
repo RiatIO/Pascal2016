@@ -16,9 +16,9 @@ class Block extends PascalSyntax {
     Block(int lNum) {
         super(lNum);
     }
-    
+
     @Override public String identify() {
-        return "<block> " + name + "on line " + lineNum;
+        return "<block> on line " + lineNum;
     }
 
     @Override public void prettyPrint() {

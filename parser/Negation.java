@@ -8,7 +8,7 @@ class Negation extends Factor {
 
     Factor fc;
 
-    InnerExpr(int lNum) {
+    Negation(int lNum) {
         super(lNum);
     }
 

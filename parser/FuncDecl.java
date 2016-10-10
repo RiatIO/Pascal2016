@@ -1,6 +1,7 @@
 package parser;
 
 import main.*;
+
 import scanner.*;
 import java.util.ArrayList;
 import static scanner.TokenKind.*;
@@ -25,7 +26,7 @@ class FuncDecl extends ProcDecl {
 
         FuncDecl fd = new FuncDecl(s.curToken.id, s.curLineNum());
 
-        if (s.curToken.id != colonToken) {
+        if (s.curToken.kind != colonToken) {
             fd.pdl = ParamDeclList.parse(s);
         }
 

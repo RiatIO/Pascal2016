@@ -19,11 +19,11 @@ class CharLiteral extends UnsignedConstant {
     static CharLiteral parse(Scanner s) {
         enterParser("charliteral");
 
-        s.skip(commaToken);
+        //s.skip(commaToken);
 
-        NamedConst nc = new NamedConst(s.curLineNum());
+        CharLiteral cl = new CharLiteral(s.curLineNum());
 
-        s.test(s.curToken.charVal);
+        //s.test(s.curToken.charVal);
 
         leaveParser("charliteral");
         return cl;

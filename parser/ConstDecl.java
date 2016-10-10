@@ -32,7 +32,7 @@ class ConstDecl extends PascalDecl {
         s.skip(semicolonToken);
 
         leaveParser("const-decl");
-        return p;
+        return cd;
     }
 
     void checkWhetherAssignable(PascalSyntax where){
