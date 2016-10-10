@@ -25,6 +25,19 @@ class VarDecl extends PascalDecl{
         s.skip(colonToken);
         vd.type = Type.parse();
         s.skip(semicolonToken);
-        return vd;     
+        return vd;
+    }
+
+    void checkWhetherAssignable(PascalSyntax where){
+
+    }
+    void checkWhetherFunction(PascalSyntax where){
+
+    }
+    void checkWhetherProcedure(PascalSyntax where){
+
+    }
+    void checkWhetherValue(PascalSyntax where){
+
     }
 }
