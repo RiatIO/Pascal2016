@@ -8,7 +8,7 @@ class ParamDecl extends PascalDecl {
     Type type;
 
     PascalDecl(String id, int lNum) {
-
+        super(id, lNum); 
     }
 
     @Override public String identify() {
