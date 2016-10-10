@@ -5,12 +5,16 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 class EmptyStatm extends Statement{
-    EmptyStatm(String id, int lNum){
-        super(id,lNum);
+    EmptyStatm(int lNum){
+        super(lNum);
     }
 
     @Override public String identify() {
-        return "<Empty-statm> " + name + "on line " + lineNum;
+        return "<Empty-statm> on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+
     }
 
     static EmptyStatm parse(Scanner s){
@@ -18,6 +22,6 @@ class EmptyStatm extends Statement{
 
 
         leaveParser("Empty-Statm");
-        return 0;
+        return null;
     }
 }

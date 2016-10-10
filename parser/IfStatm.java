@@ -5,12 +5,16 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 class IfStatm extends Statement{
-    IfStatm(String id, int lNum){
-        super(id,lNum);
+    IfStatm(int lNum){
+        super(lNum);
     }
 
     @Override public String identify() {
-        return "<If-statm> " + name + "on line " + lineNum;
+        return "<If-statm> on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+
     }
 
     static IfStatm parse(Scanner s){
@@ -18,6 +22,6 @@ class IfStatm extends Statement{
 
 
         leaveParser("If-Statm");
-        return 0;
+        return null;
     }
 }

@@ -5,12 +5,16 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 class AssignStatm extends Statement{
-    AssignStatm(String id, int lNum){
-        super(id,lNum);
+    AssignStatm(int lNum){
+        super(lNum);
     }
 
     @Override public String identify() {
-        return "<Assign-statm> " + name + "on line " + lineNum;
+        return "<Assign-statm> on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+
     }
 
     static AssignStatm parse(Scanner s){
@@ -18,6 +22,6 @@ class AssignStatm extends Statement{
 
 
         leaveParser("Assign-Statm");
-        return 0;
+        return null;
     }
 }

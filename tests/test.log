@@ -1,0 +1,9 @@
+   1: program GCD; 
+Parser:   <program>
+   2: /* A program to compute the {greatest common} of two numbers, 
+   3:    i.e., the biggest number by which the two original 
+   4:    numbers can be divided without a remainder. */ 
+   5:  
+   6: const v1 = 1071; v2 = 462; 
+Parser:     <block>
+Parser:     </block>
