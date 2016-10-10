@@ -18,6 +18,6 @@ class CompoundStatm extends Statement{
 
 
         leaveParser("Assign-Statm");
-        return 0
+        return 0;
     }
 }

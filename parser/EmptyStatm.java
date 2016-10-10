@@ -18,6 +18,6 @@ class EmptyStatm extends Statement{
 
 
         leaveParser("Empty-Statm");
-        return 0
+        return 0;
     }
 }

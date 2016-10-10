@@ -18,6 +18,6 @@ class IfStatm extends Statement{
 
 
         leaveParser("If-Statm");
-        return 0
+        return 0;
     }
 }

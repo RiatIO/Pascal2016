@@ -18,6 +18,6 @@ class ProcCallStatm extends Statement{
 
 
         leaveParser("ProcCall-Statm");
-        return 0
+        return 0;
     }
 }
