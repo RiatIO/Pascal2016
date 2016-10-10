@@ -20,7 +20,6 @@ class VarDeclPart extends PascalSyntax {
     }
 
     // Pretty print here
-
     static VarDeclPart parse(Scanner s) {
         enterParser("VarDeclPart");
 
