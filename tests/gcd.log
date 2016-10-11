@@ -7,24 +7,24 @@ Parser:   <program>
    6: const v1 = 1071; v2 = 462; 
 Parser:     <block>
 Parser:       <const decl part>
-Parser:         <const decl>
+Parser:         <const-decl>
 Parser:           <constant>
 Parser:             <unsigned constant>
-Parser:               <number literal>
-Parser:               </number literal>
+Parser:               <NumberLiteral>
+Parser:               </NumberLiteral>
 Parser:             </unsigned constant>
 Parser:           </constant>
-Parser:         </const decl>
-Parser:         <const decl>
+Parser:         </const-decl>
+Parser:         <const-decl>
 Parser:           <constant>
 Parser:             <unsigned constant>
-Parser:               <number literal>
+Parser:               <NumberLiteral>
+Parser:               </NumberLiteral>
+Parser:             </unsigned constant>
+Parser:           </constant>
    7:  
    8: var res: integer; 
-Parser:               </number literal>
-Parser:             </unsigned constant>
-Parser:           </constant>
-Parser:         </const decl>
+Parser:         </const-decl>
 Parser:       </const decl part>
 Parser:       <var decl part>
 Parser:         <Var-decl>
