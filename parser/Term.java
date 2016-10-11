@@ -29,12 +29,7 @@ class Term extends PascalSyntax {
         Term t = new Term(s.curLineNum());
 
         while (true) {
-            try {
-                Factor temp = Factor.parse(s);
-                t.f.add(temp);
-            } catch(PascalError e) {
-                System.out.println("DEBUG TRAIN ON THE RUN");
-            }
+            t.f.add(Factor.parse(s));
 
             if (s.curToken.kind.isFactorOpr()) {
                 t.fo.add(FactorOperator.parse(s));
@@ -42,7 +37,6 @@ class Term extends PascalSyntax {
                 break;
             }
         }
-
 
         leaveParser("term");
         return t;

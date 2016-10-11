@@ -23,7 +23,7 @@ class NumberLiteral extends UnsignedConstant {
 
         s.test(intValToken);
         nl.number = s.curToken.intVal;
-        s.readNextToken();
+        s.skip(s.curToken.kind);
 
         leaveParser("number literal");
         return nl;

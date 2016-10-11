@@ -23,10 +23,9 @@ class ConstDecl extends PascalDecl {
 
         ConstDecl cd = new ConstDecl(s.curToken.id, s.curLineNum());
         s.readNextToken();
+
         s.skip(equalToken);
-        //checkWhetherAssignable??
-        cd.cst = Constant.parse(s); //cd.const.context = p;
-        s.readNextToken();
+        cd.cst = Constant.parse(s);
         s.skip(semicolonToken);
 
         leaveParser("const decl");

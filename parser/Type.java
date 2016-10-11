@@ -5,8 +5,6 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 abstract class Type extends PascalSyntax {
-    String name;
-    ArrayType at = null;
 
     Type(int lNum) {
         super(lNum);
@@ -24,11 +22,10 @@ abstract class Type extends PascalSyntax {
         enterParser("type");
         Type t = null;
 
-
-        if(s.curToken.kind == nameToken){
-            t = Type.parse(s);
-        }else{
-            t.at = ArrayType.parse(s);
+        if (s.curToken.kind == nameToken) {
+            t = TypeName.parse(s);
+        } else {
+            t = ArrayType.parse(s);
         }
 
         leaveParser("type");

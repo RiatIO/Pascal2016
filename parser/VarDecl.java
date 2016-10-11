@@ -17,14 +17,16 @@ class VarDecl extends PascalDecl{
     }
 
     static VarDecl parse(Scanner s) {
-        enterParser("Var-decl");
+        enterParser("var decl");
         s.test(nameToken);
-
         VarDecl vd = new VarDecl(s.curToken.id, s.curLineNum());
-        
+        s.readNextToken();
+
         s.skip(colonToken);
         vd.type = Type.parse(s);
         s.skip(semicolonToken);
+
+        leaveParser("var decl");
         return vd;
     }
 

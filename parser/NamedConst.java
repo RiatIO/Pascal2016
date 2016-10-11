@@ -23,7 +23,7 @@ class NamedConst extends UnsignedConstant {
 
         s.test(nameToken);
         nc.name = s.curToken.id;
-        s.readNextToken();
+        s.skip(s.curToken.kind);
 
         leaveParser("namedconst");
         return nc;

@@ -25,9 +25,8 @@ class CharLiteral extends UnsignedConstant {
 
         s.test(charValToken);
         cl.c = s.curToken.charVal;
-
         s.skip(s.curToken.kind);
-        System.out.println(s.curToken.kind);
+
         leaveParser("charliteral");
         return cl;
     }

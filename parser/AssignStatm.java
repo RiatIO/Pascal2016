@@ -21,14 +21,14 @@ class AssignStatm extends Statement{
     }
 
     static AssignStatm parse(Scanner s){
-        enterParser("Assign-Statm");
+        enterParser("assign statm");
 
         AssignStatm asgn = new AssignStatm(s.curLineNum());
         asgn.v = Variable.parse(s);
         s.skip(assignToken);
         asgn.e = Expression.parse(s);
 
-        leaveParser("Assign-Statm");
+        leaveParser("assign statm");
         return asgn;
     }
 }
