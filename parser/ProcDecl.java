@@ -24,8 +24,7 @@ class ProcDecl extends PascalDecl {
 
         ProcDecl pd = new ProcDecl(s.curToken.id, s.curLineNum());
 
-        // TODO: is this even right?
-        if (s.curToken.kind != leftParToken) {
+        if (s.curToken.kind == leftParToken) {
             pd.pdl = ParamDeclList.parse(s);
         }
 

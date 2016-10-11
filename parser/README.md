@@ -32,7 +32,7 @@
 [x] - [PascalDecl]  
 [x] - - ConstDecl  
 [x] - - ParamDecl  
-[-] - - ProcDecl  
+[x] - - ProcDecl  
 [x] - - - FuncDecl  
 [x] - - Program  
 [Not finished] - - TypeDecl  
