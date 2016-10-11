@@ -11,6 +11,7 @@ class ProcCallStatm extends Statement{
 
     ProcCallStatm(int lNum){
         super(lNum);
+        expr = new ArrayList<>();
     }
 
     @Override public String identify() {

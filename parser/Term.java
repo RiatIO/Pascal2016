@@ -11,6 +11,8 @@ class Term extends PascalSyntax {
 
     Term(int lNum) {
         super(lNum);
+        f  = new ArrayList<>();
+        fo = new ArrayList<>();
     }
 
     @Override public String identify() {
@@ -27,8 +29,14 @@ class Term extends PascalSyntax {
         Term t = new Term(s.curLineNum());
 
         while (true) {
-            System.out.println("IM HERE");
-            t.f.add(Factor.parse(s));
+            try {
+                Factor temp = Factor.parse(s);
+                System.out.println("Term varaible: " + temp);
+                t.f.add(temp);
+                System.out.println("AHAH" + t.f);
+            } catch(PascalError e) {
+                System.out.println("DEBUG TRAIN ON THE RUN");
+            }
 
             if (s.curToken.kind.isFactorOpr()) {
                 t.fo.add(FactorOperator.parse(s));

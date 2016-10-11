@@ -14,6 +14,8 @@ class SimpleExpr extends PascalSyntax {
 
     SimpleExpr(int lNum) {
         super(lNum);
+        t  = new ArrayList<>();
+        to = new ArrayList<>();
     }
 
     @Override public String identify() {
@@ -34,14 +36,13 @@ class SimpleExpr extends PascalSyntax {
         }
 
         while (true) {
-            try {
-                se.t.add(Term.parse(s));
-            } catch (PascalError e) {
-                break;
-            }
+            Term t = Term.parse(s);
+            se.t.add(t);
 
             if (s.curToken.kind.isTermOpr()) {
                 se.to.add(TermOperator.parse(s));
+            } else {
+                break;
             }
         }
 

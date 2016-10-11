@@ -27,6 +27,6 @@ class CompoundStatm extends Statement{
         s.skip(endToken);
 
         leaveParser("CompoundStatm");
-        return cps;
+        return cp;
     }
 }

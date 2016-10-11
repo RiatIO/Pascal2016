@@ -41,8 +41,7 @@ public abstract class Factor extends PascalSyntax {
                 fo = UnsignedConstant.parse(s); break;
         }
 
-        System.out.println("HAHAHAH");
-        System.out.println(fo);
+        System.out.println("in factor " + fo);
 
         leaveParser("factor");
         return fo;

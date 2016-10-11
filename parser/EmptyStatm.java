@@ -18,11 +18,10 @@ class EmptyStatm extends Statement {
     }
 
     static EmptyStatm parse(Scanner s){
-        enterParser("Empty-Statm");
+        enterParser("empty statm");
 
-        s.skip(semicolonToken);
 
-        leaveParser("Empty-Statm");
+        leaveParser("empty statm");
         return null;
     }
 }

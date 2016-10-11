@@ -11,6 +11,7 @@ class ParamDeclList extends PascalSyntax {
 
     ParamDeclList(int lNum) {
         super(lNum);
+        pd = new ArrayList<>();
     }
 
     @Override public String identify() {

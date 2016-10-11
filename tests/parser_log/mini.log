@@ -17,3 +17,17 @@ Parser:                       <charliteral>
 Parser:                       </charliteral>
 Parser:                     </unsignedconstant>
 Parser:                   </factor>
+Parser:                 </term>
+Parser:               </simple expr>
+Parser:             </expression>
+   6: end. 
+Parser:           </proc call>
+Parser:         </statement>
+Parser:         <statement>
+Parser:           <empty statm>
+Parser:           </empty statm>
+Parser:         </statement>
+Error in line 6: Expected a ; but found a end!
+Parser:       </statm list>
+Parser:     </block>
+Parser:   </program>
