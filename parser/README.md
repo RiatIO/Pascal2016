@@ -37,7 +37,7 @@
 [x] - - Program  
 [Not finished] - - TypeDecl  
 [x] - - VarDecl  
-[] - SimpleExpr  
+[x] - SimpleExpr  
 [x] - [Statement]  
 [x] - - AssignStatm  
 [x] - - CompoundStatm  
@@ -45,8 +45,8 @@
 [x] - - IfStatm  
 [x] - - ProcCallStatm  
 [-] - - WhileStatm  
-[] - [Type]  
-[] - - ArrayType  
+[-] - [Type]  
+[x] - - ArrayType  
 [] - - BoolType  
 [] - - CharType  
 [] - - IntType  
