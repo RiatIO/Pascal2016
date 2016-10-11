@@ -10,7 +10,7 @@ part = parser
 file  = tests/mini.pas
 files = tests/10star.pas tests/easter.pas tests/gcd.pas tests/mini.pas tests/opers.pas tests/primes.pas
 
-all: clean compile runOne script
+all: compile runOne script
 run: clean compile runAll script
 
 compile:

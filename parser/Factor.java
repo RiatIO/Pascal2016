@@ -26,18 +26,23 @@ public abstract class Factor extends PascalSyntax {
 
         switch (s.curToken.kind) {
             case nameToken:
-                if (s.nextToken.kind == leftBracketToken)
+                if (s.nextToken.kind == leftParToken)
                     fo = FuncCall.parse(s);
                 else if (s.nextToken.kind == leftBracketToken)
                     fo = Variable.parse(s);
                 else
-                    fo = NamedConst.parse(s); // <-- IS THIS RIGHT?
+                    fo = UnsignedConstant.parse(s); // <-- IS THIS RIGHT?
                 break;
             case leftParToken:
                 fo = InnerExpr.parse(s); break;
             case notToken:
                 fo = Negation.parse(s); break;
+            default:
+                fo = UnsignedConstant.parse(s); break;
         }
+
+        System.out.println("HAHAHAH");
+        System.out.println(fo);
 
         leaveParser("factor");
         return fo;

@@ -10,4 +10,10 @@ Parser:         <statement>
 Parser:           <proc call>
 Parser:             <expression>
 Parser:               <simple expr>
-Parser:               </simple expr>
+Parser:                 <term>
+Parser:                   <factor>
+Parser:                     <unsignedconstant>
+Parser:                       <charliteral>
+Parser:                       </charliteral>
+Parser:                     </unsignedconstant>
+Parser:                   </factor>

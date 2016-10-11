@@ -7,6 +7,8 @@ import static scanner.TokenKind.*;
 
 class SimpleExpr extends PascalSyntax {
     PrefixOperator po;
+    ArrayList<Term> t;
+    ArrayList<TermOperator> to;
 
     // FIIIIIX THIS TOMORROWOOWOWW
 
@@ -31,7 +33,17 @@ class SimpleExpr extends PascalSyntax {
             se.po = PrefixOperator.parse(s);
         }
 
-        
+        while (true) {
+            try {
+                se.t.add(Term.parse(s));
+            } catch (PascalError e) {
+                break;
+            }
+
+            if (s.curToken.kind.isTermOpr()) {
+                se.to.add(TermOperator.parse(s));
+            }
+        }
 
         leaveParser("simple expr");
         return se;

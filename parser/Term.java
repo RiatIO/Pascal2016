@@ -6,7 +6,8 @@ import static scanner.TokenKind.*;
 import java.util.ArrayList;
 
 class Term extends PascalSyntax {
-    ArrayList<Statement> s;
+    ArrayList<Factor> f;
+    ArrayList<FactorOperator> fo;
 
     Term(int lNum) {
         super(lNum);
@@ -22,8 +23,22 @@ class Term extends PascalSyntax {
 
     static Term parse(Scanner s) {
         enterParser("term");
-        
+
+        Term t = new Term(s.curLineNum());
+
+        while (true) {
+            System.out.println("IM HERE");
+            t.f.add(Factor.parse(s));
+
+            if (s.curToken.kind.isFactorOpr()) {
+                t.fo.add(FactorOperator.parse(s));
+            } else {
+                break;
+            }
+        }
+
+
         leaveParser("term");
-        return null;
+        return t;
     }
 }
