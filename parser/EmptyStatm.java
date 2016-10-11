@@ -4,7 +4,7 @@ import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
-class EmptyStatm extends Statement{
+class EmptyStatm extends Statement {
     EmptyStatm(int lNum){
         super(lNum);
     }
@@ -21,7 +21,7 @@ class EmptyStatm extends Statement{
         enterParser("Empty-Statm");
 
         s.skip(semicolonToken);
-        
+
         leaveParser("Empty-Statm");
         return null;
     }

@@ -36,6 +36,6 @@ class StatmList extends PascalSyntax {
         }
 
         leaveParser("statm list");
-        return null;
+        return sl;
     }
 }

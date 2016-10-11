@@ -27,15 +27,13 @@ class SimpleExpr extends PascalSyntax {
 
         SimpleExpr se = new SimpleExpr(s.curLineNum());
 
-        if (s.curToken.kind.isPrefixOpr) {
+        if (s.curToken.kind.isPrefixOpr()) {
             se.po = PrefixOperator.parse(s);
         }
 
-        while (true) {
-
-        }
+        
 
         leaveParser("simple expr");
-        return null;
+        return se;
     }
 }

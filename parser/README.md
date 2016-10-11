@@ -12,7 +12,7 @@
 [x] - - FuncCall  
 [x] - - InnerExpr  
 [x] - - Negation  
-[-] - - [UnsignedConstant]  
+[x] - - [UnsignedConstant]  
 [x] - - - CharLiteral  
 [x] - - - NamedConst  
 [x] - - - NumberLiteral  
@@ -20,9 +20,12 @@
 [-] - [Operator]  
 [x] - - FactorOperator
 [x] - - PrefixOperator  
-[-] - - RelOperator  
+[x] - - RelOperator  
 [x] - - TermOperator  
 [x] - ParamDeclList
+[-] - StatmList  
+[] - Term
+[] - VarDeclPart  
 
 ## Salman  
 
@@ -42,8 +45,7 @@
 [x] - - IfStatm  
 [x] - - ProcCallStatm  
 [-] - - WhileStatm  
-[-] - StatmList  
-[] - Term  
+
 
 ## Extra
 [] - [Type]  
@@ -52,4 +54,3 @@
 [] - - CharType  
 [] - - IntType  
 [] - - TypeName  
-[] - VarDeclPart  

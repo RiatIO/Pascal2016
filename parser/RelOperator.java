@@ -25,22 +25,22 @@ class RelOperator extends Operator {
 
         switch (s.curToken.kind) {
             case equalToken:
-                fo.k = multiplyToken; break;
+                ro.tk = multiplyToken; break;
             case notEqualToken:
-                fo.k = notEqualToken; break;
+                ro.tk = notEqualToken; break;
             case lessToken:
-                fo.k = lessToken; break;
+                ro.tk = lessToken; break;
             case lessEqualToken:
-                fo.k = lessEqualToken; break;
+                ro.tk = lessEqualToken; break;
             case greaterToken:
-                fo.k = greaterToken; break;
+                ro.tk = greaterToken; break;
             case greaterEqualToken:
-                fo.k = greaterEqualToken; break;
+                ro.tk = greaterEqualToken; break;
         }
 
         s.readNextToken();
 
         leaveParser("RelOperator");
-        return null;
+        return ro;
     }
 }

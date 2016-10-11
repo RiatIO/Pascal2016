@@ -1,6 +1,10 @@
 package parser;
 
-public abstract class Operator extends PascalSyntax {
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
+public abstract class Operator extends Factor {
 
     Operator(int lNum) {
         super(lNum);
@@ -14,10 +18,13 @@ public abstract class Operator extends PascalSyntax {
 
     }
 
-    // static Operator parse(Scanner s) {
-    //     enterParser("operator");
-    //
-    //     leaveParser("operator");
-    //     return op;
-    // }
+    static Operator parse(Scanner s) {
+        enterParser("operator");
+
+        Operator o = null;
+
+
+        leaveParser("operator");
+        return o;
+    }
 }

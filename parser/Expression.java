@@ -28,11 +28,9 @@ class Expression extends PascalSyntax {
         Expression ex = new Expression(s.curLineNum());
         ex.se.add(SimpleExpr.parse(s));
 
-        try {
+        if (s.curToken.kind.isRelOpr()) {
             ex.ro = RelOperator.parse(s);
             ex.se.add(SimpleExpr.parse(s));
-        } catch (PascalError e) {
-            System.out.println("Error occured in <Expression>: " + e.getMessage());
         }
 
         leaveParser("expression");
