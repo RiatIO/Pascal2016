@@ -23,7 +23,7 @@ class Constant extends PascalSyntax {
     }
 
     static Constant parse(Scanner s) {
-        enterParser("Constant");
+        enterParser("constant");
 
         Constant c = new Constant(s.curLineNum());
 
@@ -33,7 +33,7 @@ class Constant extends PascalSyntax {
 
         c.uc = UnsignedConstant.parse(s);
 
-        leaveParser("Constant");
+        leaveParser("constant");
         return c;
     }
 }

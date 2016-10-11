@@ -29,9 +29,9 @@ class StatmList extends PascalSyntax {
         while (true) {
             sl.s.add(Statement.parse(s));
 
-            try {
+            if (s.curToken.kind == semicolonToken) {
                 s.skip(semicolonToken);
-            } catch (PascalError e) {
+            } else {
                 break;
             }
         }

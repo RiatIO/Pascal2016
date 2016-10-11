@@ -21,12 +21,13 @@ class CharLiteral extends UnsignedConstant {
 
         CharLiteral cl = new CharLiteral(s.curLineNum());
 
+        System.out.println(s.curToken.kind);
+
         s.test(charValToken);
         cl.c = s.curToken.charVal;
-        s.readNextToken();
 
-        System.out.println("In charlit" + cl);
-
+        s.skip(s.curToken.kind);
+        System.out.println(s.curToken.kind);
         leaveParser("charliteral");
         return cl;
     }

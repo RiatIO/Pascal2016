@@ -11,7 +11,7 @@ public abstract class UnsignedConstant extends Factor {
     }
 
     static UnsignedConstant parse(Scanner s) {
-        enterParser("unsignedconstant");
+        enterParser("unsigned constant");
 
         UnsignedConstant fo = null;
 
@@ -24,9 +24,9 @@ public abstract class UnsignedConstant extends Factor {
                 fo = CharLiteral.parse(s); break;
         }
 
-        System.out.println("In unsigned: " + fo);
 
-        leaveParser("unsignedconstant");
+
+        leaveParser("unsigned constant");
         return fo;
     }
 }

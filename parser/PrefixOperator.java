@@ -29,7 +29,7 @@ class PrefixOperator extends Operator {
             po.tk = subtractToken;
         }
 
-        s.readNextToken();
+        s.skip(s.curToken.kind);
 
         leaveParser("prefixoperator");
         return po;
