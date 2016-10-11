@@ -12,6 +12,7 @@ class Expression extends PascalSyntax {
 
     Expression(int lNum) {
         super(lNum);
+        se = new ArrayList<>();
     }
 
     @Override public String identify() {

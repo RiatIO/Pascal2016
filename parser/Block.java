@@ -17,6 +17,8 @@ class Block extends PascalSyntax {
 
     Block(int lNum) {
         super(lNum);
+        fd = new ArrayList<>();
+        pd = new ArrayList<>();
     }
 
     @Override public String identify() {

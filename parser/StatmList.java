@@ -10,6 +10,7 @@ class StatmList extends PascalSyntax {
 
     StatmList(int lNum) {
         super(lNum);
+        s = new ArrayList<>();
     }
 
     @Override public String identify() {

@@ -14,6 +14,8 @@ class SimpleExpr extends PascalSyntax {
 
     SimpleExpr(int lNum) {
         super(lNum);
+        t  = new ArrayList<>();
+        to = new ArrayList<>();
     }
 
     @Override public String identify() {
