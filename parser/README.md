@@ -45,9 +45,6 @@
 [x] - - IfStatm  
 [x] - - ProcCallStatm  
 [-] - - WhileStatm  
-
-
-## Extra
 [] - [Type]  
 [] - - ArrayType  
 [] - - BoolType  
