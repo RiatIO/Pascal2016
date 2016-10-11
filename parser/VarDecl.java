@@ -21,7 +21,7 @@ class VarDecl extends PascalDecl{
         s.test(nameToken);
 
         VarDecl vd = new VarDecl(s.curToken.id, s.curLineNum());
-
+        
         s.skip(colonToken);
         vd.type = Type.parse(s);
         s.skip(semicolonToken);
