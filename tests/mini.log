@@ -27,7 +27,6 @@ Parser:         <statement>
 Parser:           <empty statm>
 Parser:           </empty statm>
 Parser:         </statement>
-Error in line 6: Expected a ; but found a end!
 Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>

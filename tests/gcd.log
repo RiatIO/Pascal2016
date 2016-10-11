@@ -1,0 +1,31 @@
+   1: program GCD; 
+Parser:   <program>
+   2: /* A program to compute the {greatest common} of two numbers, 
+   3:    i.e., the biggest number by which the two original 
+   4:    numbers can be divided without a remainder. */ 
+   5:  
+   6: const v1 = 1071; v2 = 462; 
+Parser:     <block>
+Parser:       <const decl part>
+Parser:         <const decl>
+Parser:           <constant>
+Parser:             <unsigned constant>
+Parser:               <number literal>
+Parser:               </number literal>
+Parser:             </unsigned constant>
+Parser:           </constant>
+Parser:         </const decl>
+Parser:         <const decl>
+Parser:           <constant>
+Parser:             <unsigned constant>
+Parser:               <number literal>
+   7:  
+   8: var res: integer; 
+Parser:               </number literal>
+Parser:             </unsigned constant>
+Parser:           </constant>
+Parser:         </const decl>
+Parser:       </const decl part>
+Parser:       <var decl part>
+Parser:         <Var-decl>
+Error in line 8: Expected a : but found a name!

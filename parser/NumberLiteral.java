@@ -17,7 +17,7 @@ class NumberLiteral extends UnsignedConstant {
     }
 
     static NumberLiteral parse(Scanner s) {
-        enterParser("NumberLiteral");
+        enterParser("number literal");
 
         NumberLiteral nl = new NumberLiteral(s.curLineNum());
 
@@ -25,7 +25,7 @@ class NumberLiteral extends UnsignedConstant {
         nl.number = s.curToken.intVal;
         s.readNextToken();
 
-        leaveParser("NumberLiteral");
+        leaveParser("number literal");
         return nl;
     }
 }

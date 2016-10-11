@@ -8,7 +8,7 @@
 [] - ConstDeclPart  
 [x] - Constant  
 [x] - Expression  
-[-] - [Factor]  
+[x] - [Factor]  
 [x] - - FuncCall  
 [x] - - InnerExpr  
 [x] - - Negation  
@@ -23,7 +23,7 @@
 [x] - - RelOperator  
 [x] - - TermOperator  
 [x] - ParamDeclList
-[-] - StatmList  
+[x] - StatmList  
 [] - Term
 [] - VarDeclPart  
 
