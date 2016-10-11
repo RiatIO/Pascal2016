@@ -31,7 +31,7 @@ class TermOperator extends Operator {
             to.tk = orToken;
         }
 
-        s.readNextToken();
+        s.skip(s.curToken.kind);
 
         leaveParser("TermOperator");
         return to;

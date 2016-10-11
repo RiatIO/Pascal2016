@@ -31,9 +31,7 @@ class Term extends PascalSyntax {
         while (true) {
             try {
                 Factor temp = Factor.parse(s);
-                System.out.println("Term varaible: " + temp);
                 t.f.add(temp);
-                System.out.println("AHAH" + t.f);
             } catch(PascalError e) {
                 System.out.println("DEBUG TRAIN ON THE RUN");
             }
