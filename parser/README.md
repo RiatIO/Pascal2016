@@ -5,7 +5,7 @@
 [x] [PascalSyntax]  
 [x] - Block  
 [] - - Library  
-[] - ConstDeclPart  
+[x] - ConstDeclPart  
 [x] - Constant  
 [x] - Expression  
 [x] - [Factor]  
@@ -24,8 +24,8 @@
 [x] - - TermOperator  
 [x] - ParamDeclList
 [x] - StatmList  
-[] - Term
-[] - VarDeclPart  
+[x] - Term
+[x] - VarDeclPart  
 
 ## Salman  
 

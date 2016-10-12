@@ -17,14 +17,4 @@ public abstract class Operator extends Factor {
     @Override public void prettyPrint() {
 
     }
-
-    static Operator parse(Scanner s) {
-        enterParser("operator");
-
-        Operator o = null;
-
-
-        leaveParser("operator");
-        return o;
-    }
 }
