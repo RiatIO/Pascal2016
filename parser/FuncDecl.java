@@ -9,7 +9,7 @@ import static scanner.TokenKind.*;
 class FuncDecl extends ProcDecl {
     ParamDeclList pdl;
     Block b;
-    Type type;
+    TypeName tn;
 
     FuncDecl(String id, int lNum) {
         super(id, lNum);
@@ -33,7 +33,7 @@ class FuncDecl extends ProcDecl {
         }
 
         s.skip(colonToken);
-        fd.type = Type.parse(s);
+        fd.tn = TypeName.parse(s);
         s.skip(semicolonToken);
 
         fd.b = Block.parse(s);

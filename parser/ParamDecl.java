@@ -5,7 +5,7 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 class ParamDecl extends PascalDecl {
-    Type type;
+    TypeName tn;
 
     ParamDecl(String id, int lNum) {
         super(id, lNum);
@@ -28,7 +28,7 @@ class ParamDecl extends PascalDecl {
 
         s.skip(colonToken);
 
-        pd.type = Type.parse(s);
+        pd.tn = TypeName.parse(s);
         leaveParser("param decl");
         return pd;
     }

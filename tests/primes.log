@@ -1,0 +1,56 @@
+   1:  
+   2: /* This program prints all primes less than 1000 
+   3:    using a technique called "The sieve of Eratosthenes". */ 
+   4:  
+   5: program Primes; 
+Parser:   <program>
+   6:  
+   7: const Limit = 1000; 
+Parser:     <block>
+Parser:       <const decl part>
+Parser:         <const decl>
+Parser:           <constant>
+Parser:             <unsigned constant>
+Parser:               <number literal>
+   8:  
+   9: var prime : array [2..Limit] of Boolean; 
+Parser:               </number literal>
+Parser:             </unsigned constant>
+Parser:           </constant>
+Parser:         </const decl>
+Parser:       </const decl part>
+Parser:       <var decl part>
+Parser:         <var decl>
+Parser:           <type>
+Parser:             <array type>
+Parser:               <constant>
+Parser:                 <unsigned constant>
+Parser:                   <number literal>
+Parser:                   </number literal>
+Parser:                 </unsigned constant>
+Parser:               </constant>
+Parser:               <constant>
+Parser:                 <unsigned constant>
+Parser:                   <namedconst>
+Parser:                   </namedconst>
+Parser:                 </unsigned constant>
+Parser:               </constant>
+Parser:               <type>
+Parser:                 <name type>
+  10:     i	  : integer; 
+Parser:                 </name type>
+Parser:               </type>
+Parser:             </array type>
+Parser:           </type>
+Parser:         </var decl>
+Parser:         <var decl>
+Parser:           <type>
+Parser:             <name type>
+  11:  
+  12: procedure FindPrimes; 
+Parser:             </name type>
+Parser:           </type>
+Parser:         </var decl>
+Parser:       </var decl part>
+Parser:       <Proc-decl>
+Error in line 12: Expected a ; but found a name!

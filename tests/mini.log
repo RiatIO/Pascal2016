@@ -12,10 +12,10 @@ Parser:             <expression>
 Parser:               <simple expr>
 Parser:                 <term>
 Parser:                   <factor>
-Parser:                     <unsignedconstant>
+Parser:                     <unsigned constant>
 Parser:                       <charliteral>
 Parser:                       </charliteral>
-Parser:                     </unsignedconstant>
+Parser:                     </unsigned constant>
 Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
