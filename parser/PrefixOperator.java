@@ -19,7 +19,7 @@ class PrefixOperator extends Operator {
     }
 
     static PrefixOperator parse(Scanner s) {
-        enterParser("prefixoperator");
+        enterParser("prefix opr");
 
         PrefixOperator po = new PrefixOperator(s.curLineNum());
 
@@ -31,7 +31,7 @@ class PrefixOperator extends Operator {
 
         s.skip(s.curToken.kind);
 
-        leaveParser("prefixoperator");
+        leaveParser("prefix opr");
         return po;
     }
 }

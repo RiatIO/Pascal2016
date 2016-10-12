@@ -33,7 +33,7 @@ class ProcDecl extends PascalDecl {
         pd.b = Block.parse(s);
         s.skip(semicolonToken);
 
-        leaveParser("Proc decl");
+        leaveParser("proc decl");
         return pd;
     }
 

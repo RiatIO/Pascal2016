@@ -17,7 +17,7 @@ class CharLiteral extends UnsignedConstant {
     }
 
     static CharLiteral parse(Scanner s) {
-        enterParser("charliteral");
+        enterParser("char literal");
 
         CharLiteral cl = new CharLiteral(s.curLineNum());
 
@@ -25,7 +25,7 @@ class CharLiteral extends UnsignedConstant {
         cl.c = s.curToken.charVal;
         s.skip(s.curToken.kind);
 
-        leaveParser("charliteral");
+        leaveParser("char literal");
         return cl;
     }
 }

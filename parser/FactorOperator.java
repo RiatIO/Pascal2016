@@ -18,7 +18,7 @@ class FactorOperator extends Operator {
     }
 
     static FactorOperator parse(Scanner s) {
-        enterParser("factor-operator");
+        enterParser("factor opr");
 
         FactorOperator fo = new FactorOperator(s.curLineNum());
 
@@ -35,7 +35,7 @@ class FactorOperator extends Operator {
 
         s.readNextToken();
 
-        leaveParser("factor-operator");
+        leaveParser("factor opr");
         return fo;
     }
 }

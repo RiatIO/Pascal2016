@@ -23,7 +23,7 @@ class ArrayType extends Type {
     }
 
     static ArrayType parse(Scanner s) {
-        enterParser("array type");
+        enterParser("array-type");
         ArrayType at = new ArrayType(s.curLineNum());
 
         s.skip(arrayToken);
@@ -38,7 +38,7 @@ class ArrayType extends Type {
         s.skip(ofToken);
         at.t = Type.parse(s);
 
-        leaveParser("array type");
+        leaveParser("array-type");
         return at;
     }
 }

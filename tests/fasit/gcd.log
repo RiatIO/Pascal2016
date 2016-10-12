@@ -321,3 +321,23 @@ Parser:         </statement>
 Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
+program gcd;
+const 
+  v1 = 1071;
+  v2 = 462;
+var 
+  res: integer;
+
+function gcd (m: integer; n: integer): integer;
+begin
+  if n = 0 then
+    gcd := m
+  else
+    gcd := gcd(n, m mod n)
+end; {gcd}
+
+begin
+  res := gcd(v1, v2);
+  write('G', 'C', 'D', '(', v1, ',', v2, ')', '=', res, eol);
+
+end.

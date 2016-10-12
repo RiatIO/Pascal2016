@@ -20,13 +20,13 @@ class CompoundStatm extends Statement{
     }
 
     static CompoundStatm parse(Scanner s){
-        enterParser("CompoundStatm");
+        enterParser("compound statm");
         CompoundStatm cp = new CompoundStatm(s.curLineNum());
         s.skip(beginToken);
         cp.sl = StatmList.parse(s);
         s.skip(endToken);
 
-        leaveParser("CompoundStatm");
+        leaveParser("compound statm");
         return cp;
     }
 }

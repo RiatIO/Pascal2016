@@ -17,7 +17,7 @@ class NamedConst extends UnsignedConstant {
     }
 
     static NamedConst parse(Scanner s) {
-        enterParser("namedconst");
+        enterParser("named constant");
 
         NamedConst nc = new NamedConst(s.curLineNum());
 
@@ -25,7 +25,7 @@ class NamedConst extends UnsignedConstant {
         nc.name = s.curToken.id;
         s.skip(s.curToken.kind);
 
-        leaveParser("namedconst");
+        leaveParser("named const");
         return nc;
     }
 }

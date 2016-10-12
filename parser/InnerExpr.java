@@ -17,7 +17,7 @@ class InnerExpr extends Factor {
     }
 
     static InnerExpr parse(Scanner s) {
-        enterParser("innerexpr");
+        enterParser("inner expr");
 
         s.skip(leftParToken);
 
@@ -27,7 +27,7 @@ class InnerExpr extends Factor {
 
         s.skip(rightParToken);
 
-        leaveParser("innerexpr");
+        leaveParser("inner expr");
         return ie;
     }
 }
