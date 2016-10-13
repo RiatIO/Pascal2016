@@ -42,4 +42,17 @@ class FuncDecl extends ProcDecl {
 
     }
 
+    void checkWhetherAssignable(PascalSyntax where){
+
+    }
+    void checkWhetherFunction(PascalSyntax where){
+
+    }
+    void checkWhetherProcedure(PascalSyntax where){
+
+    }
+    void checkWhetherValue(PascalSyntax where){
+
+    }
+
 }

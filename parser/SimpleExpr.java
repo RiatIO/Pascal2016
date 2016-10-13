@@ -49,4 +49,17 @@ class SimpleExpr extends PascalSyntax {
         leaveParser("simple expr");
         return se;
     }
+
+    void checkWhetherAssignable(PascalSyntax where){
+
+    }
+    void checkWhetherFunction(PascalSyntax where){
+
+    }
+    void checkWhetherProcedure(PascalSyntax where){
+
+    }
+    void checkWhetherValue(PascalSyntax where){
+
+    }
 }

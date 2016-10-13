@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 class ArrayType extends Type {
     Type t;
-    //ArrayList of Constants??
-    Constant c;
+    Constant cFirst;
+    Constant cSecond;
 
     ArrayType(int lNum) {
         super(lNum);
@@ -24,15 +24,16 @@ class ArrayType extends Type {
 
     static ArrayType parse(Scanner s) {
         enterParser("ArrayType");
+
         ArrayType at = new ArrayType(s.curLineNum());
 
         s.skip(arrayToken);
         s.skip(leftBracketToken);
 
-        at.c = Constant.parse(s);
+        at.cFirst = Constant.parse(s);
         s.skip(rangeToken);
+        at.cSecond = Constant.parse(s);
 
-        at.c = Constant.parse(s);
         s.skip(rightBracketToken);
 
         s.skip(ofToken);

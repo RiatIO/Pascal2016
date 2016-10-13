@@ -26,9 +26,10 @@ abstract class Type extends PascalSyntax {
 
 
         if(s.curToken.kind == nameToken){
-            t = Type.parse(s);
+            t.name = s.curToken.id;
+            //s.test(nameToken); 
         }else{
-            t.at = ArrayType.parse(s);
+            t = ArrayType.parse(s);
         }
 
         leaveParser("type");

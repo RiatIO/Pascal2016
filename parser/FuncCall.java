@@ -14,11 +14,11 @@ class FuncCall extends Factor {
     }
 
     @Override public String identify() {
-        return "<funccall> on line " + lineNum;
+        return "<funcCall> on line " + lineNum;
     }
 
     static FuncCall parse(Scanner s) {
-        enterParser("funccall");
+        enterParser("funcCall");
 
         FuncCall fc = new FuncCall(s.curLineNum());
 
@@ -38,7 +38,7 @@ class FuncCall extends Factor {
             s.skip(rightParToken);
         }
 
-        leaveParser("funccall");
+        leaveParser("funcCall");
         return fc;
     }
 }
