@@ -16,6 +16,11 @@ class Negation extends Factor {
         return "<negation> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint("not ");
+        fc.prettyPrint();
+    }
+
     static Negation parse(Scanner s) {
         enterParser("negation");
 

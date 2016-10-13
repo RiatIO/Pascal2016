@@ -20,27 +20,38 @@ class ParamDeclList extends PascalSyntax {
 
     @Override public void prettyPrint() {
 
+        Main.log.prettyPrint("(");
+
+        for (int i = 0; i < pd.size(); i++) {
+            if (i != 0) {
+                Main.log.prettyPrint("; ");
+            }
+            pd.get(i).prettyPrint();
+        }
+        Main.log.prettyPrint(")");
+
     }
 
     static ParamDeclList parse(Scanner s) {
-        enterParser("param-decl-list");
-
-        s.skip(leftParToken);
+        enterParser("param decl list");
 
         ParamDeclList pdl = new ParamDeclList(s.curLineNum());
 
+        s.skip(leftParToken);
+
         while (true) {
-            try {
-                pdl.pd.add(ParamDecl.parse(s));
-                s.test(semicolonToken);
-            } catch(PascalError e) {
+            pdl.pd.add(ParamDecl.parse(s));
+
+            if (s.curToken.kind == semicolonToken) {
+                s.skip(semicolonToken);
+            } else {
                 break;
             }
         }
 
         s.skip(rightParToken);
 
-        leaveParser("param-decl-list");
+        leaveParser("param decl list");
         return pdl;
     }
 }

@@ -11,7 +11,7 @@ file  = tests/gcd.pas
 files = tests/10star.pas tests/easter.pas tests/gcd.pas tests/mini.pas tests/opers.pas tests/primes.pas
 
 all: compile runOne
-run: clean compile runAll script
+run: compile runAll
 
 compile:
 	ant

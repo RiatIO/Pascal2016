@@ -7,15 +7,11 @@ import static scanner.TokenKind.*;
 import java.util.ArrayList;
 
 class Expression extends PascalSyntax {
-    //ArrayList<SimpleExpr> se;
     RelOperator ro;
-
-    SimpleExpr preSe;
-    SimpleExpr postSe;
+    SimpleExpr preSe, postSe;
 
     Expression(int lNum) {
         super(lNum);
-        // se = new ArrayList<>();
     }
 
     @Override public String identify() {
@@ -23,7 +19,14 @@ class Expression extends PascalSyntax {
     }
 
     @Override public void prettyPrint() {
+        preSe.prettyPrint();
 
+        if (ro != null) {
+            Main.log.prettyPrint(" ");
+            ro.prettyPrint();
+            Main.log.prettyPrint(" ");
+            postSe.prettyPrint();
+        }
     }
 
     static Expression parse(Scanner s) {
@@ -31,11 +34,9 @@ class Expression extends PascalSyntax {
 
         Expression ex = new Expression(s.curLineNum());
         ex.preSe = SimpleExpr.parse(s);
-        // ex.se.add(SimpleExpr.parse(s));
 
         if (s.curToken.kind.isRelOpr()) {
             ex.ro = RelOperator.parse(s);
-            // ex.se.add(SimpleExpr.parse(s));
             ex.postSe = SimpleExpr.parse(s);
         }
 

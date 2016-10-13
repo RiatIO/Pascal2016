@@ -17,8 +17,12 @@ class FactorOperator extends Operator {
         return "<factor-operator> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(k.toString());
+    }
+
     static FactorOperator parse(Scanner s) {
-        enterParser("factor-operator");
+        enterParser("factor opr");
 
         FactorOperator fo = new FactorOperator(s.curLineNum());
 
@@ -35,7 +39,7 @@ class FactorOperator extends Operator {
 
         s.readNextToken();
 
-        leaveParser("factor-operator");
+        leaveParser("factor opr");
         return fo;
     }
 }

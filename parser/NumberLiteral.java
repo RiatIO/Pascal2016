@@ -16,6 +16,10 @@ class NumberLiteral extends UnsignedConstant {
         return "<NumberLiteral> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(Integer.toString(number));
+    }
+
     static NumberLiteral parse(Scanner s) {
         enterParser("number literal");
 
@@ -23,7 +27,7 @@ class NumberLiteral extends UnsignedConstant {
 
         s.test(intValToken);
         nl.number = s.curToken.intVal;
-        s.readNextToken();
+        s.skip(s.curToken.kind);
 
         leaveParser("number literal");
         return nl;

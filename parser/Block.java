@@ -11,13 +11,14 @@ class Block extends PascalSyntax {
     ConstDeclPart cdp;
     VarDeclPart vdp;
 
-    ArrayList<FuncDecl> fd;
+    // ArrayList<FuncDecl> fd;
     ArrayList<ProcDecl> pd;
+
     StatmList sm;
 
     Block(int lNum) {
         super(lNum);
-        fd = new ArrayList<>();
+        // fd = new ArrayList<>();
         pd = new ArrayList<>();
     }
 
@@ -26,7 +27,22 @@ class Block extends PascalSyntax {
     }
 
     @Override public void prettyPrint() {
+        if (cdp != null)
+            cdp.prettyPrint();
+        if (vdp != null)
+            vdp.prettyPrint();
 
+        if (!pd.isEmpty()) {
+            for (ProcDecl p : pd) {
+                p.prettyPrint();
+            }
+            Main.log.prettyPrintLn();
+        }
+        Main.log.prettyPrint("begin");
+        Main.log.prettyPrintLn();
+
+        sm.prettyPrint();
+        Main.log.prettyPrint("end");
     }
 
     static Block parse(Scanner s) {
@@ -44,7 +60,7 @@ class Block extends PascalSyntax {
 
         while(true) {
             if (s.curToken.kind == functionToken) {
-                b.fd.add(FuncDecl.parse(s));
+                b.pd.add(FuncDecl.parse(s));
             } else if (s.curToken.kind == procedureToken) {
                 b.pd.add(ProcDecl.parse(s));
             } else {

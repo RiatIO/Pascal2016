@@ -17,16 +17,22 @@ class ConstDecl extends PascalDecl {
         return "<const decl> " + name + " on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(name + " = ");
+        cst.prettyPrint();
+        Main.log.prettyPrint(";");
+
+    }
+
     static ConstDecl parse(Scanner s) {
         enterParser("const decl");
         s.test(nameToken);
 
         ConstDecl cd = new ConstDecl(s.curToken.id, s.curLineNum());
         s.readNextToken();
+
         s.skip(equalToken);
-        //checkWhetherAssignable??
-        cd.cst = Constant.parse(s); //cd.const.context = p;
-        s.readNextToken();
+        cd.cst = Constant.parse(s);
         s.skip(semicolonToken);
 
         leaveParser("const decl");

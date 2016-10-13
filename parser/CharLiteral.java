@@ -16,19 +16,21 @@ class CharLiteral extends UnsignedConstant {
         return "<charliteral> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint("'" + (c =='\'' ? "''" : c) + "'");
+
+    }
+
     static CharLiteral parse(Scanner s) {
-        enterParser("charliteral");
+        enterParser("char literal");
 
         CharLiteral cl = new CharLiteral(s.curLineNum());
 
-        System.out.println(s.curToken.kind);
-
         s.test(charValToken);
         cl.c = s.curToken.charVal;
-
         s.skip(s.curToken.kind);
-        System.out.println(s.curToken.kind);
-        leaveParser("charliteral");
+
+        leaveParser("char literal");
         return cl;
     }
 }

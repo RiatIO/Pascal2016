@@ -18,8 +18,12 @@ class PrefixOperator extends Operator {
         return "<prefixoperator> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(" " + tk.toString() + " ");
+    }
+
     static PrefixOperator parse(Scanner s) {
-        enterParser("prefixoperator");
+        enterParser("prefix opr");
 
         PrefixOperator po = new PrefixOperator(s.curLineNum());
 
@@ -31,7 +35,7 @@ class PrefixOperator extends Operator {
 
         s.skip(s.curToken.kind);
 
-        leaveParser("prefixoperator");
+        leaveParser("prefix opr");
         return po;
     }
 }

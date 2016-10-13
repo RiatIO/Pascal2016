@@ -22,9 +22,9 @@ public abstract class UnsignedConstant extends Factor {
                 fo = NumberLiteral.parse(s); break;
             case charValToken:
                 fo = CharLiteral.parse(s); break;
+            default:
+                fo = CharLiteral.parse(s); break;
         }
-
-
 
         leaveParser("unsigned constant");
         return fo;

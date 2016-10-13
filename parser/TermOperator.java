@@ -18,8 +18,12 @@ class TermOperator extends Operator {
         return "<TermOperator> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(tk.toString());
+    }
+
     static TermOperator parse(Scanner s) {
-        enterParser("TermOperator");
+        enterParser("term opr");
 
         TermOperator to = new TermOperator(s.curLineNum());
 
@@ -33,7 +37,7 @@ class TermOperator extends Operator {
 
         s.skip(s.curToken.kind);
 
-        leaveParser("TermOperator");
+        leaveParser("term opr");
         return to;
     }
 }

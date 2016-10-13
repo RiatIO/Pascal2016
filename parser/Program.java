@@ -17,6 +17,14 @@ public class Program extends PascalDecl {
         return "<program> " + name + " on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint("program " + name + ";");
+        Main.log.prettyPrintLn();
+        progBlock.prettyPrint();
+        Main.log.prettyPrint(".");
+    }
+
+
     public static Program parse(Scanner s) {
         enterParser("program");
         s.skip(programToken);

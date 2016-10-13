@@ -17,18 +17,20 @@ class AssignStatm extends Statement{
     }
 
     @Override public void prettyPrint() {
-
+        v.prettyPrint();
+        Main.log.prettyPrint(" := ");
+        e.prettyPrint();
     }
 
     static AssignStatm parse(Scanner s){
-        enterParser("Assign-Statm");
+        enterParser("assign statm");
 
         AssignStatm asgn = new AssignStatm(s.curLineNum());
         asgn.v = Variable.parse(s);
         s.skip(assignToken);
         asgn.e = Expression.parse(s);
 
-        leaveParser("Assign-Statm");
+        leaveParser("assign statm");
         return asgn;
     }
 }
