@@ -44,10 +44,10 @@
 [x] - - EmptyStatm  
 [x] - - IfStatm  
 [x] - - ProcCallStatm  
-[-] - - WhileStatm  
-[-] - [Type]  
+[x] - - WhileStatm  
+[x] - [Type]  
 [x] - - ArrayType  
 [] - - BoolType  
 [] - - CharType  
 [] - - IntType  
-[] - - TypeName  
+[x] - - TypeName  

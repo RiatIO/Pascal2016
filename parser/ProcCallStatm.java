@@ -19,7 +19,20 @@ class ProcCallStatm extends Statement{
     }
 
     @Override public void prettyPrint() {
+        Main.log.prettyPrint(name);
 
+        Main.log.prettyPrint("(");
+        if (!expr.isEmpty()) {
+
+            for (int i = 0; i < expr.size(); i++) {
+                if (i != 0) {
+                    Main.log.prettyPrint(", ");
+                }
+                expr.get(i).prettyPrint();
+            }
+
+        }
+        Main.log.prettyPrint(")");
     }
 
     static ProcCallStatm parse(Scanner s){

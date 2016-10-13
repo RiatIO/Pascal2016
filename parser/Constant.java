@@ -19,7 +19,11 @@ class Constant extends PascalSyntax {
     }
 
     @Override public void prettyPrint() {
+        if (po != null) {
+            po.prettyPrint();
+        }
 
+        uc.prettyPrint();
     }
 
     static Constant parse(Scanner s) {

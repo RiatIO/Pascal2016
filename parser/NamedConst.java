@@ -16,6 +16,10 @@ class NamedConst extends UnsignedConstant {
         return "<namedconst> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(name);
+    }
+
     static NamedConst parse(Scanner s) {
         enterParser("named constant");
 
@@ -25,7 +29,7 @@ class NamedConst extends UnsignedConstant {
         nc.name = s.curToken.id;
         s.skip(s.curToken.kind);
 
-        leaveParser("named const");
+        leaveParser("named constant");
         return nc;
     }
 }

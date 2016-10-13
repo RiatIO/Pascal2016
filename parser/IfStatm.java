@@ -18,7 +18,19 @@ class IfStatm extends Statement {
     }
 
     @Override public void prettyPrint() {
-
+        Main.log.prettyPrint("if ");
+        expr.prettyPrint();
+        Main.log.prettyPrintLn(" then");
+        Main.log.prettyIndent();
+        preS.prettyPrint();
+        Main.log.prettyOutdent();
+        if (postS != null) {
+            Main.log.prettyPrintLn();
+            Main.log.prettyPrintLn("else");
+            Main.log.prettyIndent();
+            postS.prettyPrint();
+            Main.log.prettyOutdent();
+        }
     }
 
     static IfStatm parse(Scanner s){

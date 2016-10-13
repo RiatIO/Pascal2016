@@ -8,6 +8,7 @@ abstract class Statement extends PascalSyntax {
     Statement(int lNum) {
         super(lNum);
     }
+    
     static Statement parse(Scanner s) {
         enterParser("statement");
         Statement st = null;

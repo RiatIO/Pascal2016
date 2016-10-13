@@ -1928,3 +1928,87 @@ Parser:         </statement>
 Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
+program operatortest;
+
+procedure testunaryboolean;
+
+procedure test (x: boolean);
+begin
+  write('n', 'o', 't', ' ', x, ' ', '=', ' ', not x, eol);
+
+end; {test}
+
+begin
+  test(false);
+  test(true);
+
+end; {testunaryboolean}
+
+procedure testbinaryboolean;
+
+procedure test (x: boolean; y: boolean);
+begin
+  write(x, ' ', 'a', 'n', 'd', ' ', y, ' ', '=', ' ', x and y, eol);
+  write(x, ' ', 'o', 'r', ' ', y, ' ', '=', ' ', x or y, eol);
+
+end; {test}
+
+begin
+  test(false, false);
+  test(false, true);
+  test(true, false);
+  test(true, true);
+
+end; {testbinaryboolean}
+
+procedure testunarynumeric;
+
+procedure test (x: integer);
+begin
+  write('-', ' ', x, ' ', '=', ' ',  - x, eol);
+  write('+', ' ', x, ' ', '=', ' ',  + x, eol);
+
+end; {test}
+
+begin
+  test(17);
+  test( - 11);
+  test(0);
+
+end; {testunarynumeric}
+
+procedure testbinarynumeric;
+
+procedure test (x: integer; y: integer);
+begin
+  write(x, ' ', '+', ' ', y, ' ', '=', ' ', x + y, eol);
+  write(x, ' ', '-', ' ', y, ' ', '=', ' ', x - y, eol);
+  write(x, ' ', '*', ' ', y, ' ', '=', ' ', x * y, eol);
+  if y <> 0 then
+    begin
+      write(x, ' ', 'd', 'i', 'v', ' ', y, ' ', '=', ' ', x div y, eol);
+      write(x, ' ', 'm', 'o', 'd', ' ', y, ' ', '=', ' ', x mod y, eol);
+
+    end
+end; {test}
+
+begin
+  test(17, 17);
+  test(17,  - 11);
+  test(17, 0);
+  test( - 11, 17);
+  test( - 11,  - 11);
+  test(17, 0);
+  test(0, 17);
+  test(0,  - 11);
+  test(0, 0);
+
+end; {testbinarynumeric}
+
+begin
+  testunaryboolean();
+  testunarynumeric();
+  testbinaryboolean();
+  testbinarynumeric();
+
+end.

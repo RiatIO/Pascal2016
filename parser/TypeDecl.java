@@ -16,10 +16,10 @@ class TypeDecl extends PascalDecl{
     }
 
     static TypeDecl parse(Scanner s){
-        enterParser("TypeDecl");
+        enterParser("type decl");
 
 
-        leaveParser("TypeDecl");
+        leaveParser("type decl");
         return null;
     }
 

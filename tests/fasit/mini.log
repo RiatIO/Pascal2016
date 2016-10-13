@@ -1,9 +1,9 @@
-   1:  
-   2: /* Et minimalt Pascal-program */ 
-   3: program Mini; 
+   1:
+   2: /* Et minimalt Pascal-program */
+   3: program Mini;
 Parser:   <program>
-   4: begin 
-   5:    write('x'); 
+   4: begin
+   5:    write('x');
 Parser:     <block>
 Parser:       <statm list>
 Parser:         <statement>
@@ -20,7 +20,7 @@ Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
 Parser:             </expression>
-   6: end. 
+   6: end.
 Parser:           </proc call>
 Parser:         </statement>
 Parser:         <statement>

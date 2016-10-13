@@ -30,3 +30,8 @@ Parser:         </statement>
 Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
+program mini;
+begin
+  write('x');
+
+end.

@@ -28,14 +28,13 @@ public abstract class Factor extends PascalSyntax {
 
         switch (s.curToken.kind) {
             case nameToken:
-                if (s.nextToken.kind == leftBracketToken) {
-                    fo = Variable.parse(s);
-                }
-                else if (s.nextToken.kind == leftParToken) {
-                    fo = FuncCall.parse(s);
-                }
-                else {
-                    fo = Variable.parse(s);
+                switch(s.nextToken.kind) {
+                    case leftBracketToken:
+                        fo = Variable.parse(s); break;
+                    case leftParToken:
+                        fo = FuncCall.parse(s); break;
+                    default:
+                        fo = Variable.parse(s); break;
                 }
                 break;
             case leftParToken:

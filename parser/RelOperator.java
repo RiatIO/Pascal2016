@@ -18,6 +18,10 @@ class RelOperator extends Operator {
         return "<RelOperator> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(tk.toString());
+    }
+
     static RelOperator parse(Scanner s) {
         enterParser("rel opr");
 
@@ -25,7 +29,7 @@ class RelOperator extends Operator {
 
         switch (s.curToken.kind) {
             case equalToken:
-                ro.tk = multiplyToken; break;
+                ro.tk = equalToken; break;
             case notEqualToken:
                 ro.tk = notEqualToken; break;
             case lessToken:

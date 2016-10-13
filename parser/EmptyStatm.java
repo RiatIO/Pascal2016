@@ -20,8 +20,9 @@ class EmptyStatm extends Statement {
     static EmptyStatm parse(Scanner s){
         enterParser("empty statm");
 
+        EmptyStatm es = new EmptyStatm(s.curLineNum());
 
         leaveParser("empty statm");
-        return null;
+        return es;
     }
 }

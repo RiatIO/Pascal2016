@@ -16,6 +16,12 @@ class VarDecl extends PascalDecl{
         return "<Var-decl> " + name + "on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(name + ": ");
+        type.prettyPrint();
+        Main.log.prettyPrint(";");
+    }
+
     static VarDecl parse(Scanner s) {
         enterParser("var decl");
         s.test(nameToken);

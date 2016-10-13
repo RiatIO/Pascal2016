@@ -32,7 +32,7 @@ Parser:               </constant>
 Parser:               <constant>
 Parser:                 <unsigned constant>
 Parser:                   <named constant>
-Parser:                   </named const>
+Parser:                   </named constant>
 Parser:                 </unsigned constant>
 Parser:               </constant>
 Parser:               <type>
@@ -860,3 +860,74 @@ Parser:         </statement>
 Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
+program primes;
+const
+  limit = 1000;
+var
+  prime: array [2..limit] of boolean;
+  i: integer;
+
+procedure findprimes;
+var
+  i1: integer;
+  i2: integer;
+begin
+  i1 := 2;
+  while i1 <= limit do
+    begin
+      i2 := 2 * i1;
+      while i2 <= limit do
+        begin
+          prime[i2] := false;
+          i2 := i2 + i1
+        end;
+      i1 := i1 + 1
+    end
+end; {findprimes}
+
+procedure p4 (x: integer);
+begin
+  if x < 1000 then
+    write(' ');
+  if x < 100 then
+    write(' ');
+  if x < 10 then
+    write(' ');
+  write(x);
+
+end; {p4}
+
+procedure printprimes;
+var
+  i: integer;
+  nprinted: integer;
+begin
+  i := 2;
+  nprinted := 0;
+  while i <= limit do
+    begin
+      if prime[i] then
+        begin
+          if (nprinted > 0) and (nprinted mod 10 * 0) then
+            write(eol);
+          p4(i);
+          nprinted := nprinted + 1;
+
+        end;
+      i := i + 1;
+
+    end;
+  write(eol)
+end; {printprimes}
+
+begin
+  i := 2;
+  while i <= limit do
+    begin
+      prime[i] := true;
+      i := i + 1
+    end;
+  findprimes();
+  printprimes();
+
+end.

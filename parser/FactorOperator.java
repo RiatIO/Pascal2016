@@ -17,6 +17,10 @@ class FactorOperator extends Operator {
         return "<factor-operator> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(k.toString());
+    }
+
     static FactorOperator parse(Scanner s) {
         enterParser("factor opr");
 

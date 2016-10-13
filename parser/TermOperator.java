@@ -18,6 +18,10 @@ class TermOperator extends Operator {
         return "<TermOperator> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(tk.toString());
+    }
+
     static TermOperator parse(Scanner s) {
         enterParser("term opr");
 

@@ -7,7 +7,7 @@ flag = -testparser
 part = parser
 
 # Note: you can change the file path by doing: make file=tests/{file}.pas in terminal
-file  = tests/opers.pas
+file  = tests/gcd.pas
 files = tests/10star.pas tests/easter.pas tests/gcd.pas tests/mini.pas tests/opers.pas tests/primes.pas
 
 all: compile runOne

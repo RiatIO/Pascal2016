@@ -1,13 +1,13 @@
-   1: program TenStars; 
+   1: program TenStars;
 Parser:   <program>
-   2: const N	=  10; 
+   2: const N	=  10;
 Parser:     <block>
 Parser:       <const decl part>
 Parser:         <const decl>
 Parser:           <constant>
 Parser:             <unsigned constant>
 Parser:               <number literal>
-   3: var i : integer; 
+   3: var i : integer;
 Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
@@ -17,10 +17,10 @@ Parser:       <var decl part>
 Parser:         <var decl>
 Parser:           <type>
 Parser:             <type name>
-   4: begin 
+   4: begin
 Parser:             </type name>
 Parser:           </type>
-   5:    i := 0; 
+   5:    i := 0;
 Parser:         </var decl>
 Parser:       </var decl part>
 Parser:       <statm list>
@@ -34,7 +34,7 @@ Parser:                 <term>
 Parser:                   <factor>
 Parser:                     <unsigned constant>
 Parser:                       <number literal>
-   6:    while i < N do begin 
+   6:    while i < N do begin
 Parser:                       </number literal>
 Parser:                     </unsigned constant>
 Parser:                   </factor>
@@ -65,7 +65,7 @@ Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
 Parser:             </expression>
-   7:       write('*');  i := i + 1 
+   7:       write('*');  i := i + 1
 Parser:             <statement>
 Parser:               <compound statm>
 Parser:                 <statm list>
@@ -98,7 +98,7 @@ Parser:                               </variable>
 Parser:                             </factor>
 Parser:                           </term>
 Parser:                           <term opr>
-   8:    end; 
+   8:    end;
 Parser:                           </term opr>
 Parser:                           <term>
 Parser:                             <factor>
@@ -113,7 +113,7 @@ Parser:                       </expression>
 Parser:                     </assign statm>
 Parser:                   </statement>
 Parser:                 </statm list>
-   9:    write(eol); 
+   9:    write(eol);
 Parser:               </compound statm>
 Parser:             </statement>
 Parser:           </while-statm>
@@ -130,7 +130,7 @@ Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
 Parser:             </expression>
-  10: end. 
+  10: end.
 Parser:           </proc call>
 Parser:         </statement>
 Parser:         <statement>
@@ -141,9 +141,9 @@ Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
 program tenstars;
-const 
+const
   n = 10;
-var 
+var
   i: integer;
 begin
   i := 0;

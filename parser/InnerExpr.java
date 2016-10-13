@@ -16,6 +16,12 @@ class InnerExpr extends Factor {
         return "<innerexpr> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint("(");
+        expr.prettyPrint();
+        Main.log.prettyPrint(")");
+    }
+
     static InnerExpr parse(Scanner s) {
         enterParser("inner expr");
 

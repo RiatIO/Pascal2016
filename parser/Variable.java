@@ -17,6 +17,16 @@ class Variable extends Factor {
         return "<variable> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint(name);
+
+        if (expr != null) {
+            Main.log.prettyPrint("[");
+            expr.prettyPrint();
+            Main.log.prettyPrint("]");
+        }
+    }
+
     static Variable parse(Scanner s) {
         enterParser("variable");
 

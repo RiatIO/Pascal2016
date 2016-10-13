@@ -18,7 +18,18 @@ class StatmList extends PascalSyntax {
     }
 
     @Override public void prettyPrint() {
+        Main.log.prettyIndent();
 
+        for (int i = 0; i < s.size(); i++) {
+            if (i != 0) {
+                Main.log.prettyPrint(";");
+                Main.log.prettyPrintLn();
+            }
+            s.get(i).prettyPrint();
+        }
+
+        Main.log.prettyPrintLn();
+        Main.log.prettyOutdent();
     }
 
     static StatmList parse(Scanner s) {

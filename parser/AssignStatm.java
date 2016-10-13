@@ -17,7 +17,9 @@ class AssignStatm extends Statement{
     }
 
     @Override public void prettyPrint() {
-
+        v.prettyPrint();
+        Main.log.prettyPrint(" := ");
+        e.prettyPrint();
     }
 
     static AssignStatm parse(Scanner s){

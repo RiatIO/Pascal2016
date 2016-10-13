@@ -19,6 +19,26 @@ class FuncDecl extends ProcDecl {
         return "<Func-decl> "+ name + "on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrintLn();
+        Main.log.prettyPrint("function " + name);
+
+        if (pdl != null) {
+            Main.log.prettyPrint(" ");
+            pdl.prettyPrint();
+        }
+
+        Main.log.prettyPrint(": ");
+        tn.prettyPrint();
+
+        Main.log.prettyPrintLn(";");
+
+        b.prettyPrint();
+
+        Main.log.prettyPrintLn("; {" + name + "}");
+        // Main.log.prettyPrintLn();
+    }
+
     static FuncDecl parse(Scanner s) {
         enterParser("func decl");
         s.skip(functionToken);

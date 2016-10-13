@@ -17,6 +17,24 @@ class ProcDecl extends PascalDecl {
         return "<Proc-decl> " + name + "on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrintLn();
+
+        Main.log.prettyPrint("procedure " + name);
+
+        if (pdl != null) {
+            Main.log.prettyPrint(" ");
+            pdl.prettyPrint();
+        }
+
+        Main.log.prettyPrintLn(";");
+
+        b.prettyPrint();
+
+        Main.log.prettyPrintLn("; {" + name + "}");
+        // Main.log.prettyPrintLn();
+    }
+
     static ProcDecl parse(Scanner s) {
         enterParser("proc decl");
         s.skip(procedureToken);

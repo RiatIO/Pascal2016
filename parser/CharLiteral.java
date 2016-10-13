@@ -16,6 +16,11 @@ class CharLiteral extends UnsignedConstant {
         return "<charliteral> on line " + lineNum;
     }
 
+    @Override public void prettyPrint() {
+        Main.log.prettyPrint("'" + (c =='\'' ? "''" : c) + "'");
+
+    }
+
     static CharLiteral parse(Scanner s) {
         enterParser("char literal");
 

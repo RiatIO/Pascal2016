@@ -19,7 +19,19 @@ class VarDeclPart extends PascalSyntax {
     }
 
     @Override public void prettyPrint() {
+        Main.log.prettyPrint("var");
+        Main.log.prettyPrintLn();
+        Main.log.prettyIndent();
 
+        for (int i = 0; i < vd.size(); i++) {
+            if (i != 0) {
+                Main.log.prettyPrintLn();
+            }
+            vd.get(i).prettyPrint();
+        }
+
+        Main.log.prettyPrintLn();
+        Main.log.prettyOutdent();
     }
 
     // Pretty print here

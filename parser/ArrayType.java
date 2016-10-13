@@ -19,7 +19,12 @@ class ArrayType extends Type {
     }
 
     @Override public void prettyPrint() {
-
+        Main.log.prettyPrint("array [");
+        preC.prettyPrint();
+        Main.log.prettyPrint("..");
+        postC.prettyPrint();
+        Main.log.prettyPrint("] of ");
+        t.prettyPrint();
     }
 
     static ArrayType parse(Scanner s) {
