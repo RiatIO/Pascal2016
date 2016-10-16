@@ -11,6 +11,7 @@ public class Scanner {
     private LineNumberReader sourceFile = null;
     private String sourceFileName, sourceLine = "";
     private int sourcePos = 0;
+    private boolean isStatisticsRan = false;
 
     // Statistics
     private int tokensCreated = 0, charsIterated = 0, linesRead = 0, commentsIgn = 0;
@@ -105,7 +106,10 @@ public class Scanner {
 
             if (sourceLine.isEmpty()) {
                 nextToken = insert(eofToken, getFileLineNum());
-                printStatus();
+                if (!isStatisticsRan) {
+                    printStatus();
+                    isStatisticsRan = true;
+                }
             } /* Check for end-of-file */
         }
 

@@ -7,11 +7,11 @@ flag = -testparser
 part = parser
 
 # Note: you can change the file path by doing: make file=tests/{file}.pas in terminal
-file  = tests/gcd.pas
+file  = tests/10star.pas
 files = tests/10star.pas tests/easter.pas tests/gcd.pas tests/mini.pas tests/opers.pas tests/primes.pas
 
-all: compile runOne
-run: compile runAll
+all: clean compile runOne script
+run: clean compile runAll script
 
 compile:
 	ant
@@ -28,4 +28,5 @@ runAll:
 clean:
 	rm -f tests/*.log fails/*.log
 	rm -f pascal2016.jar
-	rm -rf tests/scanner_log
+	rm -rf tests/parser_log
+	rm -rf classes

@@ -24,8 +24,6 @@ public abstract class Factor extends PascalSyntax {
 
         Factor fo = null;
 
-        System.out.println(s.curToken.identify());
-
         switch (s.curToken.kind) {
             case nameToken:
                 switch(s.nextToken.kind) {

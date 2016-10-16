@@ -39,8 +39,6 @@ class IfStatm extends Statement {
         IfStatm ifs = new IfStatm(s.curLineNum());
         s.skip(ifToken);
 
-        System.out.println(s.curToken);
-
         ifs.expr = Expression.parse(s);
         s.skip(thenToken);
 
