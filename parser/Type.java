@@ -14,6 +14,12 @@ abstract class Type extends PascalSyntax {
         return "<type> on line " + lineNum;
     }
 
+    public void checkType(Type tx, String op, PascalSyntax where, String mess) {
+        Main.log.noteTypeCheck(this, op, tx, where);
+        if (this != tx)
+            where.error(mess);
+    }
+
     static Type parse(Scanner s) {
         enterParser("type");
         Type t = null;

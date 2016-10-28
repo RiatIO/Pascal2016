@@ -4,26 +4,51 @@ import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 class Block extends PascalSyntax {
     Program context;
 
     ConstDeclPart cdp;
     VarDeclPart vdp;
-
-    // ArrayList<FuncDecl> fd;
-    ArrayList<ProcDecl> pd;
-
     StatmList sm;
+
+    ArrayList<ProcDecl> pd;
+    HashMap<String,PascalDecl> decls;
 
     Block(int lNum) {
         super(lNum);
-        // fd = new ArrayList<>();
         pd = new ArrayList<>();
+        decls = new HashMap<>();
+    }
+
+    void addDecl(String id, PascalDecl d) {
+        if (decls.containsKey(id))
+            d.error(id + " declared twice in same block!");
+        decls.put(id, d);
+    }
+
+    @Override void check(Block curScope, Library lib) {
+        if (cdp != null) {
+            cdp.check(this, lib);
+        }
     }
 
     @Override public String identify() {
         return "<block> on line " + lineNum;
+    }
+
+    public PascalDecl findDecl(String id, PascalSyntax where) {
+        PascalDecl d = decls.get(id);
+        if (d != null) {
+            Main.log.noteBinding(id, where, d);
+            return d;
+        }
+        if (outerScope != null)
+            return outerScope.findDecl(id,where);
+
+        where.error("Name " + id + " is unknown!");
+        return null; // Required by the Java compiler.
     }
 
     @Override public void prettyPrint() {

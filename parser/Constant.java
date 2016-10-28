@@ -10,6 +10,9 @@ class Constant extends PascalSyntax {
     PrefixOperator po;
     UnsignedConstant uc;
 
+    types.Type type;
+    int constVal;
+
     Constant(int lNum) {
         super(lNum);
     }
@@ -24,6 +27,20 @@ class Constant extends PascalSyntax {
         }
 
         uc.prettyPrint();
+    }
+
+    @Override void check(Block curScope, Library lib) {
+        uConst.check(curScope, lib);
+        type = uConst.type;
+        constVal = uConst.constVal;
+
+        if (prefix != null) {
+            String oprName = prefix.opr.kind.toString();
+            uConst.type.checkType(lib.integerType, "Prefix "+oprName, this,
+                "Prefix + or - may only be applied to Integers.");
+            if (prefix.opr.kind == subtractToken)
+                constVal = -constVal;
+        }
     }
 
     static Constant parse(Scanner s) {

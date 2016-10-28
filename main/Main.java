@@ -9,7 +9,7 @@ import java.io.*;
 public class Main {
     public static final String version = "2016-08-22";
 
-    // Del 3: public static parser.Library library;
+    public static parser.Library library;
     public static LogFile log = new LogFile();
 
     private static String sourceFileName, baseFileName;
@@ -33,9 +33,8 @@ public class Main {
                 doTestScanner(s);
             else if (testParser)
                 doTestParser(s);
-            // Del 3:
-            // else if (testChecker)
-            //     doTestChecker(s);
+            else if (testChecker)
+                doTestChecker(s);
             // Del 4:
             // else
             //     doRunRealCompiler(s);
@@ -107,18 +106,18 @@ public class Main {
     }
 
 
-/* Del 3:
-private static void doTestChecker(Scanner s) {
-Program prog = Program.parse(s);
-if (s.curToken.kind != eofToken)
-error("Scanner error: Garbage after the program!");
-if (log.doLogPrettyPrint)
-prog.prettyPrint();
+    private static void doTestChecker(Scanner s) {
+        Program prog = Program.parse(s);
 
-library = new Library();
-prog.check(library, library);
-}
-*/
+        if (s.curToken.kind != eofToken)
+            error("Scanner error: Garbage after the program!");
+
+        if (log.doLogPrettyPrint)
+            prog.prettyPrint();
+
+        library = new Library(0);
+        prog.check(library, library);
+    }
 
 
 /* Del 4:

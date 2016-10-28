@@ -16,6 +16,12 @@ class AssignStatm extends Statement{
         return "<Assign-statm> on line " + lineNum;
     }
 
+    @Override void check(Block curScope, Library lib) {
+        v.check(curScope, lib);
+        v.varDecl.checkWhetherAssignable(this);
+        e.check(curScope, lib);
+    }
+
     @Override public void prettyPrint() {
         v.prettyPrint();
         Main.log.prettyPrint(" := ");

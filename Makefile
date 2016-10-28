@@ -1,10 +1,13 @@
 jar  = pascal2016.jar
 
 #flag = -logS -testscanner
-flag = -testparser
+#flag = -testparser
+flag = -testchecker
 
 #part = scanner
-part = parser
+#part = parser
+part = checker
+
 
 # Note: you can change the file path by doing: make file=tests/{file}.pas in terminal
 file  = tests/10star.pas
