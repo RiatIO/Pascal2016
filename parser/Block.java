@@ -14,7 +14,7 @@ class Block extends PascalSyntax {
     StatmList sm;
 
     ArrayList<ProcDecl> pd;
-    HashMap<String,PascalDecl> decls;
+    HashMap<String, PascalDecl> decls;
 
     Block(int lNum) {
         super(lNum);

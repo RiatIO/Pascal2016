@@ -14,6 +14,8 @@ public class Program extends PascalDecl {
     }
 
     @Override void check(Block curScope, Library lib) {
+        
+
     }
 
     @Override public String identify() {
@@ -26,7 +28,6 @@ public class Program extends PascalDecl {
         progBlock.prettyPrint();
         Main.log.prettyPrint(".");
     }
-
 
     public static Program parse(Scanner s) {
         enterParser("program");

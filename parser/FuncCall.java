@@ -11,12 +11,21 @@ class FuncCall extends Factor {
     String name;
     types.Type type;
 
+    FuncDecl funcRef;
+
     FuncCall(int lNum) {
         super(lNum);
         expr = new ArrayList<>();
     }
 
     @Override void check(Block curScope, Library lib) {
+        PascalDecl d = curScope.findDecl(name, this);
+
+        if (d == null) {
+            // Do something
+        }
+
+        FuncDecl funcRef = (FuncDecl) d;
     }
 
     @Override public String identify() {
