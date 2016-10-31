@@ -9,8 +9,13 @@ class IfStatm extends Statement {
     Statement preS;
     Statement postS;
 
+    types.Type type;
+
     IfStatm(int lNum){
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

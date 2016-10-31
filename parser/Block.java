@@ -22,16 +22,16 @@ class Block extends PascalSyntax {
         decls = new HashMap<>();
     }
 
-    void addDecl(String id, PascalDecl d) {
-        if (decls.containsKey(id))
-            d.error(id + " declared twice in same block!");
-        decls.put(id, d);
-    }
-
     @Override void check(Block curScope, Library lib) {
         if (cdp != null) {
             cdp.check(this, lib);
         }
+    }
+
+    void addDecl(String id, PascalDecl d) {
+        if (decls.containsKey(id))
+            d.error(id + " declared twice in same block!");
+        decls.put(id, d);
     }
 
     @Override public String identify() {

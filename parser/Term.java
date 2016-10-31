@@ -9,10 +9,15 @@ class Term extends PascalSyntax {
     ArrayList<Factor> f;
     ArrayList<FactorOperator> fo;
 
+    types.Type type;
+
     Term(int lNum) {
         super(lNum);
         f  = new ArrayList<>();
         fo = new ArrayList<>();
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

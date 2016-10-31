@@ -7,9 +7,13 @@ import static scanner.TokenKind.*;
 class NamedConst extends UnsignedConstant {
 
     String name;
+    types.Type type;
 
     NamedConst(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

@@ -9,13 +9,16 @@ class SimpleExpr extends PascalSyntax {
     PrefixOperator po;
     ArrayList<Term> t;
     ArrayList<TermOperator> to;
-
-    // FIIIIIX THIS TOMORROWOOWOWW
+    
+    types.Type type;
 
     SimpleExpr(int lNum) {
         super(lNum);
         t  = new ArrayList<>();
         to = new ArrayList<>();
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

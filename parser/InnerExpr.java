@@ -8,8 +8,13 @@ class InnerExpr extends Factor {
 
     Expression expr;
 
+    types.Type type;
+
     InnerExpr(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

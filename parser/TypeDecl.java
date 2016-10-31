@@ -7,8 +7,13 @@ import static scanner.TokenKind.*;
 
 class TypeDecl extends PascalDecl{
 
+    types.Type type;
+
     TypeDecl(String id, int lNum){
         super(id,lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

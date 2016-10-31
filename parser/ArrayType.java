@@ -10,8 +10,13 @@ class ArrayType extends Type {
     Constant preC;
     Constant postC;
 
+    types.Type type;
+
     ArrayType(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

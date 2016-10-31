@@ -6,8 +6,13 @@ import static scanner.TokenKind.*;
 
 abstract class Type extends PascalSyntax {
 
+    types.Type type;
+
     Type(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

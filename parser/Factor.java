@@ -7,8 +7,13 @@ import static scanner.TokenKind.*;
 
 public abstract class Factor extends PascalSyntax {
 
+    types.Type type;
+
     Factor(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

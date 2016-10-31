@@ -8,6 +8,8 @@ class AssignStatm extends Statement{
     Variable v;
     Expression e;
 
+    types.Type type;
+
     AssignStatm(int lNum){
         super(lNum);
     }

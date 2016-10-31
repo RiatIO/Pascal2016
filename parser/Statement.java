@@ -5,10 +5,13 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 abstract class Statement extends PascalSyntax {
+
+    types.Type type;
+
     Statement(int lNum) {
         super(lNum);
     }
-    
+
     static Statement parse(Scanner s) {
         enterParser("statement");
         Statement st = null;

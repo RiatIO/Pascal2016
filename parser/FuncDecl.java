@@ -10,9 +10,12 @@ class FuncDecl extends ProcDecl {
     ParamDeclList pdl;
     Block b;
     TypeName tn;
-
+    
     FuncDecl(String id, int lNum) {
         super(id, lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

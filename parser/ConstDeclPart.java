@@ -9,9 +9,14 @@ class ConstDeclPart extends PascalSyntax {
 
     ArrayList<ConstDecl> cd;
 
+    types.Type type;
+
     ConstDeclPart(int lNum) {
         super(lNum);
         cd = new ArrayList<>();
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

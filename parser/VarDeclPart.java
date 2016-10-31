@@ -14,6 +14,9 @@ class VarDeclPart extends PascalSyntax {
         vd = new ArrayList<>();
     }
 
+    @Override void check(Block curScope, Library lib) {
+    }
+
     @Override public String identify() {
         return "<VarDeclPart> on line " + lineNum;
     }

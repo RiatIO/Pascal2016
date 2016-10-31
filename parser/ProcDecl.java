@@ -13,6 +13,9 @@ class ProcDecl extends PascalDecl {
         super(id, lNum);
     }
 
+    @Override void check(Block curScope, Library lib) {
+    }
+
     @Override public String identify() {
         return "<Proc-decl> " + name + "on line " + lineNum;
     }

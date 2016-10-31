@@ -9,10 +9,14 @@ class FuncCall extends Factor {
 
     ArrayList<Expression> expr;
     String name;
+    types.Type type;
 
     FuncCall(int lNum) {
         super(lNum);
         expr = new ArrayList<>();
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

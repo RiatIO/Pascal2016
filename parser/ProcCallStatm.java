@@ -10,9 +10,14 @@ class ProcCallStatm extends Statement{
     String name;
     ProcDecl procRef;
 
+    types.Type type;
+
     ProcCallStatm(int lNum){
         super(lNum);
         expr = new ArrayList<>();
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override void check(Block curScope, Library lib) {

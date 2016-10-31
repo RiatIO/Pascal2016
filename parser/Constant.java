@@ -30,15 +30,15 @@ class Constant extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
-        uConst.check(curScope, lib);
-        type = uConst.type;
-        constVal = uConst.constVal;
+        uc.check(curScope, lib);
+        type = uc.type;
+        constVal = uc.constVal;
 
-        if (prefix != null) {
-            String oprName = prefix.opr.kind.toString();
-            uConst.type.checkType(lib.integerType, "Prefix "+oprName, this,
+        if (po != null) {
+            String oprName = po.opr.kind.toString();
+            uc.type.checkType(lib.integerType, "Prefix "+oprName, this,
                 "Prefix + or - may only be applied to Integers.");
-            if (prefix.opr.kind == subtractToken)
+            if (po.opr.kind == subtractToken)
                 constVal = -constVal;
         }
     }

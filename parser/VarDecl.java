@@ -12,6 +12,9 @@ class VarDecl extends PascalDecl{
         super(id, lNum);
     }
 
+    @Override void check(Block curScope, Library lib) {
+    }
+
     @Override public String identify() {
         return "<Var-decl> " + name + "on line " + lineNum;
     }

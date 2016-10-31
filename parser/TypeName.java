@@ -8,8 +8,13 @@ import java.util.ArrayList;
 class TypeName extends Type {
     String name;
 
+    types.Type type;
+
     TypeName(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {
