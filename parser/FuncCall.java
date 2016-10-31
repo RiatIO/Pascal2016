@@ -29,7 +29,7 @@ class FuncCall extends Factor {
     }
 
     @Override public String identify() {
-        return "<funccall> on line " + lineNum;
+        return "<funcCall> on line " + lineNum;
     }
 
     @Override public void prettyPrint() {
@@ -48,7 +48,11 @@ class FuncCall extends Factor {
     }
 
     static FuncCall parse(Scanner s) {
+<<<<<<< HEAD
+        enterParser("funcCall");
+=======
         enterParser("func call");
+>>>>>>> 2383d82e46b7d71a889a587a4f9cafabbf009a13
 
         FuncCall fc = new FuncCall(s.curLineNum());
 
@@ -72,7 +76,11 @@ class FuncCall extends Factor {
             s.skip(rightParToken);
         }
 
+<<<<<<< HEAD
+        leaveParser("funcCall");
+=======
         leaveParser("func call");
+>>>>>>> 2383d82e46b7d71a889a587a4f9cafabbf009a13
         return fc;
     }
 }

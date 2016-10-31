@@ -36,17 +36,18 @@ class ParamDecl extends PascalDecl {
         leaveParser("param decl");
         return pd;
     }
-
-    void checkWhetherAssignable(PascalSyntax where){
-
+    //TODO: Find out which one to leave empty, maybe it is VAlue!
+    @Override void checkWhetherAssignable(PascalSyntax where){
+        where.error("You cannot assign a constant");
     }
-    void checkWhetherFunction(PascalSyntax where){
-
+    @Override void checkWhetherFunction(PascalSyntax where){
+        where.error("You cannot func");
     }
-    void checkWhetherProcedure(PascalSyntax where){
 
+    @Override void checkWhetherProcedure(PascalSyntax where){
+        where.error("You cannot proc");
     }
-    void checkWhetherValue(PascalSyntax where){
+    @Override void checkWhetherValue(PascalSyntax where){
 
     }
 }

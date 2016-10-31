@@ -10,7 +10,7 @@ class FuncDecl extends ProcDecl {
     ParamDeclList pdl;
     Block b;
     TypeName tn;
-    
+
     FuncDecl(String id, int lNum) {
         super(id, lNum);
     }
@@ -64,5 +64,18 @@ class FuncDecl extends ProcDecl {
 
         leaveParser("func decl");
         return fd;
+    }
+
+    @Override void checkWhetherAssignable(PascalSyntax where){
+        where.error("Cannot assign a func")
+    }
+    @Override void checkWhetherFunction(PascalSyntax where){
+
+    }
+    @Override void checkWhetherProcedure(PascalSyntax where){
+        where.error("Not a procedure");
+    }
+    @Override void checkWhetherValue(PascalSyntax where){
+        where.error("Not a value");
     }
 }

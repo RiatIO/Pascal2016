@@ -9,8 +9,12 @@ class SimpleExpr extends PascalSyntax {
     PrefixOperator po;
     ArrayList<Term> t;
     ArrayList<TermOperator> to;
+<<<<<<< HEAD
+
+=======
     
     types.Type type;
+>>>>>>> a15450f69c77fac1fafd546dac02506ca4c0b5e9
 
     SimpleExpr(int lNum) {
         super(lNum);
@@ -61,5 +65,18 @@ class SimpleExpr extends PascalSyntax {
 
         leaveParser("simple expr");
         return se;
+    }
+
+    void checkWhetherAssignable(PascalSyntax where){
+
+    }
+    void checkWhetherFunction(PascalSyntax where){
+
+    }
+    void checkWhetherProcedure(PascalSyntax where){
+
+    }
+    void checkWhetherValue(PascalSyntax where){
+
     }
 }

@@ -7,8 +7,10 @@ import java.util.ArrayList;
 
 class ArrayType extends Type {
     Type t;
+
     Constant preC;
     Constant postC;
+
 
     types.Type type;
 
@@ -33,16 +35,20 @@ class ArrayType extends Type {
     }
 
     static ArrayType parse(Scanner s) {
+
         enterParser("array-type");
+
         ArrayType at = new ArrayType(s.curLineNum());
 
         s.skip(arrayToken);
         s.skip(leftBracketToken);
 
         at.preC = Constant.parse(s);
+
         s.skip(rangeToken);
 
         at.postC = Constant.parse(s);
+
         s.skip(rightBracketToken);
 
         s.skip(ofToken);
