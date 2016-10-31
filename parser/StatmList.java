@@ -8,9 +8,14 @@ import java.util.ArrayList;
 class StatmList extends PascalSyntax {
     ArrayList<Statement> s;
 
+    types.Type type;
+
     StatmList(int lNum) {
         super(lNum);
         s = new ArrayList<>();
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

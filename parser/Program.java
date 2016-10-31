@@ -13,6 +13,9 @@ public class Program extends PascalDecl {
         super(id, lNum);
     }
 
+    @Override void check(Block curScope, Library lib) {
+    }
+
     @Override public String identify() {
         return "<program> " + name + " on line " + lineNum;
     }

@@ -6,8 +6,13 @@ import static scanner.TokenKind.*;
 
 public abstract class Operator extends Factor {
 
+    types.Type type;
+
     Operator(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

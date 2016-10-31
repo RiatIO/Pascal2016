@@ -8,12 +8,20 @@ class AssignStatm extends Statement{
     Variable v;
     Expression e;
 
+    types.Type type;
+
     AssignStatm(int lNum){
         super(lNum);
     }
 
     @Override public String identify() {
         return "<Assign-statm> on line " + lineNum;
+    }
+
+    @Override void check(Block curScope, Library lib) {
+        v.check(curScope, lib);
+        v.varDecl.checkWhetherAssignable(this);
+        e.check(curScope, lib);
     }
 
     @Override public void prettyPrint() {

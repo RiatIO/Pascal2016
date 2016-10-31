@@ -13,6 +13,9 @@ class ConstDecl extends PascalDecl {
         super(id, lNum);
     }
 
+    @Override void check(Block curScope, Library lib) {
+    }
+
     @Override public String identify() {
         return "<const decl> " + name + " on line " + lineNum;
     }
@@ -39,16 +42,16 @@ class ConstDecl extends PascalDecl {
         return cd;
     }
 
-    void checkWhetherAssignable(PascalSyntax where){
+    @Override void checkWhetherAssignable(PascalSyntax where){
 
     }
-    void checkWhetherFunction(PascalSyntax where){
-
+    @Override void checkWhetherFunction(PascalSyntax where){
+        where.error("Not a func");
     }
     void checkWhetherProcedure(PascalSyntax where){
-
+        where.error("Not a proc");
     }
     void checkWhetherValue(PascalSyntax where){
-
+        where.error("Not a value");
     }
 }

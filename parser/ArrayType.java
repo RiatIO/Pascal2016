@@ -7,16 +7,18 @@ import java.util.ArrayList;
 
 class ArrayType extends Type {
     Type t;
-<<<<<<< HEAD
-    Constant cFirst;
-    Constant cSecond;
-=======
+
     Constant preC;
     Constant postC;
->>>>>>> 2383d82e46b7d71a889a587a4f9cafabbf009a13
+
+
+    types.Type type;
 
     ArrayType(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {
@@ -33,29 +35,20 @@ class ArrayType extends Type {
     }
 
     static ArrayType parse(Scanner s) {
-<<<<<<< HEAD
-        enterParser("ArrayType");
 
-=======
         enterParser("array-type");
->>>>>>> 2383d82e46b7d71a889a587a4f9cafabbf009a13
+
         ArrayType at = new ArrayType(s.curLineNum());
 
         s.skip(arrayToken);
         s.skip(leftBracketToken);
 
-<<<<<<< HEAD
-        at.cFirst = Constant.parse(s);
-=======
         at.preC = Constant.parse(s);
->>>>>>> 2383d82e46b7d71a889a587a4f9cafabbf009a13
-        s.skip(rangeToken);
-        at.cSecond = Constant.parse(s);
 
-<<<<<<< HEAD
-=======
+        s.skip(rangeToken);
+
         at.postC = Constant.parse(s);
->>>>>>> 2383d82e46b7d71a889a587a4f9cafabbf009a13
+
         s.skip(rightBracketToken);
 
         s.skip(ofToken);

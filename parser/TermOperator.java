@@ -9,9 +9,15 @@ import static scanner.TokenKind.*;
 class TermOperator extends Operator {
 
     TokenKind tk;
+    
+    types.Type type;
+
 
     TermOperator(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

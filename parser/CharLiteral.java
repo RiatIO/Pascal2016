@@ -8,8 +8,14 @@ class CharLiteral extends UnsignedConstant {
 
     char c;
 
+    types.Type type;
+
+
     CharLiteral(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

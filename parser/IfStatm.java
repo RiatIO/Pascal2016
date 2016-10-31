@@ -9,8 +9,13 @@ class IfStatm extends Statement {
     Statement preS;
     Statement postS;
 
+    types.Type type;
+
     IfStatm(int lNum){
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {
@@ -38,8 +43,6 @@ class IfStatm extends Statement {
 
         IfStatm ifs = new IfStatm(s.curLineNum());
         s.skip(ifToken);
-
-        System.out.println(s.curToken);
 
         ifs.expr = Expression.parse(s);
         s.skip(thenToken);

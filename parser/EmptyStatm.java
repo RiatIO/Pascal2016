@@ -5,8 +5,14 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 class EmptyStatm extends Statement {
+
+    types.Type type;
+
     EmptyStatm(int lNum){
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

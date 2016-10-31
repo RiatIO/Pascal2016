@@ -7,9 +7,13 @@ import static scanner.TokenKind.*;
 class Negation extends Factor {
 
     Factor fc;
+    types.Type type;
 
     Negation(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
     }
 
     @Override public String identify() {

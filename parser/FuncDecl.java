@@ -15,6 +15,9 @@ class FuncDecl extends ProcDecl {
         super(id, lNum);
     }
 
+    @Override void check(Block curScope, Library lib) {
+    }
+
     @Override public String identify() {
         return "<Func-decl> "+ name + "on line " + lineNum;
     }
@@ -63,16 +66,16 @@ class FuncDecl extends ProcDecl {
         return fd;
     }
 
-    void checkWhetherAssignable(PascalSyntax where){
+    @Override void checkWhetherAssignable(PascalSyntax where){
+        where.error("Cannot assign a func")
+    }
+    @Override void checkWhetherFunction(PascalSyntax where){
 
     }
-    void checkWhetherFunction(PascalSyntax where){
-
+    @Override void checkWhetherProcedure(PascalSyntax where){
+        where.error("Not a procedure");
     }
-    void checkWhetherProcedure(PascalSyntax where){
-
-    }
-    void checkWhetherValue(PascalSyntax where){
-
+    @Override void checkWhetherValue(PascalSyntax where){
+        where.error("Not a value");
     }
 }
