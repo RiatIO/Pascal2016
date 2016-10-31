@@ -35,10 +35,10 @@ class Constant extends PascalSyntax {
         constVal = uc.constVal;
 
         if (po != null) {
-            String oprName = po.opr.kind.toString();
+            String oprName = po.tk.toString();
             uc.type.checkType(lib.integerType, "Prefix "+oprName, this,
                 "Prefix + or - may only be applied to Integers.");
-            if (po.opr.kind == subtractToken)
+            if (po.tk == subtractToken)
                 constVal = -constVal;
         }
     }

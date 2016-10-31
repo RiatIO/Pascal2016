@@ -9,6 +9,8 @@ class ConstDeclPart extends PascalSyntax {
 
     ArrayList<ConstDecl> cd;
 
+    ConstDecl constRef;
+
     types.Type type;
 
     ConstDeclPart(int lNum) {

@@ -14,10 +14,12 @@ class ProcDecl extends PascalDecl {
     }
 
     @Override void check(Block curScope, Library lib) {
+        pdl.check(curScope, lib);
+        b.check(curScope, lib);
     }
 
     @Override public String identify() {
-        return "<Proc-decl> " + name + "on line " + lineNum;
+        return "<proc decl> " + name + " in the library";
     }
 
     @Override public void prettyPrint() {
@@ -69,7 +71,7 @@ class ProcDecl extends PascalDecl {
     }
 
     @Override void checkWhetherValue(PascalSyntax where){
-        where.error("No value"");
+        where.error("No value");
     }
 
 }

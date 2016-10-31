@@ -14,6 +14,7 @@ class NumberLiteral extends UnsignedConstant {
     }
 
     @Override void check(Block curScope, Library lib) {
+        constVal = number;
     }
 
     @Override public String identify() {

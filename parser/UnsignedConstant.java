@@ -6,6 +6,8 @@ import static scanner.TokenKind.*;
 
 public abstract class UnsignedConstant extends Factor {
 
+    int constVal;
+
     UnsignedConstant(int lNum) {
         super(lNum);
     }

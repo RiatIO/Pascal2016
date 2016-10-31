@@ -8,7 +8,7 @@ import static scanner.TokenKind.*;
 
 class PrefixOperator extends Operator {
 
-    TokenKind tk;
+    public TokenKind tk;
 
     types.Type type;
 

@@ -13,9 +13,11 @@ public class Program extends PascalDecl {
         super(id, lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
-        
+    @Override public void check(Block curScope, Library lib) {
+        System.out.println("********** DEBUG **********");
 
+        System.out.println("- PROGRAM");
+        progBlock.check(curScope, lib);
     }
 
     @Override public String identify() {

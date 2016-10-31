@@ -17,15 +17,15 @@ class Expression extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
-        leftOp.check(curScope, lib);
-        type = leftOp.type;
+        preSe.check(curScope, lib);
+        type = preSe.type;
 
-        if (rightOp != null) {
-            rightOp.check(curScope, lib);
-            String oprName = relOpr.opr.kind.toString();
-            type.checkType(rightOp.type, oprName+" operands", this,
+        if (preSe != null) {
+            postSe.check(curScope, lib);
+            String oprName = ro.tk.toString();
+            type.checkType(postSe.type, oprName+" operands", this,
                 "Operands to "+oprName+" are of different type!");
-            type = lib.booleanType;
+            //type = lib.booleanType;
         }
     }
 

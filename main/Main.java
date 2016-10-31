@@ -168,9 +168,9 @@ assembleCode();
 
             // Print any output from the assembly process:
             BufferedReader out = new BufferedReader
-            (new InputStreamReader(p.getInputStream()));
+                (new InputStreamReader(p.getInputStream()));
             BufferedReader err = new BufferedReader
-            (new InputStreamReader(p.getErrorStream()));
+                (new InputStreamReader(p.getErrorStream()));
 
             while ((line = out.readLine()) != null) {
                 System.out.println(line);

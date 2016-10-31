@@ -2,52 +2,52 @@
 
 ## Deep  
 
-[x] [PascalSyntax]  
-[x] - Block  
+[] [PascalSyntax]  
+[] - Block  
 [] - - Library  
-[x] - ConstDeclPart  
-[x] - Constant  
-[x] - Expression  
-[x] - [Factor]  
-[x] - - FuncCall  
-[x] - - InnerExpr  
-[x] - - Negation  
-[x] - - [UnsignedConstant]  
-[x] - - - CharLiteral  
-[x] - - - NamedConst  
-[x] - - - NumberLiteral  
-[x] - - Variable  
-[-] - [Operator]  
-[x] - - FactorOperator
-[x] - - PrefixOperator  
-[x] - - RelOperator  
-[x] - - TermOperator  
-[x] - ParamDeclList
-[x] - StatmList  
-[x] - Term
-[x] - VarDeclPart  
+[] - ConstDeclPart  
+[] - Constant  
+[] - Expression  
+[] - [Factor]  
+[] - - FuncCall  
+[] - - InnerExpr  
+[] - - Negation  
+[] - - [UnsignedConstant]  
+[] - - - CharLiteral  
+[] - - - NamedConst  
+[] - - - NumberLiteral  
+[] - - Variable  
+[] - [Operator]  
+[] - - FactorOperator
+[] - - PrefixOperator  
+[] - - RelOperator  
+[] - - TermOperator  
+[] - ParamDeclList
+[] - StatmList  
+[] - Term
+[] - VarDeclPart  
 
 ## Salman  
 
-[x] - [PascalDecl]  
-[x] - - ConstDecl  
-[x] - - ParamDecl  
-[x] - - ProcDecl  
-[x] - - - FuncDecl  
-[x] - - Program  
-[Not finished] - - TypeDecl  
-[x] - - VarDecl  
-[x] - SimpleExpr  
-[x] - [Statement]  
-[x] - - AssignStatm  
-[x] - - CompoundStatm  
-[x] - - EmptyStatm  
-[x] - - IfStatm  
-[x] - - ProcCallStatm  
-[x] - - WhileStatm  
-[x] - [Type]  
-[x] - - ArrayType  
+[] - [PascalDecl]  
+[] - - ConstDecl  
+[] - - ParamDecl  
+[] - - ProcDecl  
+[] - - - FuncDecl  
+[] - - Program  
+[] - - TypeDecl  
+[] - - VarDecl  
+[] - SimpleExpr  
+[] - [Statement]  
+[] - - AssignStatm  
+[] - - CompoundStatm  
+[] - - EmptyStatm  
+[] - - IfStatm  
+[] - - ProcCallStatm  
+[] - - WhileStatm  
+[] - [Type]  
+[] - - ArrayType  
 [] - - BoolType  
 [] - - CharType  
 [] - - IntType  
-[x] - - TypeName  
+[] - - TypeName  

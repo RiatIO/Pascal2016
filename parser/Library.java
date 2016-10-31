@@ -5,15 +5,16 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class Library extends Block {
-    types.Type type;
+    types.BoolType booleanType;
+    types.IntType integerType;
 
     public Library(int lNum) {
         super(lNum);
-    }
 
-    // add dec
-    // get dec
-    // find dec
+        addDecl("write", new ProcDecl("write", lNum));
+
+        System.out.println(decls.size());
+    }
 
     @Override public String identify() {
         return "<library> on line " + lineNum;

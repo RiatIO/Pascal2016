@@ -9,7 +9,7 @@ class Variable extends Factor {
     Expression expr;
     String name;
 
-    VarDecl VarDecl = null;
+    VarDecl varDecl = null;
 
     Variable(int lNum) {
         super(lNum);

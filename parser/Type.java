@@ -19,27 +19,13 @@ abstract class Type extends PascalSyntax {
         return "<type> on line " + lineNum;
     }
 
-    public void checkType(Type tx, String op, PascalSyntax where, String mess) {
-        Main.log.noteTypeCheck(this, op, tx, where);
-        if (this != tx)
-            where.error(mess);
-    }
-
     static Type parse(Scanner s) {
         enterParser("type");
         Type t = null;
 
-<<<<<<< HEAD
-
-        if(s.curToken.kind == nameToken){
-            t.name = s.curToken.id;
-            //s.test(nameToken); 
-        }else{
-=======
         if (s.curToken.kind == nameToken) {
             t = TypeName.parse(s);
         } else {
->>>>>>> 2383d82e46b7d71a889a587a4f9cafabbf009a13
             t = ArrayType.parse(s);
         }
 
