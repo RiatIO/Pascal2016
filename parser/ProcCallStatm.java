@@ -21,9 +21,6 @@ class ProcCallStatm extends Statement{
         System.out.println("---- PROCCALL");
 
         PascalDecl d = curScope.findDecl(name, this);
-
-        System.out.println(d);
-        
         procRef = (ProcDecl)d;
     }
 

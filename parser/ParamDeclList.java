@@ -17,6 +17,10 @@ class ParamDeclList extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
+        System.out.println("YO:");
+        for (ParamDecl p : pd) {
+            p.check(curScope, lib);
+        }
     }
 
     @Override public String identify() {

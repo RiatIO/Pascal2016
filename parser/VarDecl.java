@@ -13,10 +13,12 @@ class VarDecl extends PascalDecl{
     }
 
     @Override void check(Block curScope, Library lib) {
+        curScope.addDecl(name, this);
+        type.check(curScope, lib);
     }
 
     @Override public String identify() {
-        return "<Var-decl> " + name + "on line " + lineNum;
+        return "<var decl> " + name + " on line " + lineNum;
     }
 
     @Override public void prettyPrint() {

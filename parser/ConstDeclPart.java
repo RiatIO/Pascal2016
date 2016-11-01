@@ -9,8 +9,6 @@ class ConstDeclPart extends PascalSyntax {
 
     ArrayList<ConstDecl> cd;
 
-    ConstDecl constRef;
-
     types.Type type;
 
     ConstDeclPart(int lNum) {
@@ -19,6 +17,9 @@ class ConstDeclPart extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
+        for (ConstDecl c : cd) {
+            c.check(curScope, lib);
+        }
     }
 
     @Override public String identify() {

@@ -18,6 +18,13 @@ class Term extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
+        for (Factor ff : f) {
+            ff.check(curScope, lib);
+        }
+
+        for (FactorOperator foo : fo) {
+            foo.check(curScope, lib);
+        }
     }
 
     @Override public String identify() {

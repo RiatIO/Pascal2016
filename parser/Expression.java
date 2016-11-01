@@ -20,12 +20,12 @@ class Expression extends PascalSyntax {
         preSe.check(curScope, lib);
         type = preSe.type;
 
-        if (preSe != null) {
+        if (postSe != null) {
             postSe.check(curScope, lib);
             String oprName = ro.tk.toString();
             type.checkType(postSe.type, oprName+" operands", this,
                 "Operands to "+oprName+" are of different type!");
-            //type = lib.booleanType;
+            type = lib.booleanType;
         }
     }
 

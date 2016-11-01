@@ -17,18 +17,6 @@ class Constant extends PascalSyntax {
         super(lNum);
     }
 
-    @Override public String identify() {
-        return "<Constant> on line " + lineNum;
-    }
-
-    @Override public void prettyPrint() {
-        if (po != null) {
-            po.prettyPrint();
-        }
-
-        uc.prettyPrint();
-    }
-
     @Override void check(Block curScope, Library lib) {
         uc.check(curScope, lib);
         type = uc.type;
@@ -41,6 +29,18 @@ class Constant extends PascalSyntax {
             if (po.tk == subtractToken)
                 constVal = -constVal;
         }
+    }
+
+    @Override public String identify() {
+        return "<Constant> on line " + lineNum;
+    }
+
+    @Override public void prettyPrint() {
+        if (po != null) {
+            po.prettyPrint();
+        }
+
+        uc.prettyPrint();
     }
 
     static Constant parse(Scanner s) {

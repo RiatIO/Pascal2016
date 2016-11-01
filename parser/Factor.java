@@ -13,9 +13,6 @@ public abstract class Factor extends PascalSyntax {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
-    }
-
     @Override public String identify() {
         return "<factor> on line " + lineNum;
     }

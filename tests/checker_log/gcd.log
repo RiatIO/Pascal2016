@@ -1,0 +1,5 @@
+Binding on line 8: integer was declared as <proc decl> integer in the library
+Binding on line 19: res was declared as <var decl> res on line 8
+Binding on line 19: v1 was declared as <const decl> v1 on line 6
+Binding on line 19: v2 was declared as <const decl> v2 on line 6
+Binding on line 20: write was declared as <proc decl> write in the library

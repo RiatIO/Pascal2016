@@ -12,8 +12,7 @@ public class Library extends Block {
         super(lNum);
 
         addDecl("write", new ProcDecl("write", lNum));
-
-        System.out.println(decls.size());
+        addDecl("integer", new ProcDecl("integer", lNum));
     }
 
     @Override public String identify() {

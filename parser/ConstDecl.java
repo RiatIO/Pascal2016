@@ -14,6 +14,8 @@ class ConstDecl extends PascalDecl {
     }
 
     @Override void check(Block curScope, Library lib) {
+        cst.check(curScope, lib);
+        curScope.addDecl(name, this);
     }
 
     @Override public String identify() {

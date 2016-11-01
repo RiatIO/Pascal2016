@@ -2,7 +2,6 @@ package parser;
 
 import main.*;
 import scanner.*;
-import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
 class TypeDecl extends PascalDecl{
@@ -10,22 +9,27 @@ class TypeDecl extends PascalDecl{
     types.Type type;
 
     TypeDecl(String id, int lNum){
-        super(id,lNum);
+        super(id, lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        curScope.addDecl(name, this);
     }
 
     @Override public String identify() {
-        return "<Param-decl> " + name + "on line " + lineNum;
+        return "<type decl> " + name + " on line " + lineNum;
     }
 
     static TypeDecl parse(Scanner s){
         enterParser("type decl");
 
+        s.test(nameToken);
+        TypeDecl td = new TypeDecl(s.curToken.id, s.curLineNum());
+        s.readNextToken();
+
 
         leaveParser("type decl");
-        return null;
+        return td;
     }
 
     void checkWhetherAssignable(PascalSyntax where){

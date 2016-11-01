@@ -48,7 +48,6 @@ class Block extends PascalSyntax {
         if (decls.containsKey(id))
             d.error(id + " declared twice in same block!");
         decls.put(id, d);
-
     }
 
     @Override public String identify() {

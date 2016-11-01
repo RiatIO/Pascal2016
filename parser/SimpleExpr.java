@@ -9,7 +9,7 @@ class SimpleExpr extends PascalSyntax {
     PrefixOperator po;
     ArrayList<Term> t;
     ArrayList<TermOperator> to;
-    
+
     types.Type type;
 
     SimpleExpr(int lNum) {
@@ -19,6 +19,16 @@ class SimpleExpr extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
+        if (po != null)
+            po.check(curScope, lib);
+
+        for (Term tt : t) {
+            tt.check(curScope, lib);
+        }
+
+        for (TermOperator too : to) {
+            too.check(curScope, lib);
+        }
     }
 
     @Override public String identify() {

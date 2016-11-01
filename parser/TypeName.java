@@ -8,13 +8,16 @@ import java.util.ArrayList;
 class TypeName extends Type {
     String name;
 
-    types.Type type;
+    PascalDecl procRef;
 
     TypeName(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        PascalDecl d = curScope.findDecl(name, this);
+
+        procRef = (ProcDecl) d;
     }
 
     @Override public String identify() {
@@ -23,6 +26,10 @@ class TypeName extends Type {
 
     @Override public void prettyPrint() {
         Main.log.prettyPrint(name);
+    }
+
+    public String toString() {
+        return name;
     }
 
     static TypeName parse(Scanner s) {

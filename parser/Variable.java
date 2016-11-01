@@ -9,13 +9,22 @@ class Variable extends Factor {
     Expression expr;
     String name;
 
-    VarDecl varDecl = null;
+    PascalDecl varDecl;
 
     Variable(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        PascalDecl d = curScope.findDecl(name, this);
+
+        if (d instanceof VarDecl)
+            varDecl = (VarDecl) d;
+        else if (d instanceof ConstDecl)
+            varDecl = (ConstDecl) d;
+
+        if (expr != null)
+            expr.check(curScope, lib);
     }
 
     @Override public String identify() {

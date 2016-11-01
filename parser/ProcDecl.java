@@ -16,6 +16,7 @@ class ProcDecl extends PascalDecl {
     @Override void check(Block curScope, Library lib) {
         pdl.check(curScope, lib);
         b.check(curScope, lib);
+        curScope.addDecl(name, this);
     }
 
     @Override public String identify() {
@@ -37,7 +38,6 @@ class ProcDecl extends PascalDecl {
         b.prettyPrint();
 
         Main.log.prettyPrintLn("; {" + name + "}");
-        // Main.log.prettyPrintLn();
     }
 
     static ProcDecl parse(Scanner s) {
