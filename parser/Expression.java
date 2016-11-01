@@ -22,10 +22,11 @@ class Expression extends PascalSyntax {
 
         if (postSe != null) {
             postSe.check(curScope, lib);
+            ro.check(curScope, lib);
             String oprName = ro.tk.toString();
-            type.checkType(postSe.type, oprName+" operands", this,
-                "Operands to "+oprName+" are of different type!");
-            type = lib.booleanType;
+            // type.checkType(postSe.type, oprName+" operands", this,
+            //     "Operands to "+oprName+" are of different type!");
+            // type = lib.booleanType;
         }
     }
 

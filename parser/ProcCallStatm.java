@@ -8,7 +8,7 @@ import java.util.ArrayList;
 class ProcCallStatm extends Statement{
     ArrayList<Expression> expr;
     String name;
-    ProcDecl procRef;
+    PascalDecl procRef;
 
     types.Type type;
 
@@ -21,7 +21,12 @@ class ProcCallStatm extends Statement{
         System.out.println("---- PROCCALL");
 
         PascalDecl d = curScope.findDecl(name, this);
-        procRef = (ProcDecl)d;
+
+        for (Expression e : expr) {
+            e.check(curScope, lib);
+        }
+
+        procRef = (ProcDecl) d;
     }
 
     @Override public String identify() {

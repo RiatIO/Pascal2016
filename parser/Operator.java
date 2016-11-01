@@ -12,9 +12,6 @@ public abstract class Operator extends Factor {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
-    }
-
     @Override public String identify() {
         return "<operator> on line " + lineNum;
     }

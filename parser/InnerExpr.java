@@ -15,6 +15,7 @@ class InnerExpr extends Factor {
     }
 
     @Override void check(Block curScope, Library lib) {
+        expr.check(curScope, lib);
     }
 
     @Override public String identify() {

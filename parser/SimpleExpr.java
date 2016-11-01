@@ -22,12 +22,11 @@ class SimpleExpr extends PascalSyntax {
         if (po != null)
             po.check(curScope, lib);
 
-        for (Term tt : t) {
-            tt.check(curScope, lib);
-        }
-
-        for (TermOperator too : to) {
-            too.check(curScope, lib);
+        for (int i = 0; i < t.size(); i++) {
+            if (i != 0) {
+                to.get(i-1).check(curScope, lib);
+            }
+            t.get(i).check(curScope, lib);
         }
     }
 

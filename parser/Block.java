@@ -39,6 +39,10 @@ class Block extends PascalSyntax {
             vdp.check(this, lib);
         }
 
+        for (ProcDecl a : pd) {
+            a.check(this, lib);
+        }
+
         if (sm != null) {
             sm.check(this, lib);
         }
@@ -56,14 +60,6 @@ class Block extends PascalSyntax {
 
     public PascalDecl findDecl(String id, PascalSyntax where) {
         PascalDecl d = decls.get(id);
-        // if (d == null && outerScope != null)
-        //     d = outerScope.findDecl(id, where);
-        //
-        // if (d == null)
-        //     d = lib.findDecl(id, where);
-        //
-        // if (d == null)
-        //     where.error("Name " + id + " is unknown!");
 
         if (d != null) {
             Main.log.noteBinding(id, where, d);
@@ -74,6 +70,7 @@ class Block extends PascalSyntax {
             return outerScope.findDecl(id, where);
         }
 
+        where.error("Name " + id + " is unknown!");
         return null; // Required by the Java compiler.
     }
 

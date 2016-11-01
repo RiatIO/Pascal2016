@@ -16,13 +16,17 @@ class FuncDecl extends ProcDecl {
     }
 
     @Override void check(Block curScope, Library lib) {
-        b.check(curScope, lib);
-        pdl.check(curScope, lib);
         curScope.addDecl(name, this);
+
+        if (pdl != null)
+            pdl.check(curScope, lib);
+
+        tn.check(curScope, lib);
+        b.check(curScope, lib);
     }
 
     @Override public String identify() {
-        return "<Func-decl> "+ name + "on line " + lineNum;
+        return "<func decl> "+ name + " on line " + lineNum;
     }
 
     @Override public void prettyPrint() {

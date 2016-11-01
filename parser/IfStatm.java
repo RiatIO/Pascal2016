@@ -6,8 +6,7 @@ import static scanner.TokenKind.*;
 
 class IfStatm extends Statement {
     Expression expr;
-    Statement preS;
-    Statement postS;
+    Statement preS, postS;
 
     types.Type type;
 

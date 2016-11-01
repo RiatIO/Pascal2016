@@ -16,15 +16,17 @@ class Variable extends Factor {
     }
 
     @Override void check(Block curScope, Library lib) {
+        if (expr != null)
+            expr.check(curScope, lib);
+
         PascalDecl d = curScope.findDecl(name, this);
 
         if (d instanceof VarDecl)
             varDecl = (VarDecl) d;
         else if (d instanceof ConstDecl)
             varDecl = (ConstDecl) d;
-
-        if (expr != null)
-            expr.check(curScope, lib);
+        else if (d instanceof ParamDecl)
+            varDecl = (ParamDecl) d;
     }
 
     @Override public String identify() {

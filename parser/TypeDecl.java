@@ -17,7 +17,7 @@ class TypeDecl extends PascalDecl{
     }
 
     @Override public String identify() {
-        return "<type decl> " + name + " on line " + lineNum;
+        return "<type decl> " + name + " in the library";
     }
 
     static TypeDecl parse(Scanner s){
@@ -26,7 +26,6 @@ class TypeDecl extends PascalDecl{
         s.test(nameToken);
         TypeDecl td = new TypeDecl(s.curToken.id, s.curLineNum());
         s.readNextToken();
-
 
         leaveParser("type decl");
         return td;

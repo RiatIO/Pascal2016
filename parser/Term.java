@@ -18,12 +18,11 @@ class Term extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
-        for (Factor ff : f) {
-            ff.check(curScope, lib);
-        }
-
-        for (FactorOperator foo : fo) {
-            foo.check(curScope, lib);
+        for (int i = 0; i < f.size(); i++) {
+            if (i != 0) {
+                fo.get(i-1).check(curScope, lib);
+            }
+            f.get(i).check(curScope, lib);
         }
     }
 

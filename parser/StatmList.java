@@ -19,10 +19,8 @@ class StatmList extends PascalSyntax {
 
         System.out.println("--- STATMLIST");
 
-        if (!s.isEmpty()) {
-            for(Statement st : s) {
-                st.check(curScope, lib);
-            }
+        for(Statement st : s) {
+            st.check(curScope, lib);
         }
     }
 

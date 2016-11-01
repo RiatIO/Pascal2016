@@ -14,7 +14,7 @@ class CompoundStatm extends Statement{
     }
 
     @Override void check(Block curScope, Library lib) {
-
+        sl.check(curScope, lib);
     }
 
     @Override public String identify() {

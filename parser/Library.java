@@ -11,8 +11,12 @@ public class Library extends Block {
     public Library(int lNum) {
         super(lNum);
 
-        addDecl("write", new ProcDecl("write", lNum));
-        addDecl("integer", new ProcDecl("integer", lNum));
+        addDecl("eol",      new ConstDecl("eol", 0));
+        addDecl("write",    new ProcDecl("write", 0));
+        addDecl("array",    new ProcDecl("array", 0));
+        addDecl("boolean",  new TypeDecl("boolean", 0));
+        addDecl("char",     new TypeDecl("char", 0));
+        addDecl("integer",  new TypeDecl("integer", 0));
     }
 
     @Override public String identify() {

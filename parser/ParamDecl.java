@@ -12,14 +12,12 @@ class ParamDecl extends PascalDecl {
     }
 
     @Override void check(Block curScope, Library lib) {
-
         curScope.addDecl(name, this);
         tn.check(curScope, lib);
-
     }
 
     @Override public String identify() {
-        return "<Param-decl> " + name + " on line " + lineNum;
+        return "<param decl> " + name + " on line " + lineNum;
     }
 
     @Override public void prettyPrint() {

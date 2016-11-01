@@ -17,7 +17,10 @@ class TypeName extends Type {
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
 
-        procRef = (ProcDecl) d;
+        if (d.lineNum == 0)
+            procRef = (TypeDecl) d;
+        else
+            procRef = (ProcDecl) d;
     }
 
     @Override public String identify() {
