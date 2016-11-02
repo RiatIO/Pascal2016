@@ -8,14 +8,13 @@ class CharLiteral extends UnsignedConstant {
 
     char c;
 
-    types.Type type;
-
     CharLiteral(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
         constVal = (int)c;
+        type = lib.charType;
     }
 
     @Override public String identify() {
@@ -24,7 +23,6 @@ class CharLiteral extends UnsignedConstant {
 
     @Override public void prettyPrint() {
         Main.log.prettyPrint("'" + (c =='\'' ? "''" : c) + "'");
-
     }
 
     static CharLiteral parse(Scanner s) {

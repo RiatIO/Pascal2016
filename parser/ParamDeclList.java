@@ -9,8 +9,6 @@ class ParamDeclList extends PascalSyntax {
 
     ArrayList<ParamDecl> pd;
 
-    types.Type type;
-
     ParamDeclList(int lNum) {
         super(lNum);
         pd = new ArrayList<>();

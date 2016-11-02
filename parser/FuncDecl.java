@@ -24,6 +24,8 @@ class FuncDecl extends ProcDecl {
         }
 
         tn.check(curScope, lib);
+        type = tn.type;
+
         b.check(curScope, lib);
     }
 

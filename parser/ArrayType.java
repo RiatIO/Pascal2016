@@ -11,8 +11,6 @@ class ArrayType extends Type {
     Constant preC;
     Constant postC;
 
-    types.Type type;
-
     ArrayType(int lNum) {
         super(lNum);
     }
@@ -21,6 +19,7 @@ class ArrayType extends Type {
         preC.check(curScope, lib);
         postC.check(curScope, lib);
         t.check(curScope, lib);
+        type = new types.ArrayType(t.type, lib.intType, preC.constVal, postC.constVal);
     }
 
     @Override public String identify() {

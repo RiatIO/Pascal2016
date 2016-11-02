@@ -17,10 +17,6 @@ public abstract class Factor extends PascalSyntax {
         return "<factor> on line " + lineNum;
     }
 
-    @Override public void prettyPrint() {
-
-    }
-
     static Factor parse(Scanner s) {
         enterParser("factor");
 

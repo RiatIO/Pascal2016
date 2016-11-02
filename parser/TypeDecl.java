@@ -4,9 +4,9 @@ import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
-class TypeDecl extends PascalDecl{
+class TypeDecl extends PascalDecl {
 
-    types.Type type;
+    PascalDecl ref;
 
     TypeDecl(String id, int lNum){
         super(id, lNum);
@@ -14,6 +14,7 @@ class TypeDecl extends PascalDecl{
 
     @Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
+        System.out.println("FUCK U " + name);
     }
 
     @Override public String identify() {

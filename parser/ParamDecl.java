@@ -14,6 +14,7 @@ class ParamDecl extends PascalDecl {
     @Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
         tn.check(curScope, lib);
+        type = tn.type;
     }
 
     @Override public String identify() {
@@ -42,7 +43,7 @@ class ParamDecl extends PascalDecl {
     @Override void checkWhetherAssignable(PascalSyntax where){
         where.error("You cannot assign a constant");
     }
-    
+
     @Override void checkWhetherFunction(PascalSyntax where){
         where.error("You cannot func");
     }

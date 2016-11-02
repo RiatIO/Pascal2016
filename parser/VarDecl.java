@@ -15,6 +15,7 @@ class VarDecl extends PascalDecl{
     @Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
         t.check(curScope, lib);
+        type = t.type;
     }
 
     @Override public String identify() {
@@ -42,7 +43,7 @@ class VarDecl extends PascalDecl{
     }
 
     void checkWhetherAssignable(PascalSyntax where){
-        
+
     }
     void checkWhetherFunction(PascalSyntax where){
 

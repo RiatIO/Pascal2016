@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 class Block extends PascalSyntax {
     Program context;
-
     Block outerScope;
+    Library lib;
 
     ConstDeclPart cdp;
     VarDeclPart vdp;
@@ -18,7 +18,6 @@ class Block extends PascalSyntax {
     ArrayList<ProcDecl> pd;
     HashMap<String, PascalDecl> decls;
 
-    Library lib;
 
     Block(int lNum) {
         super(lNum);
@@ -29,8 +28,6 @@ class Block extends PascalSyntax {
     @Override void check(Block curScope, Library lib) {
         this.outerScope = curScope;
         this.lib = lib;
-
-        System.out.println(outerScope);
 
         if (cdp != null) {
             cdp.check(this, lib);

@@ -5,7 +5,7 @@ import scanner.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
 
-class ProcCallStatm extends Statement{
+class ProcCallStatm extends Statement {
     ArrayList<Expression> expr;
     String name;
     PascalDecl procRef;

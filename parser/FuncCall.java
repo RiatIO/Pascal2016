@@ -26,6 +26,7 @@ class FuncCall extends Factor {
         }
 
         funcRef = (FuncDecl) d;
+        type = funcRef.type;
     }
 
     @Override public String identify() {

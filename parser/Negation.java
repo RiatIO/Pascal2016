@@ -14,6 +14,7 @@ class Negation extends Factor {
     }
 
     @Override void check(Block curScope, Library lib) {
+        type = lib.boolType;
         fc.check(curScope, lib);
     }
 
