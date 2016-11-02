@@ -1,3 +1,5 @@
+Binding on line 0: limit was declared as <const decl> limit in the library
+Binding on line 9: limit was declared as <const decl> limit in the library
 Binding on line 9: boolean was declared as <type decl> boolean in the library
 Binding on line 10: integer was declared as <type decl> integer in the library
 Binding on line 13: integer was declared as <type decl> integer in the library

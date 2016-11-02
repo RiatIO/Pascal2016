@@ -1,3 +1,5 @@
+Binding on line 0: v1 was declared as <const decl> v1 in the library
+Binding on line 0: v2 was declared as <const decl> v2 in the library
 Binding on line 8: integer was declared as <type decl> integer in the library
 Binding on line 10: integer was declared as <type decl> integer in the library
 Binding on line 10: integer was declared as <type decl> integer in the library
@@ -12,10 +14,10 @@ Binding on line 15: m was declared as <param decl> m on line 10
 Binding on line 15: n was declared as <param decl> n on line 10
 Binding on line 19: res was declared as <var decl> res on line 8
 Binding on line 19: gcd was declared as <func decl> gcd on line 10
-Binding on line 19: v1 was declared as <const decl> v1 on line 6
-Binding on line 19: v2 was declared as <const decl> v2 on line 6
+Binding on line 19: v1 was declared as <const decl> v1 in the library
+Binding on line 19: v2 was declared as <const decl> v2 in the library
 Binding on line 20: write was declared as <proc decl> write in the library
-Binding on line 20: v1 was declared as <const decl> v1 on line 6
-Binding on line 20: v2 was declared as <const decl> v2 on line 6
+Binding on line 20: v1 was declared as <const decl> v1 in the library
+Binding on line 20: v2 was declared as <const decl> v2 in the library
 Binding on line 20: res was declared as <var decl> res on line 8
-Binding on line 20: eol was declared as <const decl> eol on line 0
+Binding on line 20: eol was declared as <const decl> eol in the library

@@ -42,6 +42,7 @@ class ParamDecl extends PascalDecl {
     @Override void checkWhetherAssignable(PascalSyntax where){
         where.error("You cannot assign a constant");
     }
+    
     @Override void checkWhetherFunction(PascalSyntax where){
         where.error("You cannot func");
     }
@@ -49,6 +50,7 @@ class ParamDecl extends PascalDecl {
     @Override void checkWhetherProcedure(PascalSyntax where){
         where.error("You cannot proc");
     }
+
     @Override void checkWhetherValue(PascalSyntax where){
 
     }

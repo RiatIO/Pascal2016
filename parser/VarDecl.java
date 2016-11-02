@@ -42,7 +42,7 @@ class VarDecl extends PascalDecl{
     }
 
     void checkWhetherAssignable(PascalSyntax where){
-
+        
     }
     void checkWhetherFunction(PascalSyntax where){
 
