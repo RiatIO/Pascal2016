@@ -7,6 +7,8 @@ import static scanner.TokenKind.*;
 public abstract class UnsignedConstant extends Factor {
 
     int constVal;
+    String nameVal;
+    char charVal;
     types.Type type;
 
     UnsignedConstant(int lNum) {

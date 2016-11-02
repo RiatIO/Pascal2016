@@ -30,7 +30,8 @@ class Block extends PascalSyntax {
         this.outerScope = curScope;
         this.lib = lib;
 
-        System.out.println("-- BLOCK");
+        System.out.println(outerScope);
+
         if (cdp != null) {
             cdp.check(this, lib);
         }
@@ -39,8 +40,10 @@ class Block extends PascalSyntax {
             vdp.check(this, lib);
         }
 
-        for (ProcDecl a : pd) {
-            a.check(this, lib);
+        if (!pd.isEmpty()) {
+            for (ProcDecl a : pd) {
+                a.check(this, lib);
+            }
         }
 
         if (sm != null) {

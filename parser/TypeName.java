@@ -21,6 +21,7 @@ class TypeName extends Type {
             procRef = (TypeDecl) d;
         else
             procRef = (ProcDecl) d;
+
     }
 
     @Override public String identify() {

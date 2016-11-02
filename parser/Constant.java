@@ -11,24 +11,29 @@ class Constant extends PascalSyntax {
     UnsignedConstant uc;
 
     types.Type type;
+
     int constVal;
+    String nameVal;
+    char charVal;
 
     Constant(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
-        uc.check(curScope, lib);
-        type = uc.type;
-        constVal = uc.constVal;
-
         if (po != null) {
             String oprName = po.tk.toString();
-            uc.type.checkType(lib.integerType, "Prefix "+oprName, this,
-                "Prefix + or - may only be applied to Integers.");
+            po.check(curScope, lib);
+            // uc.type.checkType(lib.integerType, "Prefix "+oprName, this,
+            //     "Prefix + or - may only be applied to Integers.");
             if (po.tk == subtractToken)
                 constVal = -constVal;
         }
+
+        uc.check(curScope, lib);
+        constVal = uc.constVal;
+        nameVal  = uc.nameVal;
+        charVal  = uc.charVal;
     }
 
     @Override public String identify() {

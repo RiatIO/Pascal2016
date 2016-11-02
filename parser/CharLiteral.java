@@ -10,12 +10,12 @@ class CharLiteral extends UnsignedConstant {
 
     types.Type type;
 
-
     CharLiteral(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        constVal = (int)c;
     }
 
     @Override public String identify() {

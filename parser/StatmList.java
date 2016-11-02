@@ -16,9 +16,6 @@ class StatmList extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
-
-        System.out.println("--- STATMLIST");
-
         for(Statement st : s) {
             st.check(curScope, lib);
         }

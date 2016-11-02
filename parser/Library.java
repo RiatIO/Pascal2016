@@ -11,6 +11,8 @@ public class Library extends Block {
     public Library(int lNum) {
         super(lNum);
 
+        addDecl("true",     new ConstDecl("true", 0));
+        addDecl("false",    new ConstDecl("false", 0));
         addDecl("eol",      new ConstDecl("eol", 0));
         addDecl("write",    new ProcDecl("write", 0));
         addDecl("array",    new ProcDecl("array", 0));

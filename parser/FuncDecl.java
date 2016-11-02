@@ -18,8 +18,10 @@ class FuncDecl extends ProcDecl {
     @Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
 
-        if (pdl != null)
-            pdl.check(curScope, lib);
+        if (pdl != null) {
+            b.outerScope = curScope;
+            pdl.check(b, lib);
+        }
 
         tn.check(curScope, lib);
         b.check(curScope, lib);

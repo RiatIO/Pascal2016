@@ -18,12 +18,12 @@ class ProcCallStatm extends Statement{
     }
 
     @Override void check(Block curScope, Library lib) {
-        System.out.println("---- PROCCALL");
-
         PascalDecl d = curScope.findDecl(name, this);
 
-        for (Expression e : expr) {
-            e.check(curScope, lib);
+        if (!expr.isEmpty()) {
+            for (Expression e : expr) {
+                e.check(curScope, lib);
+            }
         }
 
         procRef = (ProcDecl) d;
