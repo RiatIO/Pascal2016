@@ -20,7 +20,6 @@ class Expression extends PascalSyntax {
         preSe.check(curScope, lib);
         type = preSe.type;
 
-
         if (postSe != null) {
             ro.check(curScope, lib);
             postSe.check(curScope, lib);

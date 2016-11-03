@@ -10,13 +10,12 @@ class RelOperator extends Operator {
 
     TokenKind tk;
 
-    types.Type type;
-
     RelOperator(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        type = lib.boolType;
     }
 
     @Override public String identify() {

@@ -16,8 +16,9 @@ class AssignStatm extends Statement{
 
     @Override void check(Block curScope, Library lib) {
         v.check(curScope, lib);
-        // v.varDecl.checkWhetherAssignable(this);
         e.check(curScope, lib);
+        System.out.println("Var" + v.type + " - " + " expr " + e.type);
+        v.type.checkType(e.type, ":=", this, "FAILED");
     }
 
     @Override public String identify() {

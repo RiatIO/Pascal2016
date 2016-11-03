@@ -9,15 +9,13 @@ import static scanner.TokenKind.*;
 class TermOperator extends Operator {
 
     TokenKind tk;
-    
-    types.Type type;
-
 
     TermOperator(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        type = (tk == orToken) ? lib.boolType : lib.intType;
     }
 
     @Override public String identify() {

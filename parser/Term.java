@@ -19,15 +19,14 @@ class Term extends PascalSyntax {
 
     @Override void check(Block curScope, Library lib) {
         for (int i = 0; i < f.size(); i++) {
+            f.get(i).check(curScope, lib);
+            type = f.get(i).type;
 
             if (i != 0) {
                 fo.get(i-1).check(curScope, lib);
-            }
-
-            f.get(i).check(curScope, lib);
-
-            if (fo.isEmpty()) {
-                type = f.get(i).type;
+                String opr = fo.get(i-1).k.toString();
+                type.checkType(fo.get(i-1).type, "left " + opr + " operand", this, "something");
+                type.checkType(f.get(i).type, "right " + opr + " operand", this, "something");
             }
         }
     }

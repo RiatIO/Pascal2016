@@ -24,10 +24,16 @@ class SimpleExpr extends PascalSyntax {
             po.check(curScope, lib);
 
         for (int i = 0; i < t.size(); i++) {
+            t.get(i).check(curScope, lib);
+            type = t.get(i).type;
+
             if (i != 0) {
                 to.get(i-1).check(curScope, lib);
+
+                String opr = to.get(i-1).tk.toString();
+                type.checkType(to.get(i-1).type, "left " + opr + " operand", this, "something");
+                type.checkType(t.get(i).type, "right " + opr + " operand", this, "something");
             }
-            t.get(i).check(curScope, lib);
         }
     }
 
@@ -71,18 +77,5 @@ class SimpleExpr extends PascalSyntax {
 
         leaveParser("simple expr");
         return se;
-    }
-
-    void checkWhetherAssignable(PascalSyntax where){
-
-    }
-    void checkWhetherFunction(PascalSyntax where){
-
-    }
-    void checkWhetherProcedure(PascalSyntax where){
-
-    }
-    void checkWhetherValue(PascalSyntax where){
-
     }
 }

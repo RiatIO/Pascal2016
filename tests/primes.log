@@ -1,8 +1,0 @@
-Binding on line 9: limit was declared as <const decl> limit in the library
-Binding on line 9: boolean was declared as <type decl> boolean in the library
-Binding on line 10: integer was declared as <type decl> integer in the library
-Binding on line 13: integer was declared as <type decl> integer in the library
-Binding on line 14: integer was declared as <type decl> integer in the library
-Binding on line 16: i1 was declared as <var decl> i1 on line 13
-Binding on line 17: i1 was declared as <var decl> i1 on line 13
-Binding on line 17: limit was declared as <const decl> limit in the library

@@ -16,6 +16,8 @@ class IfStatm extends Statement {
 
     @Override void check(Block curScope, Library lib) {
         expr.check(curScope, lib);
+        expr.type.checkType(lib.boolType, "if-test", this, "not valid");
+
         preS.check(curScope, lib);
 
         if (postS != null) {
