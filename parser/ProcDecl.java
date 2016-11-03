@@ -65,17 +65,17 @@ class ProcDecl extends PascalDecl {
     }
 
     @Override void checkWhetherAssignable(PascalSyntax where){
-        where.error("You cannot assign to a constant!");
+        where.error("ProcDecl - You cannot assign to a constant!");
     }
     @Override void checkWhetherFunction(PascalSyntax where){
-        where.error("You do not have the func");
+        where.error("ProcDecl - You do not have the func");
     }
     @Override void checkWhetherProcedure(PascalSyntax where){
 
     }
 
     @Override void checkWhetherValue(PascalSyntax where){
-        where.error("No value");
+        where.error("ProcDecl - No value");
     }
 
 }

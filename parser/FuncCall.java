@@ -27,8 +27,9 @@ class FuncCall extends Factor {
             type.checkType(e.type, "param #" + i, this, "mofo");
             i++;
         }
-        
+
         funcRef = (FuncDecl) d;
+        funcRef.checkWhetherFunction(this);
     }
 
     @Override public String identify() {

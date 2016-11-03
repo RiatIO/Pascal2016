@@ -27,6 +27,7 @@ class ProcCallStatm extends Statement {
         }
 
         procRef = (ProcDecl) d;
+        procRef.checkWhetherProcedure(this);
     }
 
     @Override public String identify() {

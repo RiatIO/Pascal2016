@@ -46,12 +46,12 @@ class VarDecl extends PascalDecl{
 
     }
     void checkWhetherFunction(PascalSyntax where){
-        where.error("Not a func");
+        where.error("Var - Not a func");
     }
     void checkWhetherProcedure(PascalSyntax where){
-        where.error("Not a proc");
+        where.error("Var - Not a proc");
     }
     void checkWhetherValue(PascalSyntax where){
-        where.error("not a value");
+        
     }
 }

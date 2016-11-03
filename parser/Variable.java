@@ -17,7 +17,7 @@ class Variable extends Factor {
 
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
-
+        d.checkWhetherValue(this);
         if (expr != null)
             expr.check(curScope, lib);
 
@@ -31,6 +31,7 @@ class Variable extends Factor {
             varDecl = (FuncDecl) d;
 
         type = varDecl.type;
+
     }
 
     @Override public String identify() {

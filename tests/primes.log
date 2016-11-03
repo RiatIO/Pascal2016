@@ -1,0 +1,24 @@
+Binding on line 9: limit was declared as <const decl> limit in the library
+Binding on line 9: boolean was declared as <type decl> boolean in the library
+Binding on line 10: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Binding on line 14: integer was declared as <type decl> integer in the library
+Binding on line 16: i1 was declared as <var decl> i1 on line 13
+Type check := on line 16: type Integer vs type Integer
+Binding on line 17: i1 was declared as <var decl> i1 on line 13
+Binding on line 17: limit was declared as <const decl> limit in the library
+Type check <= operands on line 17: type Integer vs type Integer
+Type check while-test on line 17: type Boolean vs type Boolean
+Binding on line 19: i2 was declared as <var decl> i2 on line 14
+Binding on line 19: i1 was declared as <var decl> i1 on line 13
+Type check left * operand on line 19: type Integer vs type Integer
+Type check right * operand on line 19: type Integer vs type Integer
+Type check := on line 19: type Integer vs type Integer
+Binding on line 20: i2 was declared as <var decl> i2 on line 14
+Binding on line 20: limit was declared as <const decl> limit in the library
+Type check <= operands on line 20: type Integer vs type Integer
+Type check while-test on line 20: type Boolean vs type Boolean
+Binding on line 22: prime was declared as <var decl> prime on line 9
+Binding on line 22: i2 was declared as <var decl> i2 on line 14
+Binding on line 22: false was declared as <const decl> false in the library
+Error at line 22: FAILED
