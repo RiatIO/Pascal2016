@@ -10,14 +10,12 @@ class PrefixOperator extends Operator {
 
     public TokenKind tk;
 
-    types.Type type;
-
     PrefixOperator(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
-
+        type = lib.intType;
     }
 
     @Override public String identify() {

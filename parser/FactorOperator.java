@@ -8,13 +8,13 @@ import static scanner.TokenKind.*;
 
 class FactorOperator extends Operator {
     TokenKind k;
-    types.Type type;
 
     FactorOperator(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        type = (k == andToken) ? lib.boolType : lib.intType;
     }
 
     @Override public String identify() {

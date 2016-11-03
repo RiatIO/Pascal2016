@@ -21,7 +21,6 @@ class NamedConst extends UnsignedConstant {
         ref = (ConstDecl) d;
         type = ref.type;
         System.out.println(ref.type);
-        // constVal = ((ConstDecl) d). <-- FIX THIS
     }
 
     @Override public String identify() {

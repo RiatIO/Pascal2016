@@ -9,7 +9,6 @@ class FuncCall extends Factor {
 
     ArrayList<Expression> expr;
     String name;
-    types.Type type;
 
     PascalDecl funcRef;
 
@@ -20,13 +19,16 @@ class FuncCall extends Factor {
 
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
+        type = d.type;
 
+        int i = 1;
         for (Expression e : expr) {
             e.check(curScope, lib);
+            type.checkType(e.type, "param #" + i, this, "mofo");
+            i++;
         }
-
+        
         funcRef = (FuncDecl) d;
-        type = funcRef.type;
     }
 
     @Override public String identify() {
@@ -49,7 +51,6 @@ class FuncCall extends Factor {
     }
 
     static FuncCall parse(Scanner s) {
-
         enterParser("func call");
 
         FuncCall fc = new FuncCall(s.curLineNum());
