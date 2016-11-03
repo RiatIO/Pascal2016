@@ -77,15 +77,12 @@ class FuncDecl extends ProcDecl {
     }
 
     @Override void checkWhetherAssignable(PascalSyntax where){
-
     }
     @Override void checkWhetherFunction(PascalSyntax where){
-        where.error("Cannot assign a func");
     }
     @Override void checkWhetherProcedure(PascalSyntax where){
-        where.error("Not a procedure");
+        where.error("Func - Not a procedure");
     }
     @Override void checkWhetherValue(PascalSyntax where){
-        where.error("Not a value");
     }
 }

@@ -40,12 +40,12 @@ class TypeDecl extends PascalDecl {
 
     }
     void checkWhetherFunction(PascalSyntax where){
-
+        where.error("TypeDecl - Not a func");
     }
     void checkWhetherProcedure(PascalSyntax where){
-
+        where.error("TypeDecl - Not a proc");
     }
     void checkWhetherValue(PascalSyntax where){
-
+        where.error("TypeDecl - Not a jejej value");
     }
 }

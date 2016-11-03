@@ -17,6 +17,7 @@ class Variable extends Factor {
 
     @Override void check(Block curScope, Library lib) {
         varDecl = curScope.findDecl(name, this);
+        varDecl.checkWhetherValue(this);
         type = varDecl.type;
 
         if (expr != null) {

@@ -20,6 +20,8 @@ class ProcCallStatm extends Statement {
         PascalDecl d = curScope.findDecl(name, this);
         ProcDecl tmp = (ProcDecl)d;
 
+        tmp.checkWhetherProcedure(this);
+
         int pos = 0;
 
         if (!expr.isEmpty()) {
