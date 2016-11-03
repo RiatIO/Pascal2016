@@ -19,13 +19,18 @@ class SimpleExpr extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
-
-        if (po != null)
+        if (po != null) {
             po.check(curScope, lib);
+            System.out.println(po.type);
+        }
 
         for (int i = 0; i < t.size(); i++) {
             t.get(i).check(curScope, lib);
             type = t.get(i).type;
+
+            if (po != null) {
+                type.checkType(po.type, "prefix " + po.tk.toString() + " operand", this, "SHIT IN SIMPLEXMPR");
+            }
 
             if (i != 0) {
                 to.get(i-1).check(curScope, lib);

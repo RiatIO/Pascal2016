@@ -8,7 +8,6 @@ import java.util.ArrayList;
 class ProcCallStatm extends Statement {
     ArrayList<Expression> expr;
     String name;
-    PascalDecl procRef;
 
     types.Type type;
 
@@ -19,14 +18,25 @@ class ProcCallStatm extends Statement {
 
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
+        ProcDecl tmp = (ProcDecl)d;
+
+        int pos = 0;
 
         if (!expr.isEmpty()) {
             for (Expression e : expr) {
                 e.check(curScope, lib);
+                type = e.type;
+
+                if (tmp.pdl != null) {
+                    if (tmp.pdl.pd.size() < pos + 1)
+                        this.error("Too many parameters in call on " + name);
+
+
+                    type.checkType(tmp.pdl.pd.get(pos).type, "param #" + (pos+1), this, "IN PROCALL");
+                    pos++;
+                }
             }
         }
-
-        procRef = (ProcDecl) d;
     }
 
     @Override public String identify() {

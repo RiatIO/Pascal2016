@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
 class FuncDecl extends ProcDecl {
-    ParamDeclList pdl;
     Block b;
     TypeName tn;
 

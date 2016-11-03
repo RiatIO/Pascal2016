@@ -15,6 +15,7 @@ class ProcDecl extends PascalDecl {
 
     @Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
+
         if (pdl != null) {
             b.outerScope = curScope;
             pdl.check(b, lib);
@@ -24,7 +25,10 @@ class ProcDecl extends PascalDecl {
     }
 
     @Override public String identify() {
-        return "<proc decl> " + name + " in the library";
+        if (lineNum == 0)
+            return "<proc decl> " + name + " in the library";
+
+        return "<proc decl> " + name + " on line " + lineNum;
     }
 
     @Override public void prettyPrint() {

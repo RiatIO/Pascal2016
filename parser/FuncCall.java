@@ -10,8 +10,6 @@ class FuncCall extends Factor {
     ArrayList<Expression> expr;
     String name;
 
-    PascalDecl funcRef;
-
     FuncCall(int lNum) {
         super(lNum);
         expr = new ArrayList<>();
@@ -19,16 +17,18 @@ class FuncCall extends Factor {
 
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
-        type = d.type;
+        FuncDecl tmp = (FuncDecl) d;
 
-        int i = 1;
+        int pos = 0;
         for (Expression e : expr) {
             e.check(curScope, lib);
-            type.checkType(e.type, "param #" + i, this, "mofo");
-            i++;
+            type = e.type;
+
+            if (tmp.pdl != null) {
+                type.checkType(tmp.pdl.pd.get(pos).type, "param #" + (pos+1), this, "IN func call");
+                pos++;
+            }
         }
-        
-        funcRef = (FuncDecl) d;
     }
 
     @Override public String identify() {

@@ -12,7 +12,7 @@ public class Library extends Block {
     public Library(int lNum) {
         super(lNum);
         PascalDecl _true, _false, _eol, _boolean, _char, _int;
-
+        
         _true = new ConstDecl("true", 0);
         _true.type = boolType;
 

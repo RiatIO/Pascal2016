@@ -1,0 +1,9 @@
+Binding on line 2: integer was declared as <type decl> integer in the library
+Binding on line 5: boolean was declared as <type decl> boolean in the library
+Binding on line 7: v was declared as <var decl> v on line 5
+Binding on line 7: x was declared as <var decl> x on line 2
+Type check = operands on line 7: type Integer vs type Integer
+Type check := on line 7: type Boolean vs type Boolean
+Binding on line 11: p was declared as <proc decl> p on line 4
+Binding on line 12: write was declared as <proc decl> write in the library
+Error at line 12: Name v is unknown!

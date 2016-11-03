@@ -1,0 +1,21 @@
+Binding on line 2: integer was declared as <type decl> integer in the library
+Binding on line 4: integer was declared as <type decl> integer in the library
+Binding on line 4: integer was declared as <type decl> integer in the library
+Binding on line 6: doble was declared as <func decl> doble on line 4
+Binding on line 6: v was declared as <param decl> v on line 4
+Type check left * operand on line 6: type Integer vs type Integer
+Type check right * operand on line 6: type Integer vs type Integer
+Type check := on line 6: type Integer vs type Integer
+Binding on line 6: x was declared as <var decl> x on line 2
+Binding on line 6: x was declared as <var decl> x on line 2
+Binding on line 6: v was declared as <param decl> v on line 4
+Type check left * operand on line 6: type Integer vs type Integer
+Type check right * operand on line 6: type Integer vs type Integer
+Type check left + operand on line 6: type Integer vs type Integer
+Type check right + operand on line 6: type Integer vs type Integer
+Type check := on line 6: type Integer vs type Integer
+Binding on line 10: doble was declared as <func decl> doble on line 4
+Type check param #1 on line 10: type Integer vs type Integer
+Binding on line 11: write was declared as <proc decl> write in the library
+Binding on line 11: x was declared as <var decl> x on line 2
+Binding on line 11: eol was declared as <const decl> eol in the library

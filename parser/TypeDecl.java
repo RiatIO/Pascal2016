@@ -14,11 +14,15 @@ class TypeDecl extends PascalDecl {
 
     @Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
-        System.out.println("FUCK U " + name);
+        System.out.println("TYPEDECL " + name);
     }
 
     @Override public String identify() {
-        return "<type decl> " + name + " in the library";
+        if (lineNum == 0)
+            return "<type decl> " + name + " in the library";
+
+        return "<type decl> " + name + " on line " + lineNum;
+
     }
 
     static TypeDecl parse(Scanner s){

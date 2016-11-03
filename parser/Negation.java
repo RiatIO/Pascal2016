@@ -7,7 +7,6 @@ import static scanner.TokenKind.*;
 class Negation extends Factor {
 
     Factor fc;
-    types.Type type;
 
     Negation(int lNum) {
         super(lNum);
@@ -15,7 +14,12 @@ class Negation extends Factor {
 
     @Override void check(Block curScope, Library lib) {
         type = lib.boolType;
+
         fc.check(curScope, lib);
+
+        System.out.println(fc.type);
+        type.checkType(fc.type, "not operand", this, "NOT FAILED");
+
     }
 
     @Override public String identify() {

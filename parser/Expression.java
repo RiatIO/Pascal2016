@@ -28,7 +28,6 @@ class Expression extends PascalSyntax {
                 "Operands to "+oprName+" are of different type!");
 
             type = lib.boolType;
-
         }
     }
 
