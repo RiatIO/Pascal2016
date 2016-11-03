@@ -25,7 +25,7 @@ class Expression extends PascalSyntax {
             String oprName = ro.tk.toString();
             type.checkType(postSe.type, oprName+" operands", this,
                 "Operands to "+oprName+" are of different type!");
-            //type = lib.booleanType;
+            type = lib.booleanType;
         }
     }
 

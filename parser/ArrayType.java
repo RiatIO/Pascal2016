@@ -19,6 +19,13 @@ class ArrayType extends Type {
     }
 
     @Override void check(Block curScope, Library lib) {
+        preC.check(curScope, lib);
+        type = preC.type;
+
+        if(postC != null){
+            postC.check(curScope,lib);
+            
+        }
     }
 
     @Override public String identify() {
