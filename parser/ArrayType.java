@@ -17,9 +17,11 @@ class ArrayType extends Type {
 
     @Override void check(Block curScope, Library lib) {
         preC.check(curScope, lib);
+
         postC.check(curScope, lib);
         t.check(curScope, lib);
         type = new types.ArrayType(t.type, lib.intType, preC.constVal, postC.constVal);
+
     }
 
     @Override public String identify() {

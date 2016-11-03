@@ -19,6 +19,7 @@ class SimpleExpr extends PascalSyntax {
     }
 
     @Override void check(Block curScope, Library lib) {
+
         if (po != null)
             po.check(curScope, lib);
 
@@ -76,18 +77,5 @@ class SimpleExpr extends PascalSyntax {
 
         leaveParser("simple expr");
         return se;
-    }
-
-    void checkWhetherAssignable(PascalSyntax where){
-
-    }
-    void checkWhetherFunction(PascalSyntax where){
-
-    }
-    void checkWhetherProcedure(PascalSyntax where){
-
-    }
-    void checkWhetherValue(PascalSyntax where){
-
     }
 }
