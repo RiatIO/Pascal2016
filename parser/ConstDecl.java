@@ -14,24 +14,25 @@ class ConstDecl extends PascalDecl {
     }
 
     @Override void check(Block curScope, Library lib) {
-
+        cst.check(curScope, lib);
+        type = cst.type;
+        curScope.addDecl(name, this);
     }
 
     @Override public String identify() {
-        return "<const decl> " + name + " on line " + lineNum;
+        return "<const decl> " + name + " in the library";
     }
 
     @Override public void prettyPrint() {
         Main.log.prettyPrint(name + " = ");
         cst.prettyPrint();
         Main.log.prettyPrint(";");
-
     }
 
     static ConstDecl parse(Scanner s) {
         enterParser("const decl");
-        s.test(nameToken);
 
+        s.test(nameToken);
         ConstDecl cd = new ConstDecl(s.curToken.id, s.curLineNum());
         s.readNextToken();
 

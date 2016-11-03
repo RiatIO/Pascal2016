@@ -11,10 +11,26 @@ class Constant extends PascalSyntax {
     UnsignedConstant uc;
 
     types.Type type;
+
     int constVal;
 
     Constant(int lNum) {
         super(lNum);
+    }
+
+    @Override void check(Block curScope, Library lib) {
+        uc.check(curScope, lib);
+        type = uc.type;
+        constVal = uc.constVal;
+
+        if (po != null) {
+            String oprName = po.tk.toString();
+            po.check(curScope, lib);
+            uc.type.checkType(lib.intType, "Prefix "+oprName, this,
+                "Prefix + or - may only be applied to Integers.");
+            if (po.tk == subtractToken)
+                constVal = -constVal;
+        }
     }
 
     @Override public String identify() {
@@ -27,20 +43,6 @@ class Constant extends PascalSyntax {
         }
 
         uc.prettyPrint();
-    }
-
-    @Override void check(Block curScope, Library lib) {
-        uc.check(curScope, lib);
-        type = uc.type;
-        constVal = uc.constVal;
-
-        if (po != null) {
-            String oprName = po.tk.toString();
-            uc.type.checkType(lib.integerType, "Prefix "+oprName, this,
-                "Prefix + or - may only be applied to Integers.");
-            if (po.tk == subtractToken)
-                constVal = -constVal;
-        }
     }
 
     static Constant parse(Scanner s) {

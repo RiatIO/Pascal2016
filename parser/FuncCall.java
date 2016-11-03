@@ -11,7 +11,7 @@ class FuncCall extends Factor {
     String name;
     types.Type type;
 
-    FuncDecl funcRef;
+    PascalDecl funcRef;
 
     FuncCall(int lNum) {
         super(lNum);
@@ -21,11 +21,12 @@ class FuncCall extends Factor {
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
 
-        if (d == null) {
-            // Do something
+        for (Expression e : expr) {
+            e.check(curScope, lib);
         }
 
-        FuncDecl funcRef = (FuncDecl) d;
+        funcRef = (FuncDecl) d;
+        type = funcRef.type;
     }
 
     @Override public String identify() {

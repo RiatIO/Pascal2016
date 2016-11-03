@@ -11,21 +11,17 @@ class ArrayType extends Type {
     Constant preC;
     Constant postC;
 
-
-    types.Type type;
-
     ArrayType(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
         preC.check(curScope, lib);
-        type = preC.type;
 
-        if(postC != null){
-            postC.check(curScope,lib);
-            
-        }
+        postC.check(curScope, lib);
+        t.check(curScope, lib);
+        type = new types.ArrayType(t.type, lib.intType, preC.constVal, postC.constVal);
+
     }
 
     @Override public String identify() {

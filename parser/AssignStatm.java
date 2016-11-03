@@ -14,14 +14,14 @@ class AssignStatm extends Statement{
         super(lNum);
     }
 
-    @Override public String identify() {
-        return "<Assign-statm> on line " + lineNum;
-    }
-
     @Override void check(Block curScope, Library lib) {
         v.check(curScope, lib);
-        v.varDecl.checkWhetherAssignable(this);
+        // v.varDecl.checkWhetherAssignable(this);
         e.check(curScope, lib);
+    }
+
+    @Override public String identify() {
+        return "<Assign-statm> on line " + lineNum;
     }
 
     @Override public void prettyPrint() {

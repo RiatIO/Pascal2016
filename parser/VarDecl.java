@@ -6,22 +6,25 @@ import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
 class VarDecl extends PascalDecl{
-    Type type;
+    Type t;
 
     VarDecl(String id, int lNum) {
         super(id, lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        curScope.addDecl(name, this);
+        t.check(curScope, lib);
+        type = t.type;
     }
 
     @Override public String identify() {
-        return "<Var-decl> " + name + "on line " + lineNum;
+        return "<var decl> " + name + " on line " + lineNum;
     }
 
     @Override public void prettyPrint() {
         Main.log.prettyPrint(name + ": ");
-        type.prettyPrint();
+        t.prettyPrint();
         Main.log.prettyPrint(";");
     }
 
@@ -32,7 +35,7 @@ class VarDecl extends PascalDecl{
         s.readNextToken();
 
         s.skip(colonToken);
-        vd.type = Type.parse(s);
+        vd.t = Type.parse(s);
         s.skip(semicolonToken);
 
         leaveParser("var decl");

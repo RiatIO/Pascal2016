@@ -9,14 +9,16 @@ class ParamDeclList extends PascalSyntax {
 
     ArrayList<ParamDecl> pd;
 
-    types.Type type;
-
     ParamDeclList(int lNum) {
         super(lNum);
         pd = new ArrayList<>();
     }
 
     @Override void check(Block curScope, Library lib) {
+
+        for (ParamDecl p : pd) {
+            p.check(curScope, lib);
+        }
     }
 
     @Override public String identify() {

@@ -1,7 +1,5 @@
 # TODO LIST  
 
-## Deep  
-
 [] [PascalSyntax]  
 [] - Block  
 [] - - Library  
@@ -26,9 +24,6 @@
 [] - StatmList  
 [] - Term
 [] - VarDeclPart  
-
-## Salman  
-
 [] - [PascalDecl]  
 [] - - ConstDecl  
 [] - - ParamDecl  

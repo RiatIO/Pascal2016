@@ -7,13 +7,13 @@ import static scanner.TokenKind.*;
 class NumberLiteral extends UnsignedConstant {
 
     int number;
-    types.Type type;
 
     NumberLiteral(int lNum) {
         super(lNum);
     }
 
     @Override void check(Block curScope, Library lib) {
+        type = lib.intType;
         constVal = number;
     }
 

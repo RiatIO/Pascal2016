@@ -16,10 +16,21 @@ class FuncDecl extends ProcDecl {
     }
 
     @Override void check(Block curScope, Library lib) {
+        curScope.addDecl(name, this);
+
+        if (pdl != null) {
+            b.outerScope = curScope;
+            pdl.check(b, lib);
+        }
+
+        tn.check(curScope, lib);
+        type = tn.type;
+
+        b.check(curScope, lib);
     }
 
     @Override public String identify() {
-        return "<Func-decl> "+ name + "on line " + lineNum;
+        return "<func decl> "+ name + " on line " + lineNum;
     }
 
     @Override public void prettyPrint() {
@@ -67,10 +78,10 @@ class FuncDecl extends ProcDecl {
     }
 
     @Override void checkWhetherAssignable(PascalSyntax where){
-        where.error("Cannot assign a func");
+
     }
     @Override void checkWhetherFunction(PascalSyntax where){
-
+        where.error("Cannot assign a func");
     }
     @Override void checkWhetherProcedure(PascalSyntax where){
         where.error("Not a procedure");

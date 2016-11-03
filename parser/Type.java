@@ -12,9 +12,6 @@ abstract class Type extends PascalSyntax {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
-    }
-
     @Override public String identify() {
         return "<type> on line " + lineNum;
     }

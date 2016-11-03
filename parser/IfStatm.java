@@ -6,8 +6,7 @@ import static scanner.TokenKind.*;
 
 class IfStatm extends Statement {
     Expression expr;
-    Statement preS;
-    Statement postS;
+    Statement preS, postS;
 
     types.Type type;
 
@@ -16,6 +15,12 @@ class IfStatm extends Statement {
     }
 
     @Override void check(Block curScope, Library lib) {
+        expr.check(curScope, lib);
+        preS.check(curScope, lib);
+
+        if (postS != null) {
+            postS.check(curScope, lib);
+        }
     }
 
     @Override public String identify() {
