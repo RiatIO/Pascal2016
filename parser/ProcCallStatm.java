@@ -33,9 +33,12 @@ class ProcCallStatm extends Statement {
                     if (tmp.pdl.pd.size() < pos + 1)
                         this.error("Too many parameters in call on " + name);
 
+                    if (tmp.pdl.pd.size() != expr.size())
+                        this.error("Too few parameters in call on " + name);
 
-                    type.checkType(tmp.pdl.pd.get(pos).type, "param #" + (pos+1), this, "IN PROCALL");
+                    type.checkType(tmp.pdl.pd.get(pos).type, "param #" + (pos+1), this, "Illegal type of parameter #" + (pos+1));
                     pos++;
+
                 }
             }
         }

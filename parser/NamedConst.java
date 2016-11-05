@@ -14,7 +14,6 @@ class NamedConst extends UnsignedConstant {
         super(lNum);
     }
 
-    // FIX THIS
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
         ref = (ConstDecl) d;

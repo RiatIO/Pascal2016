@@ -18,11 +18,10 @@ class AssignStatm extends Statement{
 
         v.check(curScope, lib);
         v.varDecl.checkWhetherAssignable(this);
+        System.out.println(v.varDecl);
         e.check(curScope, lib);
 
-        System.out.println("HAHHAHA");
-
-        v.type.checkType(e.type, ":=", this, "FAILED");
+        v.type.checkType(e.type, ":=", this, "Different types in assignment");
     }
 
     @Override public String identify() {
