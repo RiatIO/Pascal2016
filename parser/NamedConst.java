@@ -8,7 +8,7 @@ class NamedConst extends UnsignedConstant {
 
     String name;
 
-    PascalDecl ref;
+    ConstDecl ref;
 
     NamedConst(int lNum) {
         super(lNum);
@@ -17,6 +17,8 @@ class NamedConst extends UnsignedConstant {
     @Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
         ref = (ConstDecl) d;
+        constVal = ref.cst.constVal;
+
         type = ref.type;
     }
 

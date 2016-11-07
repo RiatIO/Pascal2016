@@ -17,9 +17,7 @@ class Negation extends Factor {
 
         fc.check(curScope, lib);
 
-        System.out.println(fc.type);
-        type.checkType(fc.type, "not operand", this, "NOT FAILED");
-
+        type.checkType(fc.type, "not operand", this, "Cannot apply negation that value!");
     }
 
     @Override public String identify() {

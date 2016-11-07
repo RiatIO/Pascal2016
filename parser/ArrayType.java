@@ -19,7 +19,7 @@ class ArrayType extends Type {
         preC.check(curScope, lib);
         postC.check(curScope, lib);
         t.check(curScope, lib);
-        preC.type.checkType(postC.type, "array limits", this, "ARRAY OUT");
+        preC.type.checkType(postC.type, "array limits", this, "not the same value type.");
         type = new types.ArrayType(t.type, preC.type, preC.constVal, postC.constVal);
     }
 

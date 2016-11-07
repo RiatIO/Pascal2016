@@ -1,6 +1,6 @@
 jar  = pascal2016.jar
 
-#flag = -logS -testscanner
+#flag = -testscanner
 #flag = -testparser
 flag = -testchecker
 
@@ -14,9 +14,13 @@ files = tests/10star.pas tests/easter.pas tests/gcd.pas tests/mini.pas tests/ope
 
 all: clean compile runOne script
 run: clean compile runAll script
+zip: clean deploy
 
 compile:
 	ant
+
+deploy:
+	ant zip
 
 script:
 	bash folder.sh $(part)
@@ -30,5 +34,5 @@ runAll:
 clean:
 	rm -f tests/*.log fails/*.log
 	rm -f pascal2016.jar
-	rm -rf tests/parser_log
+	rm -rf tests/checker_log
 	rm -rf classes

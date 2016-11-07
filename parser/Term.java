@@ -25,8 +25,8 @@ class Term extends PascalSyntax {
             if (i != 0) {
                 fo.get(i-1).check(curScope, lib);
                 String opr = fo.get(i-1).k.toString();
-                type.checkType(fo.get(i-1).type, "left " + opr + " operand", this, "something");
-                type.checkType(f.get(i).type, "right " + opr + " operand", this, "something");
+                type.checkType(fo.get(i-1).type, "left " + opr + " operand", this, "left operend and variable do not match!");
+                type.checkType(f.get(i).type, "right " + opr + " operand", this, "right operend and variable do not match!");
             }
         }
     }

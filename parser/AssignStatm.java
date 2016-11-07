@@ -18,7 +18,6 @@ class AssignStatm extends Statement{
 
         v.check(curScope, lib);
         v.varDecl.checkWhetherAssignable(this);
-        System.out.println(v.varDecl);
         e.check(curScope, lib);
 
         v.type.checkType(e.type, ":=", this, "Different types in assignment");

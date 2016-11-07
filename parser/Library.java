@@ -2,7 +2,6 @@ package parser;
 
 import main.*;
 import scanner.*;
-import static scanner.TokenKind.*;
 
 public class Library extends Block {
     types.BoolType boolType = new types.BoolType();
@@ -11,16 +10,23 @@ public class Library extends Block {
 
     public Library(int lNum) {
         super(lNum);
-        PascalDecl _true, _false, _eol, _boolean, _char, _int;
-        
+        ConstDecl _true, _false, _eol;
+        TypeDecl _boolean, _char, _int;
+
         _true = new ConstDecl("true", 0);
-        _true.type = boolType;
+        _true.type  = boolType;
+        _true.cst   = new Constant(lNum);
+        _true.cst.constVal = 1;
 
         _false = new ConstDecl("false", 0);
         _false.type = boolType;
+        _false.cst  = new Constant(lNum);
+        _false.cst.constVal = 0;
 
         _eol = new ConstDecl("eol", 0);
-        _eol.type = charType;
+        _eol.type   = charType;
+        _eol.cst    = new Constant(lNum);
+        _eol.cst.constVal = 10;
 
         _boolean = new TypeDecl("boolean", 0);
         _boolean.type = boolType;

@@ -23,6 +23,7 @@ class Expression extends PascalSyntax {
         if (postSe != null) {
             ro.check(curScope, lib);
             postSe.check(curScope, lib);
+
             String oprName = ro.tk.toString();
             type.checkType(postSe.type, oprName+" operands", this,
                 "Operands to "+oprName+" are of different type!");

@@ -21,23 +21,22 @@ class SimpleExpr extends PascalSyntax {
     @Override void check(Block curScope, Library lib) {
         if (po != null) {
             po.check(curScope, lib);
-            System.out.println(po.type);
         }
-
         for (int i = 0; i < t.size(); i++) {
             t.get(i).check(curScope, lib);
             type = t.get(i).type;
 
             if (po != null) {
-                type.checkType(po.type, "prefix " + po.tk.toString() + " operand", this, "SHIT IN SIMPLEXMPR");
+                type.checkType(po.type, "prefix " + po.tk.toString() + " operand", this, "checking for correct operand type");
             }
 
             if (i != 0) {
                 to.get(i-1).check(curScope, lib);
 
                 String opr = to.get(i-1).tk.toString();
-                type.checkType(to.get(i-1).type, "left " + opr + " operand", this, "something");
-                type.checkType(t.get(i).type, "right " + opr + " operand", this, "something");
+
+                type.checkType(to.get(i-1).type, "left " + opr + " operand", this, "left operend and variable do not match!");
+                type.checkType(t.get(i).type, "right " + opr + " operand", this, "right operend and variable do not match!");
             }
         }
     }

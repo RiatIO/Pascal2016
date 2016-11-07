@@ -38,7 +38,6 @@ class ProcCallStatm extends Statement {
 
                     type.checkType(tmp.pdl.pd.get(pos).type, "param #" + (pos+1), this, "Illegal type of parameter #" + (pos+1));
                     pos++;
-
                 }
             }
         }
