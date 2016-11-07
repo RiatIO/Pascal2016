@@ -24,7 +24,7 @@ class Variable extends Factor {
             expr.check(curScope, lib);
             types.ArrayType temp = ((types.ArrayType) varDecl.type);
             type = temp.elemType;
-            expr.type.checkType(temp.indexType, "array index", this, "LOL");
+            expr.type.checkType(temp.indexType, "array index", this, "array index do not match!");
         }
     }
 

@@ -38,6 +38,6 @@ class TypeDecl extends PascalDecl {
         where.error("TypeDecl - Not a proc");
     }
     void checkWhetherValue(PascalSyntax where){
-        where.error("TypeDecl - Not a jejej value");
+        where.error("TypeDecl - Not a value");
     }
 }
