@@ -14,7 +14,11 @@ class NamedConst extends UnsignedConstant {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
         ref = (ConstDecl) d;
         constVal = ref.cst.constVal;

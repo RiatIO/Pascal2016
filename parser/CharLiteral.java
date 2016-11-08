@@ -12,7 +12,11 @@ class CharLiteral extends UnsignedConstant {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         constVal = (int)c;
         type = lib.charType;
     }

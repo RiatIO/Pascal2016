@@ -13,7 +13,11 @@ class ConstDecl extends PascalDecl {
         super(id, lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         cst.check(curScope, lib);
         type = cst.type;
         curScope.addDecl(name, this);

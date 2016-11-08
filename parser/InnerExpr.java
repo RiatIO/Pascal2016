@@ -12,7 +12,11 @@ class InnerExpr extends Factor {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         expr.check(curScope, lib);
         type = expr.type;
     }

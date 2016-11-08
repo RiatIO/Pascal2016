@@ -14,7 +14,11 @@ class AssignStatm extends Statement{
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+	@Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
 
         v.check(curScope, lib);
         v.varDecl.checkWhetherAssignable(this);

@@ -17,7 +17,11 @@ class Term extends PascalSyntax {
         fo = new ArrayList<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         for (int i = 0; i < f.size(); i++) {
             f.get(i).check(curScope, lib);
             type = f.get(i).type;

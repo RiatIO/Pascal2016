@@ -46,6 +46,10 @@ public class Library extends Block {
         addDecl("integer",  _int);
     }
 
+    @Override public void genCode(CodeFile f) {
+
+    }
+
     @Override public String identify() {
         return "<library> on line " + lineNum;
     }

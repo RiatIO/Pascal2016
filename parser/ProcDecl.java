@@ -13,7 +13,11 @@ class ProcDecl extends PascalDecl {
         super(id, lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
 
         if (pdl != null) {

@@ -18,7 +18,11 @@ class SimpleExpr extends PascalSyntax {
         to = new ArrayList<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         if (po != null) {
             po.check(curScope, lib);
         }

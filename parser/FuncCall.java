@@ -17,7 +17,11 @@ class FuncCall extends Factor {
         expr = new ArrayList<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
         ref = (FuncDecl) d;
         ref.checkWhetherFunction(this);

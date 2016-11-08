@@ -14,7 +14,11 @@ class VarDeclPart extends PascalSyntax {
         vd = new ArrayList<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         for (VarDecl v : vd) {
             v.check(curScope, lib);
         }

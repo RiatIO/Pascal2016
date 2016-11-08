@@ -16,7 +16,11 @@ class ProcCallStatm extends Statement {
         expr = new ArrayList<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
         ProcDecl tmp = (ProcDecl)d;
 

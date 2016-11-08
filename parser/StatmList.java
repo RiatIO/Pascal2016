@@ -15,7 +15,11 @@ class StatmList extends PascalSyntax {
         s = new ArrayList<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         for(Statement st : s) {
             st.check(curScope, lib);
         }

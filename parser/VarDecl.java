@@ -12,7 +12,11 @@ class VarDecl extends PascalDecl{
         super(id, lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
         t.check(curScope, lib);
         type = t.type;

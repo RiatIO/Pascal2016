@@ -16,7 +16,11 @@ class ConstDeclPart extends PascalSyntax {
         cd = new ArrayList<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         for (ConstDecl c : cd) {
             c.check(curScope, lib);
         }

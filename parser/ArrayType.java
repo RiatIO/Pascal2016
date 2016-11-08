@@ -15,7 +15,11 @@ class ArrayType extends Type {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         preC.check(curScope, lib);
         postC.check(curScope, lib);
         t.check(curScope, lib);

@@ -14,7 +14,11 @@ class TermOperator extends Operator {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         type = (tk == orToken) ? lib.boolType : lib.intType;
     }
 

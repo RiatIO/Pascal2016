@@ -11,7 +11,11 @@ class ParamDecl extends PascalDecl {
         super(id, lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
         tn.check(curScope, lib);
         type = tn.type;

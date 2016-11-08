@@ -25,7 +25,11 @@ class Block extends PascalSyntax {
         decls = new HashMap<>();
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         this.outerScope = curScope;
         this.lib = lib;
 

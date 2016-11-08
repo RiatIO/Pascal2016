@@ -14,7 +14,11 @@ class WhileStatm extends Statement {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         expr.check(curScope, lib);
         expr.type.checkType(lib.boolType, "while-test", this,
             "While-test is not Boolean.");

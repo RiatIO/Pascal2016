@@ -14,7 +14,11 @@ class TypeName extends Type {
         super(lNum);
     }
 
-    @Override void check(Block curScope, Library lib) {
+    @Override void genCode(CodeFile f) {
+
+	}
+
+	@Override void check(Block curScope, Library lib) {
         PascalDecl d = curScope.findDecl(name, this);
 
         if (d.lineNum == 0)
