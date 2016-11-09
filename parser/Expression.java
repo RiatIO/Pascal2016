@@ -17,7 +17,11 @@ class Expression extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
+        preSe.genCode(f);
 
+        if (postSe != null) {
+            postSe.genCode(f);
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {

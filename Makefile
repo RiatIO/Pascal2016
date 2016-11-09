@@ -6,11 +6,11 @@ jar  = pascal2016.jar
 
 #part = scanner
 #part = parser
-# part = checker
+#part = checker
 
 part = codegen
 # Note: you can change the file path by doing: make file=tests/{file}.pas in terminal
-file  = tests/primes.pas
+file  = tests/gcd.pas
 files = tests/10star.pas tests/easter.pas tests/gcd.pas tests/mini.pas tests/opers.pas tests/primes.pas
 
 all: clean compile runOne script

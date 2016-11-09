@@ -14,7 +14,7 @@ class CompoundStatm extends Statement{
     }
 
     @Override void genCode(CodeFile f) {
-
+        sl.genCode(f);
 	}
 
 	@Override void check(Block curScope, Library lib) {

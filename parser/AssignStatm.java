@@ -4,22 +4,25 @@ import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
-class AssignStatm extends Statement{
+class AssignStatm extends Statement {
     Variable v;
     Expression e;
-
-    types.Type type;
 
     AssignStatm(int lNum){
         super(lNum);
     }
 
 	@Override void genCode(CodeFile f) {
+        if (v.varDecl instanceof FuncDecl) {
+            Main.debug(lineNum, "AssignStatm", "" + v.name);
+        } else if (v.expr != null) {
+            // System.out.println(v.varDecl.declLevel);
+        } else {
 
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {
-
         v.check(curScope, lib);
         v.varDecl.checkWhetherAssignable(this);
         e.check(curScope, lib);

@@ -21,6 +21,7 @@ class ConstDecl extends PascalDecl {
         cst.check(curScope, lib);
         type = cst.type;
         curScope.addDecl(name, this);
+        declLevel = curScope.blockId;
     }
 
     @Override public String identify() {

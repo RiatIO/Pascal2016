@@ -14,8 +14,25 @@ class IfStatm extends Statement {
         super(lNum);
     }
 
+    //NOTE: Dry code this.
     @Override void genCode(CodeFile f) {
-
+        expr.genCode(f);
+        if (postS != null) {
+            String lab1 = f.getLocalLabel(), lab2 = f.getLocalLabel();
+            f.genInstr("", "cmpl", "$0,%eax", "");
+            f.genInstr("", "je", lab1, "");
+            preS.genCode(f);
+            f.genInstr("", "jmp", lab2, "");
+            f.genInstr(lab1, "", "", "");
+            postS.genCode(f);
+            f.genInstr(lab2, "", "", "");
+        } else {
+            String lab = f.getLocalLabel();
+            f.genInstr("", "cmpl", "$0,%eax", "");
+            f.genInstr("", "je", lab, "");
+            preS.genCode(f);
+            f.genInstr(lab, "", "", "");
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {

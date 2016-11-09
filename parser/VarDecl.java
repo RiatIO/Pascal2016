@@ -5,7 +5,7 @@ import scanner.*;
 import java.util.ArrayList;
 import static scanner.TokenKind.*;
 
-class VarDecl extends PascalDecl{
+class VarDecl extends PascalDecl {
     Type t;
 
     VarDecl(String id, int lNum) {
@@ -20,6 +20,7 @@ class VarDecl extends PascalDecl{
         curScope.addDecl(name, this);
         t.check(curScope, lib);
         type = t.type;
+        declLevel = curScope.blockId;
     }
 
     @Override public String identify() {
@@ -56,6 +57,6 @@ class VarDecl extends PascalDecl{
         where.error("Var - Not a proc");
     }
     void checkWhetherValue(PascalSyntax where){
-        
+
     }
 }

@@ -19,6 +19,7 @@ class ParamDecl extends PascalDecl {
         curScope.addDecl(name, this);
         tn.check(curScope, lib);
         type = tn.type;
+        declLevel = curScope.blockId;
     }
 
     @Override public String identify() {

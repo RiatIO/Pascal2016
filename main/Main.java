@@ -129,15 +129,15 @@ public class Main {
         if (log.doLogPrettyPrint)
             prog.prettyPrint();
 
-        System.out.print(" checking...");
+        System.out.print(" checking...\n");
         library = new Library(0);
         prog.check(library, library);
 
-        System.out.print(" generating code...");
+        System.out.print(" generating code...\n\n");
         CodeFile code = new CodeFile(baseFileName+".s");
         library.genCode(code);  prog.genCode(code);
         code.finish();
-        System.out.println("OK");
+        System.out.println("\nOK");
 
         assembleCode();
     }
@@ -183,8 +183,11 @@ public class Main {
         }
     }
 
-    // Error message utilities:
+    public static void debug(int lineNum, String file, String info) {
+        System.out.printf("%d: (%s) - %s\n", lineNum, file, info);
+    }
 
+    // Error message utilities:
     public static void error(String message) {
         log.noteError(message);
         throw new PascalError(message);

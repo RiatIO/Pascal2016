@@ -2,7 +2,7 @@ package types;
 
 public class CharType extends Type {
     @Override public String identify() {
-        return "type Char";
+        return "char";
     }
 
     @Override public int size() {

@@ -19,7 +19,12 @@ class SimpleExpr extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-
+        for (int i = 0; i < t.size(); i++) {
+            if (i != 0) {
+                // to.get(i-1).prettyPrint();
+            }
+            t.get(i).genCode(f);
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {

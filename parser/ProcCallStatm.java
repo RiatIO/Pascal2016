@@ -17,7 +17,11 @@ class ProcCallStatm extends Statement {
     }
 
     @Override void genCode(CodeFile f) {
+        for (Expression e : expr) {
+            // Main.debug(lineNum, "ProcCall", "" + e.type);
 
+            e.genCode(f);
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {

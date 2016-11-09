@@ -16,6 +16,7 @@ class TypeDecl extends PascalDecl {
 
 	@Override void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
+        declLevel = curScope.blockId;
     }
 
     @Override public String identify() {

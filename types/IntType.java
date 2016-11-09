@@ -2,7 +2,7 @@ package types;
 
 public class IntType extends Type {
     @Override public String identify() {
-        return "type Integer";
+        return "int";
     }
 
     @Override public int size() {

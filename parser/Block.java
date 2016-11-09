@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class Block extends PascalSyntax {
+    static int levelCount;
+    int blockId;
+
     Program context;
     Block outerScope;
     Library lib;
@@ -18,7 +21,6 @@ class Block extends PascalSyntax {
     ArrayList<ProcDecl> pd;
     HashMap<String, PascalDecl> decls;
 
-
     Block(int lNum) {
         super(lNum);
         pd = new ArrayList<>();
@@ -26,12 +28,30 @@ class Block extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
+        if (cdp != null) {
+            cdp.genCode(f);
+        }
 
+        if (vdp != null) {
+            vdp.genCode(f);
+        }
+
+        if (!pd.isEmpty()) {
+            for (ProcDecl a : pd) {
+                a.genCode(f);
+            }
+        }
+
+        if (sm != null) {
+            sm.genCode(f);
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {
         this.outerScope = curScope;
         this.lib = lib;
+        this.blockId = ++levelCount;
+        Main.debug(lineNum, "Block", "Level: " + this.blockId);
 
         if (cdp != null) {
             cdp.check(this, lib);

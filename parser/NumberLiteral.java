@@ -12,10 +12,6 @@ class NumberLiteral extends UnsignedConstant {
         super(lNum);
     }
 
-    @Override void genCode(CodeFile f) {
-
-	}
-
 	@Override void check(Block curScope, Library lib) {
         type = lib.intType;
         constVal = number;

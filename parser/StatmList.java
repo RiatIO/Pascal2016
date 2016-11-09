@@ -16,7 +16,9 @@ class StatmList extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-
+        for (Statement st : s) {
+            st.genCode(f);
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {

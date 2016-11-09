@@ -18,7 +18,9 @@ class Term extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-
+        for (Factor fac : this.f) {
+            fac.genCode(f);
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {
