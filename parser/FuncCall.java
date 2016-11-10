@@ -26,7 +26,7 @@ class FuncCall extends Factor {
         }
 
         f.genInstr("", "call", "func$" + f.getLabel(name), "");
-        f.genInstr("", "addl", "$8,%esp", "");
+        f.genInstr("", "addl", "$8,%esp", "Pop parameters");
 	}
 
 	@Override void check(Block curScope, Library lib) {

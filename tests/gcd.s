@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-10 15:31:15
+# Code file created by Pascal2016 compiler 2016-11-10 17:21:24
         .globl main                         
 main:
         call    prog$gcd_1              # Start program
@@ -25,14 +25,20 @@ func$gcd_2:
 .L0003:
         movl    -4(%ebp),%edx           
         movl    -32(%edx),%eax          #  m
+        pushl   %eax                    
         movl    -4(%ebp),%edx           
         movl    -32(%edx),%eax          #  n
+        movl    %eax,%ecx               
+        popl    %eax                    
+        cdq                             
+        idivl   %ecx                    
+        movl    %edx,%eax               #    mod
         pushl   %eax                    # Push param #2
         movl    -4(%ebp),%edx           
         movl    -32(%edx),%eax          #  n
         pushl   %eax                    # Push param #1
         call    func$gcd_5              
-        addl    $8,%esp                 
+        addl    $8,%esp                 # Pop parameters
         movl    -8(%ebp),%edx           
         movl    %eax,-32(%edx)          #  gcd :=
 .L0004:
@@ -42,14 +48,12 @@ func$gcd_2:
                 ret                     
 prog$gcd_1:
         enter   $36,$1                  # start of gcd
-        movl    -4(%ebp),%edx           
-        movl    -36(%edx),%eax          #     res
         movl    $462,%eax               #     462
         pushl   %eax                    # Push param #2
         movl    $1071,%eax              #     1071
         pushl   %eax                    # Push param #1
         call    func$gcd_6              
-        addl    $8,%esp                 
+        addl    $8,%esp                 # Pop parameters
         movl    -100(%ebp),%edx         
         movl    %eax,-32(%edx)          #  res :=
         movl    $71,%eax                #     'G'

@@ -16,7 +16,7 @@ class AssignStatm extends Statement {
         e.genCode(f);
 
         if (v.varDecl instanceof FuncDecl) {
-            Main.debug(lineNum, "AssignStatm", "" + v.name);
+            Main.debug(lineNum, "AssignStatm", "" + v.varDecl.name);
             // v.varDecl.genCode(f);
             // v.genCode(f);
 

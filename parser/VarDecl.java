@@ -13,8 +13,8 @@ class VarDecl extends PascalDecl {
     }
 
     @Override void genCode(CodeFile f) {
-        f.genInstr("", "movl", "-4(%ebp),%edx", "");
-        f.genInstr("", "movl", "-" + declOffset + "(%edx),%eax", "    " + name);
+        // f.genInstr("", "movl", "-4(%ebp),%edx", "");
+        // f.genInstr("", "movl", "-" + declOffset + "(%edx),%eax", "    " + name);
 	}
 
 	@Override void check(Block curScope, Library lib) {
