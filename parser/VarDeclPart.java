@@ -8,6 +8,7 @@ import static scanner.TokenKind.*;
 class VarDeclPart extends PascalSyntax {
 
     ArrayList<VarDecl> vd;
+    int size = 32;
 
     VarDeclPart(int lNum) {
         super(lNum);
@@ -15,12 +16,16 @@ class VarDeclPart extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-
+        for (VarDecl v : vd) {
+            v.genCode(f);
+        }
 	}
 
 	@Override void check(Block curScope, Library lib) {
         for (VarDecl v : vd) {
             v.check(curScope, lib);
+            v.declOffset += v.type.size();
+            size += v.type.size();
         }
     }
 

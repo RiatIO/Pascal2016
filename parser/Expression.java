@@ -20,7 +20,14 @@ class Expression extends PascalSyntax {
         preSe.genCode(f);
 
         if (postSe != null) {
+            // if (ro.tk.equals("=")) {
+            f.genInstr("", "pushl", "%eax", "");
             postSe.genCode(f);
+            f.genInstr("", "popl", "%ecx", "");
+            f.genInstr("", "cmpl", "%eax,%ecx", "");
+            f.genInstr("", "movl", "$0,%eax", "");
+            f.genInstr("", "sete", "%al", "Test =");
+            // }
         }
 	}
 

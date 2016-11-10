@@ -1,11 +1,9 @@
-# Code file created by Pascal2016 compiler 2016-11-09 16:34:39
+# Code file created by Pascal2016 compiler 2016-11-09 16:45:33
         .global main                         
 main:
         call    prog$primes_1           # Start program
         movl    $0,%eax                 # Set status 0 and
         ret                             # terminate the program
-prog$primes_1:
-        enter   $4032,$1                # start of primes
 proc$findprimes_2:
         enter   $40,$2                  
 .L0003:
@@ -85,5 +83,7 @@ proc$printprimes_11:
         jmp     .L0016                  
 .L0017:
                                         # End while-statement
+prog$primes_1:
+        enter   $4032,$1                # start of primes
         leave                           
         ret                             

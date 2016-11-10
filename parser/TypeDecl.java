@@ -11,7 +11,6 @@ class TypeDecl extends PascalDecl {
     }
 
     @Override void genCode(CodeFile f) {
-
 	}
 
 	@Override void check(Block curScope, Library lib) {

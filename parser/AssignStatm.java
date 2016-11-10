@@ -13,12 +13,22 @@ class AssignStatm extends Statement {
     }
 
 	@Override void genCode(CodeFile f) {
+        e.genCode(f);
+
         if (v.varDecl instanceof FuncDecl) {
             Main.debug(lineNum, "AssignStatm", "" + v.name);
+            // v.varDecl.genCode(f);
+            // v.genCode(f);
+
+            f.genInstr("", "movl", "-"+ 4 * (v.varDecl.declLevel+1) +"(%ebp),%edx", "");
+            f.genInstr("", "movl", "%eax,-"+ (v.varDecl.declOffset) +"(%edx)", " " + v.varDecl.name + " :=");
+
+
         } else if (v.expr != null) {
             // System.out.println(v.varDecl.declLevel);
         } else {
-
+            f.genInstr("", "movl", "-100(%ebp),%edx", "");
+            f.genInstr("", "movl", "%eax,-32(%edx)", " " + v.varDecl.name + " :=");
         }
 	}
 

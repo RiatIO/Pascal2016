@@ -1,11 +1,9 @@
-# Code file created by Pascal2016 compiler 2016-11-09 16:34:38
+# Code file created by Pascal2016 compiler 2016-11-09 16:45:32
         .global main                         
 main:
         call    prog$easter_1           # Start program
         movl    $0,%eax                 # Set status 0 and
         ret                             # terminate the program
-prog$easter_1:
-        enter   $36,$1                  # start of easter
 proc$easter_2:
         enter   $92,$2                  
         movl    $3,%eax                 
@@ -86,5 +84,7 @@ proc$easter_2:
         jmp     .L0005                  
 .L0006:
                                         # End while-statement
+prog$easter_1:
+        enter   $36,$1                  # start of easter
         leave                           
         ret                             

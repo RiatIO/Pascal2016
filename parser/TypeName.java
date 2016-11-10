@@ -15,7 +15,7 @@ class TypeName extends Type {
     }
 
     @Override void genCode(CodeFile f) {
-
+        procRef.genCode(f);
 	}
 
 	@Override void check(Block curScope, Library lib) {

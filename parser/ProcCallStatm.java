@@ -9,18 +9,25 @@ class ProcCallStatm extends Statement {
     ArrayList<Expression> expr;
     String name;
 
-    types.Type type;
-
     ProcCallStatm(int lNum){
         super(lNum);
         expr = new ArrayList<>();
     }
 
     @Override void genCode(CodeFile f) {
-        for (Expression e : expr) {
-            // Main.debug(lineNum, "ProcCall", "" + e.type);
 
+        for (Expression e : expr) {
             e.genCode(f);
+            f.genInstr("", "pushl", "%eax", "Push next param.");
+            if (name.equals("write")) {
+                f.genInstr("", "call", "write_" + e.type.identify(), "");
+                f.genInstr("", "addl", "$4,%esp", "Pop param.");
+            }
+        }
+
+        if (!name.equals("write")) {
+            f.genInstr("", "call", "proc$" + name, "");
+            f.genInstr("", "addl", "$8,%esp", "");
         }
 	}
 

@@ -4,10 +4,8 @@ import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
-class CompoundStatm extends Statement{
+class CompoundStatm extends Statement {
     StatmList sl;
-
-    types.Type type;
 
     CompoundStatm(int lNum){
         super(lNum);

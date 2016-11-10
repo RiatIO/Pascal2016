@@ -15,16 +15,12 @@ class FuncDecl extends ProcDecl {
     }
 
     @Override void genCode(CodeFile f) {
-        int size = 32;
+        int size = b.vdp == null ? 32 : b.vdp.size;
 
-        if (b.vdp != null) {
-            for (VarDecl v : b.vdp.vd) {
-                size += v.type.size();
-            }
-        }
+        f.genInstr("func$" + f.getLabel(name), "enter", String.format("$%d,$%d", size, b.blockId), "Start of " + name);
 
-        f.genInstr("func$" + f.getLabel(name), "enter", String.format("$%d,$%d", size, b.blockId), "");
         b.genCode(f);
+
         f.genInstr("", "movl", "-32(%ebp),%eax", "");
         f.genInstr("", "", "leave", "");
         f.genInstr("", "", "ret", "");
@@ -43,9 +39,8 @@ class FuncDecl extends ProcDecl {
         type = tn.type;
 
         b.check(curScope, lib);
-        System.out.println(curScope.blockId);
 
-        // declLevel = curScope.blockId;
+        declLevel = curScope.blockId;
     }
 
     @Override public String identify() {

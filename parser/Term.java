@@ -18,8 +18,11 @@ class Term extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-        for (Factor fac : this.f) {
-            fac.genCode(f);
+        for (int i = 0; i < this.f.size(); i++) {
+            if (i != 0) {
+                // fo.get(i-1).prettyPrint();
+            }
+            this.f.get(i).genCode(f);
         }
 	}
 

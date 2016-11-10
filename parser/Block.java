@@ -36,12 +36,6 @@ class Block extends PascalSyntax {
             vdp.genCode(f);
         }
 
-        if (!pd.isEmpty()) {
-            for (ProcDecl a : pd) {
-                a.genCode(f);
-            }
-        }
-
         if (sm != null) {
             sm.genCode(f);
         }

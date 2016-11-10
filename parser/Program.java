@@ -15,23 +15,23 @@ public class Program extends PascalDecl {
 
     @Override public void genCode(CodeFile f) {
         String startLabel = "prog$" + f.getLabel(name);
-        int size = 32;
+        int size = progBlock.vdp == null ? 32 : progBlock.vdp.size;
 
-        if (progBlock.vdp != null) {
-            for (VarDecl v : progBlock.vdp.vd) {
-                size += v.type.size();
-            }
-        }
-
-        f.genInstr("", ".global main", "", "");
+        f.genInstr("", ".globl main", "", "");
         f.genInstr("main", "call", startLabel, "Start program");
         f.genInstr("", "movl", "$0,%eax", "Set status 0 and");
         f.genInstr("", "ret", "", "terminate the program");
-        f.genInstr(startLabel, "enter", String.format("$%d,$%d", size, progBlock.blockId), "start of " + name);
 
+        if (!progBlock.pd.isEmpty()) {
+            for (ProcDecl a : progBlock.pd) {
+                a.genCode(f);
+            }
+        }
+
+        f.genInstr(startLabel, "enter", String.format("$%d,$%d", size,
+                                                progBlock.blockId), "start of " + name);
         progBlock.genCode(f);
-
-        f.genInstr("", "leave", "", "");
+        f.genInstr("", "leave", "", "End of " + name);
         f.genInstr("", "ret", "", "");
 	}
 

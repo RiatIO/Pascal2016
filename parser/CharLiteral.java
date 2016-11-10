@@ -12,6 +12,10 @@ class CharLiteral extends UnsignedConstant {
         super(lNum);
     }
 
+    @Override void genCode(CodeFile f) {
+        f.genInstr("", "movl", "$" + constVal + ",%eax", String.format("    '%c'", c));
+    }
+
 	@Override void check(Block curScope, Library lib) {
         constVal = (int)c;
         type = lib.charType;

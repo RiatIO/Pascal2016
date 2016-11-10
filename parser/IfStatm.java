@@ -8,14 +8,13 @@ class IfStatm extends Statement {
     Expression expr;
     Statement preS, postS;
 
-    types.Type type;
-
     IfStatm(int lNum){
         super(lNum);
     }
 
     //NOTE: Dry code this.
     @Override void genCode(CodeFile f) {
+        f.genInstr("", "", "", "Start if-statement");
         expr.genCode(f);
         if (postS != null) {
             String lab1 = f.getLocalLabel(), lab2 = f.getLocalLabel();
@@ -33,6 +32,7 @@ class IfStatm extends Statement {
             preS.genCode(f);
             f.genInstr(lab, "", "", "");
         }
+        f.genInstr("", "", "", "End if-statement");
 	}
 
 	@Override void check(Block curScope, Library lib) {

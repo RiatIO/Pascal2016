@@ -17,6 +17,12 @@ class Variable extends Factor {
 
     @Override void genCode(CodeFile f) {
 
+        // System.out.println("HHAHAHA " + varDecl);
+        varDecl.genCode(f);
+        System.out.println(varDecl);
+        //
+        // f.genInstr("", "movl", "-4(%ebp),%edx", "");
+        // f.genInstr("", "movl", "-" + varDecl.declOffset + "(%edx),%eax", "    " + varDecl.name);
 	}
 
 	@Override void check(Block curScope, Library lib) {

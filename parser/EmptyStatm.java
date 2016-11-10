@@ -6,8 +6,6 @@ import static scanner.TokenKind.*;
 
 class EmptyStatm extends Statement {
 
-    types.Type type;
-
     EmptyStatm(int lNum){
         super(lNum);
     }

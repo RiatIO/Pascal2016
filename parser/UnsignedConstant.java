@@ -12,13 +12,6 @@ public abstract class UnsignedConstant extends Factor {
         super(lNum);
     }
 
-    @Override void genCode(CodeFile f) {
-        f.genInstr("", "movl", "$" + constVal + ",%eax", "");
-        f.genInstr("", "pushl", "%eax", "");
-        f.genInstr("", "call", "write_" + type.identify(), "");
-        f.genInstr("", "addl", "$4,%esp", "");
-    }
-
     static UnsignedConstant parse(Scanner s) {
         enterParser("unsigned constant");
 
