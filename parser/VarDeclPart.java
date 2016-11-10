@@ -24,8 +24,8 @@ class VarDeclPart extends PascalSyntax {
 	@Override void check(Block curScope, Library lib) {
         for (VarDecl v : vd) {
             v.check(curScope, lib);
-            v.declOffset += v.type.size();
             size += v.type.size();
+            v.declOffset = size;
         }
     }
 

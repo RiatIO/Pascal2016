@@ -17,7 +17,8 @@ class FuncDecl extends ProcDecl {
     @Override void genCode(CodeFile f) {
         int size = b.vdp == null ? 32 : b.vdp.size;
 
-        f.genInstr("func$" + f.getLabel(name), "enter", String.format("$%d,$%d", size, b.blockId), "Start of " + name);
+        f.genInstr("func$" + f.getLabel(name), "enter", String.format("$%d,$%d", size,
+                                                        b.blockId), "Start of " + name);
 
         b.genCode(f);
 
@@ -32,6 +33,7 @@ class FuncDecl extends ProcDecl {
 
         if (pdl != null) {
             b.outerScope = curScope;
+            b.blockId = (b.levelCount + 1); // Ugly but must be done.
             pdl.check(b, lib);
         }
 
@@ -39,8 +41,9 @@ class FuncDecl extends ProcDecl {
         type = tn.type;
 
         b.check(curScope, lib);
+        System.out.println("WHAT IS SHUD BE" + b.blockId);
 
-        declLevel = curScope.blockId;
+        declLevel = b.blockId;
     }
 
     @Override public String identify() {

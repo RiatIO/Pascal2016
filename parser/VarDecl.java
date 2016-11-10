@@ -22,7 +22,6 @@ class VarDecl extends PascalDecl {
         t.check(curScope, lib);
         type = t.type;
         declLevel = curScope.blockId;
-        declOffset = 32;
     }
 
     @Override public String identify() {

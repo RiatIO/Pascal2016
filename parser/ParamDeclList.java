@@ -19,8 +19,12 @@ class ParamDeclList extends PascalSyntax {
 	}
 
 	@Override void check(Block curScope, Library lib) {
+        // Note: wHY?!
+        int size = 4;
         for (ParamDecl p : pd) {
             p.check(curScope, lib);
+            size += p.type.size();
+            p.declOffset = size;
         }
     }
 

@@ -20,15 +20,15 @@ class AssignStatm extends Statement {
             // v.varDecl.genCode(f);
             // v.genCode(f);
 
-            f.genInstr("", "movl", "-"+ 4 * (v.varDecl.declLevel+1) +"(%ebp),%edx", "");
-            f.genInstr("", "movl", "%eax,-"+ (v.varDecl.declOffset) +"(%edx)", " " + v.varDecl.name + " :=");
-
+            f.genInstr("", "movl", "-"+ 4 * (v.varDecl.declLevel) +"(%ebp),%edx", "");
+            f.genInstr("", "movl", "%eax,-32(%edx)", " " + v.varDecl.name + " :=");
 
         } else if (v.expr != null) {
             // System.out.println(v.varDecl.declLevel);
         } else {
-            f.genInstr("", "movl", "-100(%ebp),%edx", "");
-            f.genInstr("", "movl", "%eax,-32(%edx)", " " + v.varDecl.name + " :=");
+            f.genInstr("", "movl", "-4(%ebp),%edx", "");
+            System.out.println("WTF " + v.varDecl);
+            f.genInstr("", "movl", "%eax,-"+ v.varDecl.declOffset +"(%edx)", " " + v.varDecl.name + " :=");
         }
 	}
 

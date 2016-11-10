@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-10 17:21:24
+# Code file created by Pascal2016 compiler 2016-11-10 21:51:29
         .globl main                         
 main:
         call    prog$gcd_1              # Start program
@@ -7,8 +7,8 @@ main:
 func$gcd_2:
         enter   $32,$2                  # Start of gcd
                                         # Start if-statement
-        movl    -4(%ebp),%edx           
-        movl    -32(%edx),%eax          #  n
+        movl    -8(%ebp),%edx           
+        movl    -12(%edx),%eax          #     n
         pushl   %eax                    
         movl    $0,%eax                 # 0
         popl    %ecx                    
@@ -17,25 +17,25 @@ func$gcd_2:
         sete    %al                     # Test =
         cmpl    $0,%eax                 
         je      .L0003                  
-        movl    -4(%ebp),%edx           
-        movl    -32(%edx),%eax          #  m
+        movl    -8(%ebp),%edx           
+        movl    -8(%edx),%eax           #     m
         movl    -8(%ebp),%edx           
         movl    %eax,-32(%edx)          #  gcd :=
         jmp     .L0004                  
 .L0003:
-        movl    -4(%ebp),%edx           
-        movl    -32(%edx),%eax          #  m
+        movl    -8(%ebp),%edx           
+        movl    -8(%edx),%eax           #     m
         pushl   %eax                    
-        movl    -4(%ebp),%edx           
-        movl    -32(%edx),%eax          #  n
+        movl    -8(%ebp),%edx           
+        movl    -12(%edx),%eax          #     n
         movl    %eax,%ecx               
         popl    %eax                    
         cdq                             
         idivl   %ecx                    
         movl    %edx,%eax               #    mod
         pushl   %eax                    # Push param #2
-        movl    -4(%ebp),%edx           
-        movl    -32(%edx),%eax          #  n
+        movl    -8(%ebp),%edx           
+        movl    -12(%edx),%eax          #     n
         pushl   %eax                    # Push param #1
         call    func$gcd_5              
         addl    $8,%esp                 # Pop parameters
@@ -47,15 +47,15 @@ func$gcd_2:
                 leave                   
                 ret                     
 prog$gcd_1:
-        enter   $36,$1                  # start of gcd
+        enter   $36,$1                  # Start of gcd
         movl    $462,%eax               #     462
         pushl   %eax                    # Push param #2
         movl    $1071,%eax              #     1071
         pushl   %eax                    # Push param #1
         call    func$gcd_6              
         addl    $8,%esp                 # Pop parameters
-        movl    -100(%ebp),%edx         
-        movl    %eax,-32(%edx)          #  res :=
+        movl    -4(%ebp),%edx           
+        movl    %eax,-36(%edx)          #  res :=
         movl    $71,%eax                #     'G'
         pushl   %eax                    # Push next param.
         call    write_char              

@@ -29,7 +29,7 @@ public class Program extends PascalDecl {
         }
 
         f.genInstr(startLabel, "enter", String.format("$%d,$%d", size,
-                                                progBlock.blockId), "start of " + name);
+                                                progBlock.blockId), "Start of " + name);
         progBlock.genCode(f);
         f.genInstr("", "leave", "", "End of " + name);
         f.genInstr("", "ret", "", "");
@@ -38,7 +38,7 @@ public class Program extends PascalDecl {
     @Override public void check(Block curScope, Library lib) {
         curScope.addDecl(name, this);
         progBlock.check(curScope, lib);
-        declLevel = curScope.blockId;
+        declLevel = progBlock.blockId;
     }
 
     @Override public String identify() {

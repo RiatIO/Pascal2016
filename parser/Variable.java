@@ -16,14 +16,12 @@ class Variable extends Factor {
     }
 
     @Override void genCode(CodeFile f) {
-
-        System.out.println("HHAHAHA " + varDecl);
-
-        if (varDecl instanceof VarDecl) {
-            f.genInstr("", "movl", "-4(%ebp),%edx", "");
-            f.genInstr("", "movl", "-" + varDecl.declOffset + "(%edx),%eax", "    " + varDecl.name);
-        } else {
+        if (varDecl instanceof ConstDecl) {
             varDecl.genCode(f);
+        } else {
+            System.out.println(varDecl.declLevel);
+            f.genInstr("", "movl", (-4 * varDecl.declLevel) + "(%ebp),%edx", "");
+            f.genInstr("", "movl", varDecl.declOffset + "(%edx),%eax", "    " + varDecl.name);
         }
 	}
 
