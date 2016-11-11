@@ -21,13 +21,16 @@ class FuncDecl extends ProcDecl {
         label = f.getLabel(name);
 
         if (!b.pd.isEmpty()) {
+            int level = declLevel + 1;
+
             for (ProcDecl a : b.pd) {
+                a.declLevel = level;
                 a.genCode(f);
             }
         }
 
         f.genInstr("func$" + label, "enter", String.format("$%d,$%d", size,
-                                                        b.blockId), "Start of " + name);
+                                                        declLevel), "Start of " + name);
 
         if (!b.pd.isEmpty()) {
             for (ProcDecl a : b.pd) {
@@ -37,7 +40,7 @@ class FuncDecl extends ProcDecl {
 
         b.genCode(f);
 
-        f.genInstr("", "movl", "-32(%ebp),%eax", " Fetch return value");
+        f.genInstr("", "movl", "-32(%ebp),%eax", "Fetch return value");
         f.genInstr("", "leave", "", "End of " + name);
         f.genInstr("", "ret", "", "");
 	}
@@ -47,7 +50,11 @@ class FuncDecl extends ProcDecl {
 
         if (pdl != null) {
             b.outerScope = curScope;
-            b.blockId = (b.levelCount + 1); // Ugly but must be done.
+            b.blockId = curScope.blockId + 1;
+            declLevel = b.blockId;
+
+            // b.blockId = (b.levelCount + 1); // Ugly but must be done.
+            // declLevel = b.blockId + 1;
             pdl.check(b, lib);
         }
 
@@ -55,8 +62,7 @@ class FuncDecl extends ProcDecl {
         type = tn.type;
 
         b.check(curScope, lib);
-
-        declLevel = b.blockId - 1;
+        declLevel = b.blockId;
     }
 
     @Override public String identify() {

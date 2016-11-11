@@ -26,7 +26,7 @@ class AssignStatm extends Statement {
 
         } else if (v.varDecl instanceof FuncDecl){
             // Func Decl
-            f.genInstr("", "movl",  -4 * (v.varDecl.declLevel + 1) + "(%ebp),%edx", "");
+            f.genInstr("", "movl",  -4 * (v.varDecl.declLevel) + "(%ebp),%edx", "");
             f.genInstr("", "movl", "%eax,-32(%edx)", "" + v.varDecl.name + " :=");
         }
 	}

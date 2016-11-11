@@ -25,6 +25,7 @@ class ParamDecl extends PascalDecl {
         tn.check(curScope, lib);
         type = tn.type;
         declLevel = curScope.blockId;
+        System.out.println("LEVEL IN PARAM " + declLevel);
     }
 
     @Override public String identify() {

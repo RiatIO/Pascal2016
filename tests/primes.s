@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 13:45:21
+# Code file created by Pascal2016 compiler 2016-11-11 18:07:39
         .globl main                         
 main:
         call    prog$primes_1           # Start program
@@ -73,9 +73,9 @@ proc$findprimes_2:
         leave                           # End of findprimes
         ret                             
 proc$p4_7:
-        enter   $32,$3                  # Start of p4
+        enter   $32,$2                  # Start of p4
                                         # Start if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
         movl    $1000,%eax              #   1000
@@ -92,7 +92,7 @@ proc$p4_7:
 .L0008:
                                         # End if-statement
                                         # Start if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
         movl    $100,%eax               #   100
@@ -109,7 +109,7 @@ proc$p4_7:
 .L0009:
                                         # End if-statement
                                         # Start if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
         movl    $10,%eax                #   10
@@ -125,7 +125,7 @@ proc$p4_7:
         addl    $4,%esp                 # Pop param.
 .L0010:
                                         # End if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -133,16 +133,16 @@ proc$p4_7:
         leave                           # End of p4
         ret                             
 proc$printprimes_11:
-        enter   $40,$4                  # Start of printprimes
+        enter   $40,$2                  # Start of printprimes
         movl    $2,%eax                 #   2
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    %eax,-36(%edx)          # i :=
         movl    $0,%eax                 #   0
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    %eax,-40(%edx)          # nprinted :=
 .L0012:
                                         # Start while-statement
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
         pushl   %eax                    
         movl    $1000,%eax              #   1000
@@ -158,15 +158,16 @@ proc$printprimes_11:
         cmpl    $0,%eax                 
         je      .L0014                  
                                         # Start if-statement
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
         movl    $0,%eax                 #   0
         popl    %ecx                    
         cmpl    %eax,%ecx               
         movl    $0,%eax                 
+        setg    %al                     # Test >
         pushl   %eax                    
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
         movl    $10,%eax                #   10
@@ -192,30 +193,30 @@ proc$printprimes_11:
         addl    $4,%esp                 # Pop param.
 .L0015:
                                         # End if-statement
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
         pushl   %eax                    # Push param #1.
         call    proc$p4_7               
         addl    $4,%esp                 # Pop params.
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
         movl    $1,%eax                 #   1
         movl    %eax,%ecx               
         popl    %eax                    
         addl    %ecx,%eax               #   +
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    %eax,-40(%edx)          # nprinted :=
 .L0014:
                                         # End if-statement
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
         pushl   %eax                    
         movl    $1,%eax                 #   1
         movl    %eax,%ecx               
         popl    %eax                    
         addl    %ecx,%eax               #   +
-        movl    -16(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    %eax,-36(%edx)          # i :=
         jmp     .L0012                  
 .L0013:

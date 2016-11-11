@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class Block extends PascalSyntax {
-    static int levelCount;
+    // static int levelCount;
     int blockId;
 
     Program context;
@@ -43,9 +43,14 @@ class Block extends PascalSyntax {
 
 	@Override void check(Block curScope, Library lib) {
         this.outerScope = curScope;
+        this.blockId = curScope.blockId + 1;
         this.lib = lib;
-        this.blockId = ++levelCount;
-        Main.debug(lineNum, "Block", "Level: " + this.blockId);
+
+        System.out.println(blockId);
+        // this.blockId = ++levelCount;
+        // this.blockId = curScope.blockId;
+
+        // Main.debug(lineNum, "Block", "Level: " + this.outerScope.blockId);
 
         if (cdp != null) {
             cdp.check(this, lib);

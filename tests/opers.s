@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 13:45:20
+# Code file created by Pascal2016 compiler 2016-11-11 18:07:38
         .globl main                         
 main:
         call    prog$operatortest_1     # Start program
@@ -64,8 +64,8 @@ proc$testunaryboolean_2:
         leave                           # End of testunaryboolean
         ret                             
 proc$test_5:
-        enter   $32,$5                  # Start of test
-        movl    -20(%ebp),%edx          
+        enter   $32,$3                  # Start of test
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_bool              
@@ -90,7 +90,7 @@ proc$test_5:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -20(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    # Push next param.
         call    write_bool              
@@ -107,10 +107,10 @@ proc$test_5:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -20(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
-        movl    -20(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         movl    %eax,%ecx               
         popl    %eax                    
@@ -122,7 +122,7 @@ proc$test_5:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -20(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_bool              
@@ -143,7 +143,7 @@ proc$test_5:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -20(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    # Push next param.
         call    write_bool              
@@ -160,10 +160,10 @@ proc$test_5:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -20(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
-        movl    -20(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         movl    %eax,%ecx               
         popl    %eax                    
@@ -178,7 +178,7 @@ proc$test_5:
         leave                           # End of test
         ret                             
 proc$testbinaryboolean_4:
-        enter   $32,$4                  # Start of testbinaryboolean
+        enter   $32,$2                  # Start of testbinaryboolean
         movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #1.
         movl    $0,%eax                 #   0
@@ -206,7 +206,7 @@ proc$testbinaryboolean_4:
         leave                           # End of testbinaryboolean
         ret                             
 proc$test_7:
-        enter   $32,$7                  # Start of test
+        enter   $32,$3                  # Start of test
         movl    $45,%eax                #   '-'
         pushl   %eax                    # Push next param.
         call    write_char              
@@ -215,7 +215,7 @@ proc$test_7:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -28(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -233,7 +233,7 @@ proc$test_7:
         call    write_char              
         addl    $4,%esp                 # Pop param.
         negl    %eax                    #   - (prefix)
-        movl    -28(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -250,7 +250,7 @@ proc$test_7:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -28(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -267,7 +267,7 @@ proc$test_7:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -28(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -279,7 +279,7 @@ proc$test_7:
         leave                           # End of test
         ret                             
 proc$testunarynumeric_6:
-        enter   $32,$6                  # Start of testunarynumeric
+        enter   $32,$2                  # Start of testunarynumeric
         movl    $17,%eax                #   17
         pushl   %eax                    # Push param #1.
         call    proc$test_7             
@@ -296,8 +296,8 @@ proc$testunarynumeric_6:
         leave                           # End of testunarynumeric
         ret                             
 proc$test_9:
-        enter   $32,$9                  # Start of test
-        movl    -36(%ebp),%edx          
+        enter   $32,$3                  # Start of test
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -314,7 +314,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -331,10 +331,10 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         movl    %eax,%ecx               
         popl    %eax                    
@@ -346,7 +346,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -363,7 +363,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -380,10 +380,10 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         movl    %eax,%ecx               
         popl    %eax                    
@@ -395,7 +395,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -412,7 +412,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -429,10 +429,10 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         movl    %eax,%ecx               
         popl    %eax                    
@@ -445,7 +445,7 @@ proc$test_9:
         call    write_char              
         addl    $4,%esp                 # Pop param.
                                         # Start if-statement
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    
         movl    $0,%eax                 #   0
@@ -455,7 +455,7 @@ proc$test_9:
         setne   %al                     # Test <>
         cmpl    $0,%eax                 
         je      .L0010                  
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -480,7 +480,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -497,10 +497,10 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         movl    %eax,%ecx               
         popl    %eax                    
@@ -513,7 +513,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -538,7 +538,7 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         pushl   %eax                    # Push next param.
         call    write_int               
@@ -555,10 +555,10 @@ proc$test_9:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
-        movl    -36(%ebp),%edx          
+        movl    -12(%ebp),%edx          
         movl    12(%edx),%eax           #   y
         movl    %eax,%ecx               
         popl    %eax                    
@@ -577,7 +577,7 @@ proc$test_9:
         leave                           # End of test
         ret                             
 proc$testbinarynumeric_8:
-        enter   $32,$8                  # Start of testbinarynumeric
+        enter   $32,$2                  # Start of testbinarynumeric
         movl    $17,%eax                #   17
         pushl   %eax                    # Push param #1.
         movl    $17,%eax                #   17

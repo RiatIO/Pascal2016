@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 13:45:20
+# Code file created by Pascal2016 compiler 2016-11-11 18:07:38
         .globl main                         
 main:
         call    prog$gcd_1              # Start program
@@ -43,7 +43,7 @@ func$gcd_2:
         movl    %eax,-32(%edx)          # gcd :=
 .L0004:
                                         # End if-statement
-        movl    -32(%ebp),%eax          #  Fetch return value
+        movl    -32(%ebp),%eax          # Fetch return value
         leave                           # End of gcd
         ret                             
 prog$gcd_1:

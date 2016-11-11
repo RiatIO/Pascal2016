@@ -19,13 +19,17 @@ class ProcDecl extends PascalDecl {
         int size = b.vdp == null ? 32 : b.vdp.size;
         label = f.getLabel(name);
 
+        b.blockId = declLevel;
+
         if (!b.pd.isEmpty()) {
             for (ProcDecl a : b.pd) {
                 a.genCode(f);
             }
         }
 
-        f.genInstr("proc$" + label, "enter", String.format("$%d,$%d", size, b.blockId),
+        System.out.println(name + " " + declLevel);
+
+        f.genInstr("proc$" + label, "enter", String.format("$%d,$%d", size, declLevel),
                                                         "Start of " + name);
 
         b.genCode(f);
@@ -39,12 +43,16 @@ class ProcDecl extends PascalDecl {
 
         if (pdl != null) {
             b.outerScope = curScope;
-            b.blockId = (b.levelCount + 1); // Ugly but must be done.
+            b.blockId = curScope.blockId + 1;
+            declLevel = b.blockId;
+
             pdl.check(b, lib);
         }
 
         b.check(curScope, lib);
-        declLevel = curScope.blockId;
+        // System.out.println(name + " " + b.blockId);
+
+        declLevel = b.blockId;
     }
 
     @Override public String identify() {
