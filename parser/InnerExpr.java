@@ -13,7 +13,7 @@ class InnerExpr extends Factor {
     }
 
     @Override void genCode(CodeFile f) {
-
+        expr.genCode(f);
 	}
 
 	@Override void check(Block curScope, Library lib) {

@@ -21,20 +21,29 @@ class SimpleExpr extends PascalSyntax {
     @Override void genCode(CodeFile f) {
         for (int i = 0; i < t.size(); i++) {
             t.get(i).genCode(f);
+
+            if (i != 0) {
+                f.genInstr("", "movl", "%eax,%ecx", "");
+                f.genInstr("", "popl", "%eax", "");
+
+                switch (to.get(i - 1).tk.toString()) {
+                    case "+":
+                        f.genInstr("", "addl", "%ecx,%eax", "  +");
+                        break;
+                    case "-":
+                        f.genInstr("", "subl", "%ecx,%eax", "  -");
+                        break;
+                    case "or":
+                        f.genInstr("", "orl", "%ecx,%eax", "  or");
+                        break;
+                }
+            }
+
             if (i != t.size() - 1) {
                 f.genInstr("", "pushl", "%eax", "");
             }
         }
         // FIKS:
-        if (!to.isEmpty()) {
-            for (TermOperator o : to) {
-                f.genInstr("", "movl", "%eax,%ecx", "");
-                f.genInstr("", "popl", "%eax", "");
-                if (o.tk.toString().equals("+")) {
-                    f.genInstr("", "addl", "%ecx,%eax", "  +");
-                }
-            }
-        }
 	}
 
 	@Override void check(Block curScope, Library lib) {

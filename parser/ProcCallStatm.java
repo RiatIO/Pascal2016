@@ -18,18 +18,23 @@ class ProcCallStatm extends Statement {
 
     @Override void genCode(CodeFile f) {
 
-        for (Expression e : expr) {
-            e.genCode(f);
-            f.genInstr("", "pushl", "%eax", "Push next param.");
+        int i;
+
+        for (i = 0; i < expr.size(); i++) {
+            expr.get(i).genCode(f);
+
             if (name.equals("write")) {
-                f.genInstr("", "call", "write_" + e.type.identify(), "");
+                f.genInstr("", "pushl", "%eax", "Push next param.");
+                f.genInstr("", "call", "write_" + expr.get(i).type.identify(), "");
                 f.genInstr("", "addl", "$4,%esp", "Pop param.");
+            } else {
+                f.genInstr("", "pushl", "%eax", "Push param #" + (i+1) + ".");
             }
         }
 
         if (!name.equals("write")) {
             f.genInstr("", "call", "proc$" + ref.label, "");
-            f.genInstr("", "addl", "$8,%esp", "");
+            f.genInstr("", "addl", "$" + i * 4 + ",%esp", "Pop params.");
         }
 	}
 

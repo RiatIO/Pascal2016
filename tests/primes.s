@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 11:58:43
+# Code file created by Pascal2016 compiler 2016-11-11 13:00:07
         .globl main                         
 main:
         call    prog$primes_1           # Start program
@@ -27,7 +27,7 @@ proc$findprimes_2:
         movl    -36(%edx),%eax          #   i1
         movl    %eax,%ecx               
         popl    %eax                    
-        cdq                             
+        imull   %ecx,%eax               #   *
         movl    -8(%ebp),%edx           
         movl    %eax,-40(%edx)          # i2 :=
 .L0005:
@@ -158,10 +158,31 @@ proc$printprimes_11:
         cmpl    $0,%eax                 
         je      .L0014                  
                                         # Start if-statement
+        movl    -16(%ebp),%edx          
+        movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
+        movl    $0,%eax                 #   0
+        popl    %ecx                    
+        cmpl    %eax,%ecx               
+        movl    $0,%eax                 
+        pushl   %eax                    
+        movl    -16(%ebp),%edx          
+        movl    -40(%edx),%eax          #   nprinted
+        pushl   %eax                    
+        movl    $10,%eax                #   10
         movl    %eax,%ecx               
         popl    %eax                    
         cdq                             
+        idivl   %ecx                    
+        movl    %edx,%eax               #   mod
+        pushl   %eax                    
+        movl    $0,%eax                 #   0
+        popl    %ecx                    
+        cmpl    %eax,%ecx               
+        movl    $0,%eax                 
+        sete    %al                     # Test =
+        movl    %eax,%ecx               
+        popl    %eax                    
         cmpl    $0,%eax                 
         je      .L0015                  
         movl    $10,%eax                #   10
@@ -172,9 +193,9 @@ proc$printprimes_11:
                                         # End if-statement
         movl    -16(%ebp),%edx          
         movl    -36(%edx),%eax          #   i
-        pushl   %eax                    # Push next param.
+        pushl   %eax                    # Push param #1.
         call    proc$p4_7               
-        addl    $8,%esp                 
+        addl    $4,%esp                 # Pop params.
         movl    -16(%ebp),%edx          
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
@@ -237,8 +258,8 @@ prog$primes_1:
 .L0017:
                                         # End while-statement
         call    proc$findprimes_2       
-        addl    $8,%esp                 
+        addl    $0,%esp                 # Pop params.
         call    proc$printprimes_11     
-        addl    $8,%esp                 
+        addl    $0,%esp                 # Pop params.
         leave                           # End of primes
         ret                             
