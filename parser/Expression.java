@@ -29,7 +29,7 @@ class Expression extends PascalSyntax {
             if (ro.tk.toString().equals("=")) {
                 f.genInstr("", "sete", "%al", "Test =");
             } else if (ro.tk.toString().equals("<")) {
-                f.genInstr("", "setl", "%al", "Test =");
+                f.genInstr("", "setl", "%al", "Test <");
             }
         }
 	}

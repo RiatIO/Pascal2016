@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 10:04:55
+# Code file created by Pascal2016 compiler 2016-11-11 10:31:46
         .globl main                         
 main:
         call    prog$tenstars_1         # Start program
@@ -18,7 +18,7 @@ prog$tenstars_1:
         popl    %ecx                    
         cmpl    %eax,%ecx               
         movl    $0,%eax                 
-        setl    %al                     # Test =
+        setl    %al                     # Test <
         cmpl    $0,%eax                 
         je      .L0003                  
         movl    $42,%eax                #     '*'
