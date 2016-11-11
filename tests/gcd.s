@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 09:26:25
+# Code file created by Pascal2016 compiler 2016-11-11 09:53:50
         .globl main                         
 main:
         call    prog$gcd_1              # Start program

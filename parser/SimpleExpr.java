@@ -20,10 +20,17 @@ class SimpleExpr extends PascalSyntax {
 
     @Override void genCode(CodeFile f) {
         for (int i = 0; i < t.size(); i++) {
-            if (i != 0) {
-                // to.get(i-1).prettyPrint();
-            }
             t.get(i).genCode(f);
+            if (i != t.size() - 1) {
+                // to.get(i-1).prettyPrint();
+                f.genInstr("", "pushl", "%eax", "");
+            }
+        }
+        // FIKS:
+        if (!to.isEmpty()) {
+            f.genInstr("", "movl", "%eax,%ecx", "");
+            f.genInstr("", "popl", "%eax", "");
+            f.genInstr("", "addl", "%ecx,%eax", "   +");
         }
 	}
 
