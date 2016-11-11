@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-10 21:51:29
+# Code file created by Pascal2016 compiler 2016-11-11 09:26:25
         .globl main                         
 main:
         call    prog$gcd_1              # Start program
@@ -8,7 +8,7 @@ func$gcd_2:
         enter   $32,$2                  # Start of gcd
                                         # Start if-statement
         movl    -8(%ebp),%edx           
-        movl    -12(%edx),%eax          #     n
+        movl    12(%edx),%eax           #     n
         pushl   %eax                    
         movl    $0,%eax                 # 0
         popl    %ecx                    
@@ -18,16 +18,16 @@ func$gcd_2:
         cmpl    $0,%eax                 
         je      .L0003                  
         movl    -8(%ebp),%edx           
-        movl    -8(%edx),%eax           #     m
+        movl    8(%edx),%eax            #     m
         movl    -8(%ebp),%edx           
         movl    %eax,-32(%edx)          #  gcd :=
         jmp     .L0004                  
 .L0003:
         movl    -8(%ebp),%edx           
-        movl    -8(%edx),%eax           #     m
+        movl    8(%edx),%eax            #     m
         pushl   %eax                    
         movl    -8(%ebp),%edx           
-        movl    -12(%edx),%eax          #     n
+        movl    12(%edx),%eax           #     n
         movl    %eax,%ecx               
         popl    %eax                    
         cdq                             
@@ -35,7 +35,7 @@ func$gcd_2:
         movl    %edx,%eax               #    mod
         pushl   %eax                    # Push param #2
         movl    -8(%ebp),%edx           
-        movl    -12(%edx),%eax          #     n
+        movl    12(%edx),%eax           #     n
         pushl   %eax                    # Push param #1
         call    func$gcd_5              
         addl    $8,%esp                 # Pop parameters

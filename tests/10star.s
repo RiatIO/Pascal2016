@@ -1,14 +1,14 @@
-# Code file created by Pascal2016 compiler 2016-11-10 17:24:32
+# Code file created by Pascal2016 compiler 2016-11-11 09:40:59
         .globl main                         
 main:
         call    prog$tenstars_1         # Start program
         movl    $0,%eax                 # Set status 0 and
         ret                             # terminate the program
 prog$tenstars_1:
-        enter   $36,$1                  # start of tenstars
+        enter   $36,$1                  # Start of tenstars
         movl    $0,%eax                 # 0
-        movl    -100(%ebp),%edx         
-        movl    %eax,-32(%edx)          #  i :=
+        movl    -4(%ebp),%edx           
+        movl    %eax,-36(%edx)          #  i :=
 .L0002:
                                         # Start while-statement
         movl    -4(%ebp),%edx           
@@ -22,8 +22,8 @@ prog$tenstars_1:
         movl    -4(%ebp),%edx           
         movl    -36(%edx),%eax          #     i
         movl    $1,%eax                 # 1
-        movl    -100(%ebp),%edx         
-        movl    %eax,-32(%edx)          #  i :=
+        movl    -4(%ebp),%edx           
+        movl    %eax,-36(%edx)          #  i :=
         jmp     .L0002                  
 .L0003:
                                         # End while-statement
