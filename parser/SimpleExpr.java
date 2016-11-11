@@ -27,9 +27,13 @@ class SimpleExpr extends PascalSyntax {
         }
         // FIKS:
         if (!to.isEmpty()) {
-            f.genInstr("", "movl", "%eax,%ecx", "");
-            f.genInstr("", "popl", "%eax", "");
-            f.genInstr("", "addl", "%ecx,%eax", "   +");
+            for (TermOperator o : to) {
+                f.genInstr("", "movl", "%eax,%ecx", "");
+                f.genInstr("", "popl", "%eax", "");
+                if (o.tk.toString().equals("+")) {
+                    f.genInstr("", "addl", "%ecx,%eax", "  +");
+                }
+            }
         }
 	}
 

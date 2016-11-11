@@ -30,6 +30,8 @@ class Expression extends PascalSyntax {
                 f.genInstr("", "sete", "%al", "Test =");
             } else if (ro.tk.toString().equals("<")) {
                 f.genInstr("", "setl", "%al", "Test <");
+            } else if (ro.tk.toString().equals("<=")) {
+                f.genInstr("", "setle", "%al", "Test <=");
             }
         }
 	}

@@ -9,6 +9,8 @@ class ProcCallStatm extends Statement {
     ArrayList<Expression> expr;
     String name;
 
+    ProcDecl ref;
+
     ProcCallStatm(int lNum){
         super(lNum);
         expr = new ArrayList<>();
@@ -26,16 +28,14 @@ class ProcCallStatm extends Statement {
         }
 
         if (!name.equals("write")) {
-            f.genInstr("", "call", "proc$" + f.getLabel("name"), "");
+            f.genInstr("", "call", "proc$" + ref.label, "");
             f.genInstr("", "addl", "$8,%esp", "");
         }
 	}
 
 	@Override void check(Block curScope, Library lib) {
-        PascalDecl d = curScope.findDecl(name, this);
-        ProcDecl tmp = (ProcDecl)d;
-
-        tmp.checkWhetherProcedure(this);
+        ref = (ProcDecl) curScope.findDecl(name, this);
+        ref.checkWhetherProcedure(this);
 
         int pos = 0;
 
@@ -44,14 +44,14 @@ class ProcCallStatm extends Statement {
                 e.check(curScope, lib);
                 type = e.type;
 
-                if (tmp.pdl != null) {
-                    if (tmp.pdl.pd.size() < pos + 1)
+                if (ref.pdl != null) {
+                    if (ref.pdl.pd.size() < pos + 1)
                         this.error("Too many parameters in call on " + name);
 
-                    if (tmp.pdl.pd.size() != expr.size())
+                    if (ref.pdl.pd.size() != expr.size())
                         this.error("Too few parameters in call on " + name);
 
-                    type.checkType(tmp.pdl.pd.get(pos).type, "param #" + (pos+1), this, "Illegal type of parameter #" + (pos+1));
+                    type.checkType(ref.pdl.pd.get(pos).type, "param #" + (pos+1), this, "Illegal type of parameter #" + (pos+1));
                     pos++;
                 }
             }

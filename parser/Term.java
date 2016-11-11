@@ -19,19 +19,26 @@ class Term extends PascalSyntax {
 
     @Override void genCode(CodeFile f) {
         for (int i = 0; i < this.f.size(); i++) {
-            if (i != 0 && !fo.isEmpty()) {
+            this.f.get(i).genCode(f);
+            if (i != this.f.size() - 1) {
                 f.genInstr("", "pushl", "%eax", "");
             }
-            this.f.get(i).genCode(f);
         }
 
         // NOTE: FIKS THIS
         if (!fo.isEmpty()) {
-            f.genInstr("", "movl", "%eax,%ecx", "");
-            f.genInstr("", "popl", "%eax", "");
-            f.genInstr("", "cdq", "", "");
-            f.genInstr("", "idivl", "%ecx", "");
-            f.genInstr("", "movl", "%edx,%eax", "   mod");
+            for (FactorOperator o : fo) {
+                f.genInstr("", "movl", "%eax,%ecx", "");
+                f.genInstr("", "popl", "%eax", "");
+                f.genInstr("", "cdq", "", "");
+
+                if (o.k.toString().equals("mod")) {
+                    f.genInstr("", "idivl", "%ecx", "");
+                    f.genInstr("", "movl", "%edx,%eax", "  mod");
+                } else if (o.k.toString().equals("div")) {
+                    f.genInstr("", "idivl", "%ecx", "  /");
+                }
+            }
         }
 	}
 

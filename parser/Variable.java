@@ -20,10 +20,10 @@ class Variable extends Factor {
             varDecl.genCode(f);
         } else if (varDecl instanceof VarDecl) {
             f.genInstr("", "movl", (-4 * varDecl.declLevel) + "(%ebp),%edx", "");
-            f.genInstr("", "movl", -1 * varDecl.declOffset + "(%edx),%eax", "    " + varDecl.name);
+            f.genInstr("", "movl", -1 * varDecl.declOffset + "(%edx),%eax", "  " + varDecl.name);
         } else {
             f.genInstr("", "movl", (-4 * varDecl.declLevel) + "(%ebp),%edx", "");
-            f.genInstr("", "movl", varDecl.declOffset + "(%edx),%eax", "    " + varDecl.name);
+            f.genInstr("", "movl", varDecl.declOffset + "(%edx),%eax", "  " + varDecl.name);
         }
 	}
 

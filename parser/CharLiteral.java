@@ -13,7 +13,7 @@ class CharLiteral extends UnsignedConstant {
     }
 
     @Override void genCode(CodeFile f) {
-        f.genInstr("", "movl", "$" + constVal + ",%eax", String.format("    '%c'", c));
+        f.genInstr("", "movl", "$" + constVal + ",%eax", String.format("  '%c'", c));
     }
 
 	@Override void check(Block curScope, Library lib) {

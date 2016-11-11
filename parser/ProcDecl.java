@@ -9,17 +9,21 @@ class ProcDecl extends PascalDecl {
     ParamDeclList pdl;
     Block b;
 
+    String label;
+
     ProcDecl(String id, int lNum){
         super(id, lNum);
     }
 
     @Override void genCode(CodeFile f) {
         int size = b.vdp == null ? 32 : b.vdp.size;
+        label = f.getLabel(name);
 
-        f.genInstr("proc$" + f.getLabel(name), "enter", String.format("$%d,$%d", size, b.blockId), "");
+        f.genInstr("proc$" + label, "enter", String.format("$%d,$%d", size, b.blockId),
+                                                        "Start of " + name);
         b.genCode(f);
-        f.genInstr("", "", "leave", "");
-        f.genInstr("", "", "ret", "");
+        f.genInstr("", "leave", "", "End of " + name);
+        f.genInstr("", "ret", "", "");
 	}
 
 	@Override void check(Block curScope, Library lib) {

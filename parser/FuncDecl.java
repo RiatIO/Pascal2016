@@ -26,12 +26,11 @@ class FuncDecl extends ProcDecl {
         b.genCode(f);
 
         f.genInstr("", "movl", "-32(%ebp),%eax", " Fetch return value");
-        f.genInstr("", "", "leave", "End of " + name);
-        f.genInstr("", "", "ret", "");
+        f.genInstr("", "leave", "", "End of " + name);
+        f.genInstr("", "ret", "", "");
 	}
 
 	@Override void check(Block curScope, Library lib) {
-
         curScope.addDecl(name, this);
 
         if (pdl != null) {
@@ -44,9 +43,8 @@ class FuncDecl extends ProcDecl {
         type = tn.type;
 
         b.check(curScope, lib);
-        System.out.println("WHAT IS SHUD BE" + b.blockId);
 
-        declLevel = b.blockId;
+        declLevel = b.blockId - 1;
     }
 
     @Override public String identify() {
