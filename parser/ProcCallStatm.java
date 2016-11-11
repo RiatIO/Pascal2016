@@ -26,7 +26,7 @@ class ProcCallStatm extends Statement {
         }
 
         if (!name.equals("write")) {
-            f.genInstr("", "call", "proc$" + name, "");
+            f.genInstr("", "call", "proc$" + f.getLabel("name"), "");
             f.genInstr("", "addl", "$8,%esp", "");
         }
 	}

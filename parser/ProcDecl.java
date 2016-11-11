@@ -14,7 +14,9 @@ class ProcDecl extends PascalDecl {
     }
 
     @Override void genCode(CodeFile f) {
-        f.genInstr("proc$" + f.getLabel(name), "enter", String.format("$%d,$%d", b.vdp.size, b.blockId), "");
+        int size = b.vdp == null ? 32 : b.vdp.size;
+
+        f.genInstr("proc$" + f.getLabel(name), "enter", String.format("$%d,$%d", size, b.blockId), "");
         b.genCode(f);
         f.genInstr("", "", "leave", "");
         f.genInstr("", "", "ret", "");
@@ -25,6 +27,7 @@ class ProcDecl extends PascalDecl {
 
         if (pdl != null) {
             b.outerScope = curScope;
+            b.blockId = (b.levelCount + 1); // Ugly but must be done.
             pdl.check(b, lib);
         }
 

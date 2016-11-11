@@ -10,20 +10,23 @@ class FuncDecl extends ProcDecl {
     Block b;
     TypeName tn;
 
+    String label;
+
     FuncDecl(String id, int lNum) {
         super(id, lNum);
     }
 
     @Override void genCode(CodeFile f) {
         int size = b.vdp == null ? 32 : b.vdp.size;
+        label = f.getLabel(name);
 
-        f.genInstr("func$" + f.getLabel(name), "enter", String.format("$%d,$%d", size,
+        f.genInstr("func$" + label, "enter", String.format("$%d,$%d", size,
                                                         b.blockId), "Start of " + name);
 
         b.genCode(f);
 
-        f.genInstr("", "movl", "-32(%ebp),%eax", "");
-        f.genInstr("", "", "leave", "");
+        f.genInstr("", "movl", "-32(%ebp),%eax", " Fetch return value");
+        f.genInstr("", "", "leave", "End of " + name);
         f.genInstr("", "", "ret", "");
 	}
 

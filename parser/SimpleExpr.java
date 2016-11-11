@@ -22,7 +22,6 @@ class SimpleExpr extends PascalSyntax {
         for (int i = 0; i < t.size(); i++) {
             t.get(i).genCode(f);
             if (i != t.size() - 1) {
-                // to.get(i-1).prettyPrint();
                 f.genInstr("", "pushl", "%eax", "");
             }
         }

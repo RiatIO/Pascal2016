@@ -25,7 +25,7 @@ class FuncCall extends Factor {
             f.genInstr("", "pushl", "%eax", "Push param #" + (i+1));
         }
 
-        f.genInstr("", "call", "func$" + f.getLabel(name), "");
+        f.genInstr("", "call", "func$" + ref.label, "");
         f.genInstr("", "addl", "$8,%esp", "Pop parameters");
 	}
 

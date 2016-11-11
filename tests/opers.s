@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-09 18:12:33
+# Code file created by Pascal2016 compiler 2016-11-11 10:04:56
         .globl main                         
 main:
         call    prog$operatortest_1     # Start program
@@ -6,42 +6,127 @@ main:
         ret                             # terminate the program
 proc$testunaryboolean_2:
         enter   $32,$2                  
-proc$test_3:
-        enter   $32,$3                  
+        movl    $0,%eax                 #     0
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $1,%eax                 #     1
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
                 leave                   
                 ret                     
-                leave                   
-                ret                     
-proc$testbinaryboolean_4:
+proc$testbinaryboolean_3:
         enter   $32,$4                  
-proc$test_5:
-        enter   $32,$5                  
+        movl    $0,%eax                 #     0
+        pushl   %eax                    # Push next param.
+        movl    $0,%eax                 #     0
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $0,%eax                 #     0
+        pushl   %eax                    # Push next param.
+        movl    $1,%eax                 #     1
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $1,%eax                 #     1
+        pushl   %eax                    # Push next param.
+        movl    $0,%eax                 #     0
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $1,%eax                 #     1
+        pushl   %eax                    # Push next param.
+        movl    $1,%eax                 #     1
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
                 leave                   
                 ret                     
-                leave                   
-                ret                     
-proc$testunarynumeric_6:
+proc$testunarynumeric_4:
         enter   $32,$6                  
-proc$test_7:
-        enter   $32,$7                  
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $11,%eax                # 11
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $0,%eax                 # 0
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
                 leave                   
                 ret                     
-                leave                   
-                ret                     
-proc$testbinarynumeric_8:
+proc$testbinarynumeric_5:
         enter   $32,$8                  
-proc$test_9:
-        enter   $32,$9                  
-                                        # Start if-statement
-        cmpl    $0,%eax                 
-        je      .L0010                  
-.L0010:
-                                        # End if-statement
-                leave                   
-                ret                     
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        movl    $11,%eax                # 11
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        movl    $0,%eax                 # 0
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $11,%eax                # 11
+        pushl   %eax                    # Push next param.
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $11,%eax                # 11
+        pushl   %eax                    # Push next param.
+        movl    $11,%eax                # 11
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        movl    $0,%eax                 # 0
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $0,%eax                 # 0
+        pushl   %eax                    # Push next param.
+        movl    $17,%eax                # 17
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $0,%eax                 # 0
+        pushl   %eax                    # Push next param.
+        movl    $11,%eax                # 11
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
+        movl    $0,%eax                 # 0
+        pushl   %eax                    # Push next param.
+        movl    $0,%eax                 # 0
+        pushl   %eax                    # Push next param.
+        call    proc$test               
+        addl    $8,%esp                 
                 leave                   
                 ret                     
 prog$operatortest_1:
-        enter   $32,$1                  # start of operatortest
-        leave                           
+        enter   $32,$1                  # Start of operatortest
+        call    proc$testunaryboolean   
+        addl    $8,%esp                 
+        call    proc$testunarynumeric   
+        addl    $8,%esp                 
+        call    proc$testbinaryboolean  
+        addl    $8,%esp                 
+        call    proc$testbinarynumeric  
+        addl    $8,%esp                 
+        leave                           # End of operatortest
         ret                             
