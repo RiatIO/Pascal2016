@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 13:00:07
+# Code file created by Pascal2016 compiler 2016-11-11 13:45:21
         .globl main                         
 main:
         call    prog$primes_1           # Start program
@@ -183,6 +183,7 @@ proc$printprimes_11:
         sete    %al                     # Test =
         movl    %eax,%ecx               
         popl    %eax                    
+        andl    %ecx,%eax               #   and
         cmpl    $0,%eax                 
         je      .L0015                  
         movl    $10,%eax                #   10

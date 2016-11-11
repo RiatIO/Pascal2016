@@ -38,6 +38,8 @@ class Term extends PascalSyntax {
                     case "*":
                         f.genInstr("", "imull", "%ecx,%eax", "  *");
                         break;
+                    case "and":
+                        f.genInstr("", "andl", "%ecx,%eax", "  and");
                 }
             }
 

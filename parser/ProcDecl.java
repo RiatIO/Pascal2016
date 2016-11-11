@@ -19,9 +19,17 @@ class ProcDecl extends PascalDecl {
         int size = b.vdp == null ? 32 : b.vdp.size;
         label = f.getLabel(name);
 
+        if (!b.pd.isEmpty()) {
+            for (ProcDecl a : b.pd) {
+                a.genCode(f);
+            }
+        }
+
         f.genInstr("proc$" + label, "enter", String.format("$%d,$%d", size, b.blockId),
                                                         "Start of " + name);
+
         b.genCode(f);
+
         f.genInstr("", "leave", "", "End of " + name);
         f.genInstr("", "ret", "", "");
 	}

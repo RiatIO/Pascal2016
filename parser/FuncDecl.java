@@ -20,8 +20,20 @@ class FuncDecl extends ProcDecl {
         int size = b.vdp == null ? 32 : b.vdp.size;
         label = f.getLabel(name);
 
+        if (!b.pd.isEmpty()) {
+            for (ProcDecl a : b.pd) {
+                a.genCode(f);
+            }
+        }
+
         f.genInstr("func$" + label, "enter", String.format("$%d,$%d", size,
                                                         b.blockId), "Start of " + name);
+
+        if (!b.pd.isEmpty()) {
+            for (ProcDecl a : b.pd) {
+                a.genCode(f);
+            }
+        }
 
         b.genCode(f);
 

@@ -25,13 +25,19 @@ class Expression extends PascalSyntax {
             f.genInstr("", "popl", "%ecx", "");
             f.genInstr("", "cmpl", "%eax,%ecx", "");
             f.genInstr("", "movl", "$0,%eax", "");
-
-            if (ro.tk.toString().equals("=")) {
-                f.genInstr("", "sete", "%al", "Test =");
-            } else if (ro.tk.toString().equals("<")) {
-                f.genInstr("", "setl", "%al", "Test <");
-            } else if (ro.tk.toString().equals("<=")) {
-                f.genInstr("", "setle", "%al", "Test <=");
+            switch (ro.tk.toString()) {
+                case "=":
+                    f.genInstr("", "sete", "%al", "Test =");
+                    break;
+                case "<":
+                    f.genInstr("", "setl", "%al", "Test <");
+                    break;
+                case "<=":
+                    f.genInstr("", "setle", "%al", "Test <=");
+                    break;
+                case "<>":
+                    f.genInstr("", "setne", "%al", "Test <>");
+                    break;
             }
         }
 	}
