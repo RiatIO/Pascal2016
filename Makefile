@@ -10,7 +10,7 @@ jar  = pascal2016.jar
 
 part = codegen
 # Note: you can change the file path by doing: make file=tests/{file}.pas in terminal
-file  = tests/easter.pas
+file  = tests/primes.pas
 files = tests/10star.pas tests/easter.pas tests/gcd.pas tests/mini.pas tests/opers.pas tests/primes.pas
 
 all: clean compile runOne

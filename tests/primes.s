@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 18:52:21
+# Code file created by Pascal2016 compiler 2016-11-11 19:49:11
         .globl main                         
 main:
         call    prog$primes_1           # Start program
@@ -43,8 +43,14 @@ proc$findprimes_2:
         cmpl    $0,%eax                 
         je      .L0006                  
         movl    $0,%eax                 #   0
+        pushl   %eax                    
+        movl    -8(%ebp),%edx           
+        movl    -40(%edx),%eax          #   i2
+        subl    $2,%eax                 
         movl    -4(%ebp),%edx           
-        movl    %eax,-4028(%edx)        # prime :=
+        leal    -4028(%edx),%edx        
+        popl    %ecx                    
+        movl    %ecx,0(%edx,%eax,4)     # prime[x] :=
         movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   i2
         pushl   %eax                    
@@ -153,8 +159,12 @@ proc$printprimes_11:
         cmpl    $0,%eax                 
         je      .L0013                  
                                         # Start if-statement
+        movl    -8(%ebp),%edx           
+        movl    -36(%edx),%eax          #   i
+        subl    $2,%eax                 
         movl    -4(%ebp),%edx           
-        movl    -4028(%edx),%eax        #   prime
+        leal    -4028(%edx),%edx        
+        movl    0(%edx,%eax,4),%eax     #   prime[...]
         cmpl    $0,%eax                 
         je      .L0014                  
                                         # Start if-statement
@@ -245,8 +255,14 @@ prog$primes_1:
         cmpl    $0,%eax                 
         je      .L0017                  
         movl    $1,%eax                 #   1
+        pushl   %eax                    
         movl    -4(%ebp),%edx           
-        movl    %eax,-4028(%edx)        # prime :=
+        movl    -4032(%edx),%eax        #   i
+        subl    $2,%eax                 
+        movl    -4(%ebp),%edx           
+        leal    -4028(%edx),%edx        
+        popl    %ecx                    
+        movl    %ecx,0(%edx,%eax,4)     # prime[x] :=
         movl    -4(%ebp),%edx           
         movl    -4032(%edx),%eax        #   i
         pushl   %eax                    

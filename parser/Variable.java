@@ -17,7 +17,19 @@ class Variable extends Factor {
 
     @Override void genCode(CodeFile f) {
 
-        if (varDecl instanceof ConstDecl) {
+        if (expr != null) {
+            types.ArrayType temp = ((types.ArrayType) varDecl.type);
+
+            expr.genCode(f);
+
+            if (temp.loLim != 0)
+                f.genInstr("", "subl", "$" + temp.loLim + ",%eax", "");
+
+            f.genInstr("", "movl", -4 * varDecl.declLevel + "(%ebp),%edx", "");
+            f.genInstr("", "leal", -1 * varDecl.declOffset + "(%edx),%edx", "");
+            f.genInstr("", "movl", "0(%edx,%eax,4),%eax", "  " + varDecl.name + "[...]"); // DAG HAR DU FEIL??? (0)
+
+        } else if (varDecl instanceof ConstDecl) {
             varDecl.genCode(f);
         } else if (varDecl instanceof VarDecl) {
             f.genInstr("", "movl", (-4 * varDecl.declLevel) + "(%ebp),%edx", "");

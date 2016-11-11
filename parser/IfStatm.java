@@ -16,6 +16,9 @@ class IfStatm extends Statement {
     @Override void genCode(CodeFile f) {
         f.genInstr("", "", "", "Start if-statement");
         expr.genCode(f);
+
+        
+
         if (postS != null) {
             String lab1 = f.getLocalLabel(), lab2 = f.getLocalLabel();
             f.genInstr("", "cmpl", "$0,%eax", "");

@@ -22,7 +22,7 @@ class SimpleExpr extends PascalSyntax {
         for (int i = 0; i < t.size(); i++) {
 
             t.get(i).genCode(f);
-            
+
             if (po != null) {
                 if (po.tk.toString().equals("-")) {
                     f.genInstr("", "negl", "%eax", "  - (prefix)");
@@ -44,8 +44,6 @@ class SimpleExpr extends PascalSyntax {
                         break;
                 }
             }
-
-
 
             if (i != t.size() - 1) {
                 f.genInstr("", "pushl", "%eax", "");
