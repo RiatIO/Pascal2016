@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 18:07:38
+# Code file created by Pascal2016 compiler 2016-11-11 18:46:43
         .globl main                         
 main:
         call    prog$operatortest_1     # Start program
@@ -180,27 +180,27 @@ proc$test_5:
 proc$testbinaryboolean_4:
         enter   $32,$2                  # Start of testbinaryboolean
         movl    $0,%eax                 #   0
-        pushl   %eax                    # Push param #1.
-        movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #2.
-        call    proc$test_5             
-        addl    $8,%esp                 # Pop params.
         movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #1.
-        movl    $1,%eax                 #   1
-        pushl   %eax                    # Push param #2.
         call    proc$test_5             
         addl    $8,%esp                 # Pop params.
         movl    $1,%eax                 #   1
+        pushl   %eax                    # Push param #2.
+        movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #1.
+        call    proc$test_5             
+        addl    $8,%esp                 # Pop params.
         movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #2.
+        movl    $1,%eax                 #   1
+        pushl   %eax                    # Push param #1.
         call    proc$test_5             
         addl    $8,%esp                 # Pop params.
         movl    $1,%eax                 #   1
-        pushl   %eax                    # Push param #1.
-        movl    $1,%eax                 #   1
         pushl   %eax                    # Push param #2.
+        movl    $1,%eax                 #   1
+        pushl   %eax                    # Push param #1.
         call    proc$test_5             
         addl    $8,%esp                 # Pop params.
         leave                           # End of testbinaryboolean
@@ -232,9 +232,9 @@ proc$test_7:
         pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
-        negl    %eax                    #   - (prefix)
         movl    -12(%ebp),%edx          
         movl    8(%edx),%eax            #   x
+        negl    %eax                    #   - (prefix)
         pushl   %eax                    # Push next param.
         call    write_int               
         addl    $4,%esp                 # Pop param.
@@ -284,8 +284,8 @@ proc$testunarynumeric_6:
         pushl   %eax                    # Push param #1.
         call    proc$test_7             
         addl    $4,%esp                 # Pop params.
-        negl    %eax                    #   - (prefix)
         movl    $11,%eax                #   11
+        negl    %eax                    #   - (prefix)
         pushl   %eax                    # Push param #1.
         call    proc$test_7             
         addl    $4,%esp                 # Pop params.
@@ -579,62 +579,62 @@ proc$test_9:
 proc$testbinarynumeric_8:
         enter   $32,$2                  # Start of testbinarynumeric
         movl    $17,%eax                #   17
-        pushl   %eax                    # Push param #1.
-        movl    $17,%eax                #   17
         pushl   %eax                    # Push param #2.
+        movl    $17,%eax                #   17
+        pushl   %eax                    # Push param #1.
         call    proc$test_9             
         addl    $8,%esp                 # Pop params.
-        movl    $17,%eax                #   17
-        pushl   %eax                    # Push param #1.
-        negl    %eax                    #   - (prefix)
         movl    $11,%eax                #   11
+        negl    %eax                    #   - (prefix)
         pushl   %eax                    # Push param #2.
+        movl    $17,%eax                #   17
+        pushl   %eax                    # Push param #1.
+        call    proc$test_9             
+        addl    $8,%esp                 # Pop params.
+        movl    $0,%eax                 #   0
+        pushl   %eax                    # Push param #2.
+        movl    $17,%eax                #   17
+        pushl   %eax                    # Push param #1.
         call    proc$test_9             
         addl    $8,%esp                 # Pop params.
         movl    $17,%eax                #   17
+        pushl   %eax                    # Push param #2.
+        movl    $11,%eax                #   11
+        negl    %eax                    #   - (prefix)
         pushl   %eax                    # Push param #1.
+        call    proc$test_9             
+        addl    $8,%esp                 # Pop params.
+        movl    $11,%eax                #   11
+        negl    %eax                    #   - (prefix)
+        pushl   %eax                    # Push param #2.
+        movl    $11,%eax                #   11
+        negl    %eax                    #   - (prefix)
+        pushl   %eax                    # Push param #1.
+        call    proc$test_9             
+        addl    $8,%esp                 # Pop params.
         movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #2.
-        call    proc$test_9             
-        addl    $8,%esp                 # Pop params.
-        negl    %eax                    #   - (prefix)
-        movl    $11,%eax                #   11
-        pushl   %eax                    # Push param #1.
-        movl    $17,%eax                #   17
-        pushl   %eax                    # Push param #2.
-        call    proc$test_9             
-        addl    $8,%esp                 # Pop params.
-        negl    %eax                    #   - (prefix)
-        movl    $11,%eax                #   11
-        pushl   %eax                    # Push param #1.
-        negl    %eax                    #   - (prefix)
-        movl    $11,%eax                #   11
-        pushl   %eax                    # Push param #2.
-        call    proc$test_9             
-        addl    $8,%esp                 # Pop params.
         movl    $17,%eax                #   17
         pushl   %eax                    # Push param #1.
-        movl    $0,%eax                 #   0
-        pushl   %eax                    # Push param #2.
         call    proc$test_9             
         addl    $8,%esp                 # Pop params.
-        movl    $0,%eax                 #   0
-        pushl   %eax                    # Push param #1.
         movl    $17,%eax                #   17
         pushl   %eax                    # Push param #2.
-        call    proc$test_9             
-        addl    $8,%esp                 # Pop params.
         movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #1.
-        negl    %eax                    #   - (prefix)
+        call    proc$test_9             
+        addl    $8,%esp                 # Pop params.
         movl    $11,%eax                #   11
+        negl    %eax                    #   - (prefix)
         pushl   %eax                    # Push param #2.
+        movl    $0,%eax                 #   0
+        pushl   %eax                    # Push param #1.
         call    proc$test_9             
         addl    $8,%esp                 # Pop params.
         movl    $0,%eax                 #   0
-        pushl   %eax                    # Push param #1.
-        movl    $0,%eax                 #   0
         pushl   %eax                    # Push param #2.
+        movl    $0,%eax                 #   0
+        pushl   %eax                    # Push param #1.
         call    proc$test_9             
         addl    $8,%esp                 # Pop params.
         leave                           # End of testbinarynumeric
@@ -642,12 +642,8 @@ proc$testbinarynumeric_8:
 prog$operatortest_1:
         enter   $32,$1                  # Start of operatortest
         call    proc$testunaryboolean_2 
-        addl    $0,%esp                 # Pop params.
         call    proc$testunarynumeric_6 
-        addl    $0,%esp                 # Pop params.
         call    proc$testbinaryboolean_4 
-        addl    $0,%esp                 # Pop params.
         call    proc$testbinarynumeric_8 
-        addl    $0,%esp                 # Pop params.
         leave                           # End of operatortest
         ret                             

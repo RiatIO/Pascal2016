@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 18:07:38
+# Code file created by Pascal2016 compiler 2016-11-11 18:26:38
         .globl main                         
 main:
         call    prog$mini_1             # Start program
@@ -7,8 +7,6 @@ main:
 prog$mini_1:
         enter   $32,$1                  # Start of mini
         movl    $120,%eax               #   'x'
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #1.
         leave                           # End of mini
         ret                             

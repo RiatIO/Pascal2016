@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 18:07:38
+# Code file created by Pascal2016 compiler 2016-11-11 18:26:37
         .globl main                         
 main:
         call    prog$gcd_1              # Start program
@@ -56,50 +56,28 @@ prog$gcd_1:
         addl    $8,%esp                 # Pop parameters
         movl    -4(%ebp),%edx           
         movl    %eax,-36(%edx)          # res :=
-        movl    $71,%eax                #   'G'
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        movl    $67,%eax                #   'C'
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        movl    $68,%eax                #   'D'
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        movl    $40,%eax                #   '('
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        movl    $1071,%eax              #   1071
-        pushl   %eax                    # Push next param.
-        call    write_int               
-        addl    $4,%esp                 # Pop param.
-        movl    $44,%eax                #   ','
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        movl    $462,%eax               #   462
-        pushl   %eax                    # Push next param.
-        call    write_int               
-        addl    $4,%esp                 # Pop param.
-        movl    $41,%eax                #   ')'
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        movl    $61,%eax                #   '='
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        movl    $10,%eax                #   10
+        pushl   %eax                    # Push param #11.
         movl    -4(%ebp),%edx           
         movl    -36(%edx),%eax          #   res
-        pushl   %eax                    # Push next param.
-        call    write_int               
-        addl    $4,%esp                 # Pop param.
-        movl    $10,%eax                #   10
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #10.
+        movl    $61,%eax                #   '='
+        pushl   %eax                    # Push param #9.
+        movl    $41,%eax                #   ')'
+        pushl   %eax                    # Push param #8.
+        movl    $462,%eax               #   462
+        pushl   %eax                    # Push param #7.
+        movl    $44,%eax                #   ','
+        pushl   %eax                    # Push param #6.
+        movl    $1071,%eax              #   1071
+        pushl   %eax                    # Push param #5.
+        movl    $40,%eax                #   '('
+        pushl   %eax                    # Push param #4.
+        movl    $68,%eax                #   'D'
+        pushl   %eax                    # Push param #3.
+        movl    $67,%eax                #   'C'
+        pushl   %eax                    # Push param #2.
+        movl    $71,%eax                #   'G'
+        pushl   %eax                    # Push param #1.
         leave                           # End of gcd
         ret                             

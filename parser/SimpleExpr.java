@@ -20,14 +20,14 @@ class SimpleExpr extends PascalSyntax {
 
     @Override void genCode(CodeFile f) {
         for (int i = 0; i < t.size(); i++) {
+
+            t.get(i).genCode(f);
+            
             if (po != null) {
                 if (po.tk.toString().equals("-")) {
                     f.genInstr("", "negl", "%eax", "  - (prefix)");
                 }
             }
-
-            t.get(i).genCode(f);
-
             if (i != 0) {
                 f.genInstr("", "movl", "%eax,%ecx", "");
                 f.genInstr("", "popl", "%eax", "");
@@ -44,6 +44,8 @@ class SimpleExpr extends PascalSyntax {
                         break;
                 }
             }
+
+
 
             if (i != t.size() - 1) {
                 f.genInstr("", "pushl", "%eax", "");

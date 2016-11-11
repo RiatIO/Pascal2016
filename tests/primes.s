@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 18:07:39
+# Code file created by Pascal2016 compiler 2016-11-11 18:26:38
         .globl main                         
 main:
         call    prog$primes_1           # Start program
@@ -86,9 +86,7 @@ proc$p4_7:
         cmpl    $0,%eax                 
         je      .L0008                  
         movl    $32,%eax                #   ' '
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #1.
 .L0008:
                                         # End if-statement
                                         # Start if-statement
@@ -103,9 +101,7 @@ proc$p4_7:
         cmpl    $0,%eax                 
         je      .L0009                  
         movl    $32,%eax                #   ' '
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #1.
 .L0009:
                                         # End if-statement
                                         # Start if-statement
@@ -120,16 +116,12 @@ proc$p4_7:
         cmpl    $0,%eax                 
         je      .L0010                  
         movl    $32,%eax                #   ' '
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #1.
 .L0010:
                                         # End if-statement
         movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
-        pushl   %eax                    # Push next param.
-        call    write_int               
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #1.
         leave                           # End of p4
         ret                             
 proc$printprimes_11:
@@ -188,16 +180,14 @@ proc$printprimes_11:
         cmpl    $0,%eax                 
         je      .L0015                  
         movl    $10,%eax                #   10
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #1.
 .L0015:
                                         # End if-statement
-        movl    -8(%ebp),%edx           
-        movl    -36(%edx),%eax          #   i
-        pushl   %eax                    # Push param #1.
+        pushl   %eax                    # Push next param.
+        call    write_int               
+        addl    $4,%esp                 # Pop param.
         call    proc$p4_7               
-        addl    $4,%esp                 # Pop params.
+        addl    $0,%esp                 # Pop params.
         movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
@@ -222,9 +212,7 @@ proc$printprimes_11:
 .L0013:
                                         # End while-statement
         movl    $10,%eax                #   10
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push param #1.
         leave                           # End of printprimes
         ret                             
 prog$primes_1:
@@ -260,8 +248,8 @@ prog$primes_1:
 .L0017:
                                         # End while-statement
         call    proc$findprimes_2       
-        addl    $0,%esp                 # Pop params.
+        addl    $-4,%esp                # Pop params.
         call    proc$printprimes_11     
-        addl    $0,%esp                 # Pop params.
+        addl    $-4,%esp                # Pop params.
         leave                           # End of primes
         ret                             
