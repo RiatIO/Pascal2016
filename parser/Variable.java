@@ -17,8 +17,6 @@ class Variable extends Factor {
 
     @Override void genCode(CodeFile f) {
 
-        System.out.println(varDecl + " " + varDecl.declLevel);
-
         if (varDecl instanceof ConstDecl) {
             varDecl.genCode(f);
         } else if (varDecl instanceof VarDecl) {

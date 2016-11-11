@@ -27,8 +27,6 @@ class ProcDecl extends PascalDecl {
             }
         }
 
-        System.out.println(name + " " + declLevel);
-
         f.genInstr("proc$" + label, "enter", String.format("$%d,$%d", size, declLevel),
                                                         "Start of " + name);
 
@@ -50,7 +48,6 @@ class ProcDecl extends PascalDecl {
         }
 
         b.check(curScope, lib);
-        // System.out.println(name + " " + b.blockId);
 
         declLevel = b.blockId;
     }

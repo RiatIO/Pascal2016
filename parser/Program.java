@@ -28,8 +28,6 @@ public class Program extends PascalDecl {
             }
         }
 
-        System.out.println("LEVEL " + declLevel);
-
         f.genInstr(startLabel, "enter", String.format("$%d,$%d", size,
                                                 progBlock.blockId), "Start of " + name);
         progBlock.genCode(f);

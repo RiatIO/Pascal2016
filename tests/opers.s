@@ -1,4 +1,4 @@
-# Code file created by Pascal2016 compiler 2016-11-11 18:46:43
+# Code file created by Pascal2016 compiler 2016-11-11 18:52:21
         .globl main                         
 main:
         call    prog$operatortest_1     # Start program

@@ -46,12 +46,6 @@ class Block extends PascalSyntax {
         this.blockId = curScope.blockId + 1;
         this.lib = lib;
 
-        System.out.println(blockId);
-        // this.blockId = ++levelCount;
-        // this.blockId = curScope.blockId;
-
-        // Main.debug(lineNum, "Block", "Level: " + this.outerScope.blockId);
-
         if (cdp != null) {
             cdp.check(this, lib);
         }

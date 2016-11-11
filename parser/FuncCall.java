@@ -18,7 +18,6 @@ class FuncCall extends Factor {
     }
 
     @Override void genCode(CodeFile f) {
-        Main.debug(lineNum, "FuncCall", "Inside");
 
         for (int i = expr.size() - 1; i >= 0; i--) {
             expr.get(i).genCode(f);
@@ -26,7 +25,7 @@ class FuncCall extends Factor {
         }
 
         f.genInstr("", "call", "func$" + ref.label, "");
-        
+
         if (!expr.isEmpty())
             f.genInstr("", "addl", "$8,%esp", "Pop parameters");
 	}

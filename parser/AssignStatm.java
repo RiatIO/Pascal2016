@@ -14,7 +14,6 @@ class AssignStatm extends Statement {
 
 	@Override void genCode(CodeFile f) {
         e.genCode(f);
-        Main.debug(lineNum, "AssignStatm", "" + v.varDecl);
 
         if (v.varDecl instanceof VarDecl) {
             // Variable assignment.
