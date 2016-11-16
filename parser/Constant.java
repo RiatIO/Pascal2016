@@ -19,7 +19,6 @@ class Constant extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-
 	}
 
 	@Override void check(Block curScope, Library lib) {

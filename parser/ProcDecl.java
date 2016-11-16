@@ -28,7 +28,7 @@ class ProcDecl extends PascalDecl {
         }
 
         f.genInstr("proc$" + label, "enter", String.format("$%d,$%d", size, declLevel),
-                                                        "Start of " + name);
+                                                                    "Start of " + name);
 
         b.genCode(f);
 

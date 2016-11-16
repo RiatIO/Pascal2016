@@ -27,7 +27,6 @@ public class ArrayType extends Type {
         }
     }
 
-
     @Override public int size() {
         return (hiLim-loLim+1)*elemType.size();
     }

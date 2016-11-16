@@ -16,7 +16,6 @@ class Variable extends Factor {
     }
 
     @Override void genCode(CodeFile f) {
-
         if (expr != null) {
             types.ArrayType temp = ((types.ArrayType) varDecl.type);
 
@@ -35,6 +34,7 @@ class Variable extends Factor {
             f.genInstr("", "movl", (-4 * varDecl.declLevel) + "(%ebp),%edx", "");
             f.genInstr("", "movl", -1 * varDecl.declOffset + "(%edx),%eax", "  " + varDecl.name);
         } else {
+            // Param Decl
             f.genInstr("", "movl", (-4 * varDecl.declLevel) + "(%ebp),%edx", "");
             f.genInstr("", "movl", varDecl.declOffset + "(%edx),%eax", "  " + varDecl.name);
         }

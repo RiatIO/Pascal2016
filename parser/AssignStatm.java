@@ -27,7 +27,7 @@ class AssignStatm extends Statement {
             f.genInstr("", "movl", -4 * v.varDecl.declLevel + "(%ebp),%edx", "");
             f.genInstr("", "leal", -1 * v.varDecl.declOffset + "(%edx),%edx", "");
             f.genInstr("", "popl", "%ecx", "");
-            f.genInstr("", "movl", "%ecx,0(%edx,%eax,4)", "" + v.varDecl.name + "[x] :="); // DAG HAR DU FEIL??? (0)
+            f.genInstr("", "movl", "%ecx,0(%edx,%eax,4)", "" + v.varDecl.name + "[x] :="); 
 
         } else if (v.varDecl instanceof VarDecl) {
             // Variable assignment.

@@ -28,6 +28,7 @@ class SimpleExpr extends PascalSyntax {
                     f.genInstr("", "negl", "%eax", "  - (prefix)");
                 }
             }
+
             if (i != 0) {
                 f.genInstr("", "movl", "%eax,%ecx", "");
                 f.genInstr("", "popl", "%eax", "");
@@ -49,7 +50,6 @@ class SimpleExpr extends PascalSyntax {
                 f.genInstr("", "pushl", "%eax", "");
             }
         }
-        // FIKS:
 	}
 
 	@Override void check(Block curScope, Library lib) {

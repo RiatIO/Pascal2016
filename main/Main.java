@@ -17,7 +17,6 @@ public class Main {
     testParser = false, testScanner = false;
     private static String OS;
 
-
     public static void main(String arg[]) {
         OS = System.getProperty("os.name");
         System.out.println("\nThis is the Ifi Pascal2016 compiler (" +

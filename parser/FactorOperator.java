@@ -14,7 +14,6 @@ class FactorOperator extends Operator {
     }
 
     @Override void genCode(CodeFile f) {
-
 	}
 
 	@Override void check(Block curScope, Library lib) {

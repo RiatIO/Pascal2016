@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class Block extends PascalSyntax {
-    // static int levelCount;
     int blockId;
 
     Program context;
