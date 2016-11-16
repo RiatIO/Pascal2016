@@ -12,11 +12,6 @@ class ParamDecl extends PascalDecl {
     }
 
     @Override void genCode(CodeFile f) {
-        // f.genInstr("", "movl", "-4(%ebp),%edx", "");
-        // f.genInstr("", "movl", "-" + declOffset + "(%edx),%eax", " " + name);
-        // f.genInstr("", "pushl", "%eax", "");
-        // f.genInstr("", "movl", (-4 * declLevel) + "(%ebp),%edx", "");
-        // f.genInstr("", "movl", declOffset + "(%edx),%eax", "    " + name);
 
 	}
 

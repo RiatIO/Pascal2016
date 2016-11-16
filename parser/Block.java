@@ -28,14 +28,6 @@ class Block extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-        if (cdp != null) {
-            cdp.genCode(f);
-        }
-
-        if (vdp != null) {
-            vdp.genCode(f);
-        }
-
         if (sm != null) {
             sm.genCode(f);
         }

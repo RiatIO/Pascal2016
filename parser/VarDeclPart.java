@@ -16,9 +16,6 @@ class VarDeclPart extends PascalSyntax {
     }
 
     @Override void genCode(CodeFile f) {
-        for (VarDecl v : vd) {
-            v.genCode(f);
-        }
 	}
 
 	@Override void check(Block curScope, Library lib) {

@@ -12,12 +12,9 @@ class IfStatm extends Statement {
         super(lNum);
     }
 
-    //NOTE: Dry code this.
     @Override void genCode(CodeFile f) {
         f.genInstr("", "", "", "Start if-statement");
         expr.genCode(f);
-
-        
 
         if (postS != null) {
             String lab1 = f.getLocalLabel(), lab2 = f.getLocalLabel();

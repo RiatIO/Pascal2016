@@ -14,9 +14,6 @@ class NumberLiteral extends UnsignedConstant {
 
     @Override void genCode(CodeFile f) {
         f.genInstr("", "movl", "$" + constVal + ",%eax", "  " + constVal);
-        // f.genInstr("", "pushl", "%eax", "Push param.");
-        // f.genInstr("", "call", "write_int", "");
-        // f.genInstr("", "addl", "$4,%esp", "Pop param.");
     }
 
 	@Override void check(Block curScope, Library lib) {

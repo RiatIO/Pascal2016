@@ -16,6 +16,7 @@ class AssignStatm extends Statement {
         e.genCode(f);
 
         if (v.expr != null) {
+            // Array assignment
             f.genInstr("", "pushl", "%eax", "");
             v.expr.genCode(f);
             types.ArrayType temp = ((types.ArrayType) v.varDecl.type);
@@ -33,7 +34,7 @@ class AssignStatm extends Statement {
             f.genInstr("", "movl", -4 * v.varDecl.declLevel + "(%ebp),%edx", "");
             f.genInstr("", "movl", "%eax,-"+ v.varDecl.declOffset +"(%edx)", "" + v.varDecl.name + " :=");
 
-        } else if (v.varDecl instanceof FuncDecl){
+        } else if (v.varDecl instanceof FuncDecl) {
             // Func Decl
             f.genInstr("", "movl",  -4 * (v.varDecl.declLevel) + "(%ebp),%edx", "");
             f.genInstr("", "movl", "%eax,-32(%edx)", "" + v.varDecl.name + " :=");

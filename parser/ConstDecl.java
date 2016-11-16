@@ -15,9 +15,6 @@ class ConstDecl extends PascalDecl {
 
     @Override void genCode(CodeFile f) {
         f.genInstr("", "movl", "$" + cst.constVal + ",%eax", String.format("  %d", cst.constVal));
-        // f.genInstr("", "pushl", "%eax", "Push next param.");
-        // f.genInstr("", "call", "write_int", "");
-        // f.genInstr("", "addl", "$4,%esp", "Pop param.");
 	}
 
 	@Override void check(Block curScope, Library lib) {

@@ -129,15 +129,16 @@ public class Main {
         if (log.doLogPrettyPrint)
             prog.prettyPrint();
 
-        System.out.print(" checking...\n");
+        System.out.print("Checking...");
         library = new Library(0);
         prog.check(library, library);
 
-        System.out.print(" generating code...\n\n");
+        System.out.print(" generating code...");
         CodeFile code = new CodeFile(baseFileName+".s");
         library.genCode(code);  prog.genCode(code);
         code.finish();
-        System.out.println("\nOK");
+        System.out.println(" OK");
+        System.out.println("----------------------------------------");
 
         assembleCode();
     }
